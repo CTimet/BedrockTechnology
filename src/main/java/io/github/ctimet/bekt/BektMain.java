@@ -1,18 +1,21 @@
-package me.ctimet.bekt;
+package io.github.ctimet.bekt;
 
+import io.github.ctimet.bekt.BektItems.BektItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import me.ctimet.bekt.BektItems.BektItemGroup;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
 
 public class BektMain extends JavaPlugin implements SlimefunAddon
 {
     public static BektMain main;
-    public final NamespacedKey keyId = new NamespacedKey(this,"BEKT");
+    public static File file;
 
     @Override
     public void onEnable(){
         main = this;
+        saveDefaultConfig();
         BektItemGroup.registerSubCate();
     }
 
@@ -29,5 +32,9 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
     @Override
     public String getBugTrackerURL() {
         return null;
+    }
+
+    public static NamespacedKey createKey(String key){
+        return new NamespacedKey(main,key);
     }
 }

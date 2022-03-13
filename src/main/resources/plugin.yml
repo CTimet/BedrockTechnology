@@ -4,7 +4,7 @@ author: CTimet
 
 description: A generic Slimefun4-Addon
 
-main: me.CTimet.bekt.BektMain
+main: io.github.ctimet.bekt.BektMain
 
 website: https://github.com/CTimet/BEKT
 
