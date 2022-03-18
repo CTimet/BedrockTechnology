@@ -2,7 +2,7 @@
 这是一个由CTimet与CLIEDS合作开发的Slimefun附属插件，我们称其为基岩科技BedrockTechnology-BEKT
 
 # 帮我们一起维护此附属
-  目前该附属由CTimet与CLIEDS共同维护;
+  目前该附属由CTimet与CLIEDS共同维护;\n
   其中CTimet负责插件开发与更新，CLIEDS负责插件设计与策划
   您可以加入我们，
   如果您有开发插件的能力，您可以与CTimet共同开发此插件；
