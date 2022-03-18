@@ -15,8 +15,11 @@ import org.bukkit.inventory.ItemStack;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Properties;
 
+/**
+ * @author CTimet
+ * @version beta1.0.0
+ */
 public class BektItemGroup
 {
     public static NestedItemGroup Bekt_MainGroup = new NestedItemGroup(BektMain.createKey("BEKT_BEKT_BE"),

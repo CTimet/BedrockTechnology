@@ -1,6 +1,6 @@
-name: BedrockTechnology--BEKT
+name: BedrockTechnology-BEKT
 
-author: CTimet
+author: BEKT Development Team
 
 description: A generic Slimefun4-Addon
 
@@ -8,7 +8,7 @@ main: io.github.ctimet.bekt.BektMain
 
 website: https://github.com/CTimet/BEKT
 
-version: ${project.version}
+version: beta-1.0.0
 
 api-version: 1.16
 

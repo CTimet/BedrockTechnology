@@ -5,12 +5,13 @@ import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
-
+/** Main Class
+ * @author CTimet
+ * @version beta1.0.0
+ */
 public class BektMain extends JavaPlugin implements SlimefunAddon
 {
     public static BektMain main;
-    public static File file;
 
     @Override
     public void onEnable(){
