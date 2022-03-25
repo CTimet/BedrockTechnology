@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 /** Main Class
  * @author CTimet
+ * @author CLIEDS
  * @version beta1.0.0
  */
 public class BektMain extends JavaPlugin implements SlimefunAddon
