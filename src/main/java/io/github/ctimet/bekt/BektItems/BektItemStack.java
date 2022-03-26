@@ -3,6 +3,8 @@ package io.github.ctimet.bekt.BektItems;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.Material;
 
+import java.awt.desktop.ScreenSleepListener;
+
 /**
  * @author CTimet
  * @author CLIEDS
@@ -581,16 +583,200 @@ public class BektItemStack
     );
 
     //----------------------------------------低级基岩机器----------------------------------------//
-
-
+    public static final SlimefunItemStack BEKT_HJJJJ = new SlimefunItemStack(
+            "BEKT_HJJJJ",
+            Material.DROPPER,
+            "&7轰击机",
+            "",
+            "轰击方块的核心部件"
+    );
+    public static final SlimefunItemStack BEKT_JYHJQ = new SlimefunItemStack(
+            "BEKT_JYHJQ",
+            Material.DISPENSER,
+            "&4基岩&f轰击器",
+            "",
+            getPow("5,000,000")
+    );
+    public static final SlimefunItemStack BEKT_JYHCT = new SlimefunItemStack(
+            "BEKT_JYHCT",
+            Material.ENCHANTING_TABLE,
+            "&4基岩&f合成台",
+            "",
+            getUse("2,000,000")
+    );
+    public static final SlimefunItemStack BEKT_LZFDJ = new SlimefunItemStack(
+            "BEKT_LZFDJ",
+            Material.ENDER_CHEST,
+            "&b粒子&7发电机",
+            "",
+            getPow("5,000,000")
+    );
+    public static final SlimefunItemStack BEKT_JYLZF = new SlimefunItemStack(
+            "BEKT_JYLZF",
+            Material.RED_MUSHROOM_BLOCK,
+            "&7简化的&b粒子&7发电机",
+            "",
+            getPow("800,000")
+    );
 
     //----------------------------------------高级基岩机器----------------------------------------//
 
+    public static final SlimefunItemStack BEKT_GQJYD = new SlimefunItemStack(
+            "BEKT_GQLZD",
+            Material.RED_SHULKER_BOX,
+            "&5高强度基岩对撞机",
+            "",
+            "轰击基岩粒子得到基岩夸克",
+            getPow("3,000,000"),
+            getEff("5x")
+    );
+    public static final SlimefunItemStack BEKT_ZJJYD = new SlimefunItemStack(
+            "BEKT_ZJJYD",
+            Material.BLACK_SHULKER_BOX,
+            "&4终极基岩对撞机",
+            "",
+            getPow("10,000,000"),
+            getEff("20x")
+    );
+    public static final SlimefunItemStack BEKT_GTQJQ = new SlimefunItemStack(
+            "BEKT_GTQJQ",
+            Material.SANDSTONE,
+            "&5汞&7提取器",
+            "",
+            getPow("800,000"),
+            getEff("1x")
+    );
+    public static final SlimefunItemStack BEKT_QCHQJ = new SlimefunItemStack(
+            "BEKT_QCHQJ",
+            Material.ANCIENT_DEBRIS,
+            "&f鞘翅获取机",
+            "",
+            "&7&o放入大量幻翼膜而得到鞘翅",
+            getUse("100,000")
+    );
+    public static final SlimefunItemStack BEKT_HYJSJ = new SlimefunItemStack(
+            "BEKT_HYJSJ",
+            Material.SPAWNER,
+            "&b幻翼&7击杀机",
+            "",
+            "&o自动击杀该机器附近范围内7x7x7的幻翼",
+            getUse("20,000")
+    );
+    public static final SlimefunItemStack BEKT_HYMTQ = new SlimefunItemStack(
+            "BEKT_GJHYJ",
+            Material.WET_SPONGE,
+            "&5&o幻翼膜提取机",
+            "",
+            "&o不受幻翼生成的影响，自动获得幻翼膜",
+            getUse("30,000")
+    );
+    public static final SlimefunItemStack BEKT_GNLZJ = new SlimefunItemStack(
+            "BEKT_GNLZJ",
+            Material.CHISELED_NETHER_BRICKS,
+            "&6高能粒子转换器",
+            "",
+            "将基本粒子充能，转换为高能粒子",
+            getPow("100,000")
+    );
+    public static final SlimefunItemStack BEKT_GHJJQ = new SlimefunItemStack(
+            "BEKT_GHJJQ",
+            Material.EMERALD_BLOCK,
+            "&5汞轰击器",
+            "",
+            getPow("200,000")
+    );
+
     //----------------------------------------终极基岩机器----------------------------------------//
 
+    public static final SlimefunItemStack BEKT_LZHCJ = new SlimefunItemStack(
+            "BEKT_LZHCJ",
+            Material.END_STONE_BRICKS,
+            "&4粒子合成机",
+            "",
+            "&7通过合成各种粒子而产出各种物品",
+            getUse("1,000,000")
+    );
+    public static final SlimefunItemStack BEKT_YYSCJ = new SlimefunItemStack(
+            "BEKT_YYSCJ",
+            Material.NETHER_WART_BLOCK,
+            "&4原油生产机",
+            "",
+            "&f不受区块内原油总量影响，持续不断的产出原油",
+            getPow("800,000")
+    );
+    public static final SlimefunItemStack BEKT_QCSCQ = new SlimefunItemStack(
+            "BEKT_QCSCQ",
+            Material.RESPAWN_ANCHOR,
+            "&4鞘翅生成器",
+            "",
+            "&f全自动产出鞘翅",
+            getPow("980,000")
+    );
+    public static final SlimefunItemStack BEKT_JJJGH = new SlimefunItemStack(
+            "BEKT_JJJGH",
+            Material.TARGET,
+            "&4终极结构获取器",
+            "",
+            "&f放入某种结构则产出某种结构",
+            getPow("1,000,000")
+    );
+    public static final SlimefunItemStack BEKT_JYLZT = new SlimefunItemStack(
+            "BEKT_JYLZT",
+            Material.POLISHED_BLACKSTONE_BRICKS,
+            "&4终极基岩粒子提取器",
+            "",
+            getPow("1,000,000")
+    );
+
     //----------------------------------------基岩发电----------------------------------------//
+    public static final SlimefunItemStack BEKT_JYJZF = new SlimefunItemStack(
+            "BEKT_JYJZF",
+            Material.POLISHED_ANDESITE,
+            "&4基岩粒子&b发电机",
+            "",
+            getPow("10,000,000")
+    );
+    public static final SlimefunItemStack BEKT_JYKKF = new SlimefunItemStack(
+            "BEKT_JYKKF",
+            Material.POLISHED_DIORITE,
+            "&4基岩夸克&b发电机",
+            "",
+            getPow("50,000,000")
+    );
+    public static final SlimefunItemStack BEKT_JYFYD = new SlimefunItemStack(
+            "BEKT_JYFYD",
+            Material.POLISHED_GRANITE,
+            "&4基岩反应堆",
+            "&7通过夸克与夸克之间的碰撞产生的能量来发电",
+            getPow("100,000,000")
+    );
 
     //----------------------------------------基岩工具----------------------------------------//
+
+    public static final SlimefunItemStack BEKT_JYLR = new SlimefunItemStack(
+            "BEKT_JYLR",
+            Material.NETHERITE_SWORD,
+            "&b基岩利刃",
+            ""
+    );
+    public static final SlimefunItemStack BEKT_JYMF = new SlimefunItemStack(
+            "BEKT_JYMF",
+            Material.NETHERITE_AXE,
+            "&b基岩猛斧",
+            ""
+    );
+    public static final SlimefunItemStack BEKT_JYLG = new SlimefunItemStack(
+            "BEKT_JYLG",
+            Material.NETHERITE_PICKAXE,
+            "&b基岩烈镐"
+    );
+    public static final SlimefunItemStack BEKT_JYZQ = new SlimefunItemStack(
+            "BEKT_JYZQ",
+            Material.NETHERITE_SHOVEL,
+            "&b基岩之锹"
+    );
+
+    //---------------------------------BEKTITEMINFORMATIONEND--------------------------------//
 
 
     public static String getEff(String eff){
@@ -598,5 +784,8 @@ public class BektItemStack
     }
     public static String getPow(String j){
         return "&7⇨ &e⚡ &7" + j + "J/s";
+    }
+    public static String getUse(String j){
+        return "&7⇨ &e⚡ &7" + j + "J每次使用";
     }
 }
