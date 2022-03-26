@@ -3,7 +3,6 @@ package io.github.ctimet.bekt.BektItems;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.Material;
 
-import java.awt.desktop.ScreenSleepListener;
 
 /**
  * @author CTimet
