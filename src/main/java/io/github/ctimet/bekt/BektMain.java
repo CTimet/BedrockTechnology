@@ -27,24 +27,7 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
         main = this;
         getLogger().info("一切正常");
         saveDefaultConfig();
-        //BektItemGroup.registerSubCate();
-        SlimefunItem BEKT_FS = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                new SlimefunItemStack(
-                        "BEKT_FS",
-                        Material.NETHER_STAR,
-                        "&b风扇",
-                        "",
-                        "&7一个很普通的风扇"
-                ),
-                RecipeType.ENHANCED_CRAFTING_TABLE,
-                new ItemStack[]{
-                        null,                               new ItemStack(Material.IRON_BLOCK), null,
-                        new ItemStack(Material.IRON_BLOCK), new ItemStack(Material.CHAIN),      new ItemStack(Material.IRON_BLOCK),
-                        null,                               new ItemStack(Material.IRON_BLOCK), null
-                }
-        );
-        BEKT_FS.register(this);
+        BektItemGroup.registerSubCate();
     }
 
     @Override
