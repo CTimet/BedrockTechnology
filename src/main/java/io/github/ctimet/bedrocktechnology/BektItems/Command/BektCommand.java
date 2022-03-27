@@ -29,7 +29,9 @@ public class BektCommand implements CommandExecutor
                     }else return false;
                     return true;
                 }
+                return false;
             }
+            return false;
         }
         sender.sendMessage("§4[BedrockTechnology] >> 未知命令！");
         return false;
