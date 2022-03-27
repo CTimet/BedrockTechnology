@@ -1,4 +1,6 @@
 options:
   auto-update: true
+  info-print: false
+  warning-print: true
 Items:
   ban:

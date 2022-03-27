@@ -18,9 +18,9 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
     @Override
     public void onEnable(){
         main = this;
-        getLogger().info("一切正常");
         saveDefaultConfig();
         BektItemGroup.registerSubCate();
+        getLogger().info("物品注册完成！一切正常！");
     }
 
     @Override
@@ -40,5 +40,15 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
 
     public static NamespacedKey createKey(String key){
         return new NamespacedKey(main,key);
+    }
+
+    public static void sayInfo(String information){
+        if (main.getConfig().getBoolean("info-print"))
+            main.getLogger().info(information);
+    }
+
+    public static void sayWarning(String warning){
+        if (main.getConfig().getBoolean("warning-print"))
+            main.getLogger().warning(warning);
     }
 }
