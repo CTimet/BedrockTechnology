@@ -70,7 +70,8 @@ public class BektItemStack
             Material.EMERALD,
             "&a起泡锭核心",
             "",
-            "&7由起泡锭压制而成"
+            "&a☢ &7辐射级别: &4非常高",
+            "&7由起泡锭压制而成，具有超强的辐射"
     );
     public static final SlimefunItemStack BEKT_BY = new SlimefunItemStack(
             "BEKT_BY",

@@ -23,6 +23,6 @@ public class CoreBlisteringIngot extends SlimefunItem implements Radioactive
 
     @Override
     public Radioactivity getRadioactivity() {
-        return Radioactivity.HIGH;
+        return Radioactivity.VERY_HIGH;
     }
 }
