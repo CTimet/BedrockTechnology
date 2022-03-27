@@ -1,17 +1,9 @@
-package io.github.ctimet.bekt;
+package io.github.ctimet.bedrocktechnology;
 
-import io.github.ctimet.bekt.BektItems.BektItemGroup;
-import io.github.ctimet.bekt.BektItems.BektItemStack;
+import io.github.ctimet.bedrocktechnology.BektItems.BektItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import static io.github.ctimet.bekt.BektItems.BektItemGroup.Bekt_SubGroup_JCCL;
 
 /**
  * Main Class

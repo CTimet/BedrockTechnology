@@ -1,7 +1,7 @@
-package io.github.ctimet.bekt.BektItems;
+package io.github.ctimet.bedrocktechnology.BektItems;
 
-import io.github.ctimet.bekt.BektItems.SpecialItems.CoreBlisteringIngot;
-import io.github.ctimet.bekt.BektItems.SpecialRecipeType.BektRecipeType;
+import io.github.ctimet.bedrocktechnology.BektItems.SpecialItems.CoreBlisteringIngot;
+import io.github.ctimet.bedrocktechnology.BektItems.SpecialRecipeType.BektRecipeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
@@ -9,7 +9,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import static io.github.ctimet.bekt.BektItems.BektItemGroup.Bekt_SubGroup_JCCL;
+import static io.github.ctimet.bedrocktechnology.BektItems.BektItemGroup.Bekt_SubGroup_JCCL;
 
 
 /**

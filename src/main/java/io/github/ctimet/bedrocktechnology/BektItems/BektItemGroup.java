@@ -1,6 +1,6 @@
-package io.github.ctimet.bekt.BektItems;
+package io.github.ctimet.bedrocktechnology.BektItems;
 
-import io.github.ctimet.bekt.BektMain;
+import io.github.ctimet.bedrocktechnology.BektMain;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.NestedItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
