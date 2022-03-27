@@ -1,8 +1,11 @@
 package io.github.ctimet.bedrocktechnology;
 
 import io.github.ctimet.bedrocktechnology.BektItems.BektItemGroup;
+import io.github.ctimet.bedrocktechnology.BektItems.Command.BektCommand;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -20,7 +23,13 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
         main = this;
         saveDefaultConfig();
         BektItemGroup.registerSubCate();
-        getLogger().info("物品注册完成！一切正常！");
+
+        PluginCommand command = Bukkit.getPluginCommand("bedrocktechnology");
+        if (command != null) {
+            command.setExecutor(new BektCommand());
+        }
+
+        getLogger().info("物品与命令注册完成！一切正常！");
     }
 
     @Override
