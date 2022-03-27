@@ -5,6 +5,7 @@ import org.bukkit.Material;
 
 
 /**
+ * 一个存放着各类物品的基础信息的类
  * @author CTimet
  * @author CLIEDS
  * @version beta1.0.0

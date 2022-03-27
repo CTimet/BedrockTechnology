@@ -13,7 +13,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import static io.github.ctimet.bekt.BektItems.BektItemGroup.Bekt_SubGroup_JCCL;
 
-/** Main Class
+/**
+ * Main Class
  * @author CTimet
  * @author CLIEDS
  * @version beta1.0.0

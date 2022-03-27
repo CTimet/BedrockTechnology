@@ -8,11 +8,11 @@ import org.bukkit.Material;
 
 /**
  * @author CTimet
+ * @author CLIEDS
  * @version beta1.0.0
  */
 public class BektItemGroup
 {
-    //测试提交
     public static NestedItemGroup Bekt_MainGroup = new NestedItemGroup(BektMain.createKey("BEKT_BEKT_BE"),
             new CustomItemStack(Material.BEDROCK, "&lBEKT &7- &b基岩科技"));
     //基础材料
@@ -154,9 +154,5 @@ public class BektItemGroup
 
     public static SubItemGroup getSubGroup(Material material,String key,String name){
         return new SubItemGroup(BektMain.createKey(key),Bekt_MainGroup,new CustomItemStack(material,name));
-    }
-
-    public static void sayInfo(String info){
-        BektMain.main.getLogger().info(info);
     }
 }

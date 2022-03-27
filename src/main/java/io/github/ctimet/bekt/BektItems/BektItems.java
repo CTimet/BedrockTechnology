@@ -11,6 +11,12 @@ import org.bukkit.inventory.ItemStack;
 
 import static io.github.ctimet.bekt.BektItems.BektItemGroup.Bekt_SubGroup_JCCL;
 
+
+/**
+ * 这是一个有着各种物品配方以及其他内容的类
+ * @author CTimet
+ * @author CLIEDS
+ */
 public class BektItems 
 {
     //风扇
@@ -239,7 +245,7 @@ public class BektItems
     //M结构
     public static final SlimefunItem BEKT_MJ = new SlimefunItem(
             Bekt_SubGroup_JCCL,
-            BektItemStack.BEKT_LJ,
+            BektItemStack.BEKT_MJ,
             BektRecipeType.BEKT_JGHQQ,
             new ItemStack[]{
                     BektItemStack.BEKT_MJ

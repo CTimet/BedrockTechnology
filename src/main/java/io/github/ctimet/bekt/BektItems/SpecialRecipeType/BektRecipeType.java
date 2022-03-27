@@ -10,7 +10,13 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.function.BiConsumer;
 
-public class BektRecipeType extends RecipeType {
+/**
+ * 这是一个特殊的类，用于标记一些特殊物品的来源机器
+ * @author CTimet
+ * @see io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
+ */
+public class BektRecipeType extends RecipeType
+{
     public static final RecipeType BEKT_JGHQQ;
     public static final RecipeType BEKT_LZTQI;
 
