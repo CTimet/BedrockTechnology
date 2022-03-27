@@ -12,13 +12,23 @@ import java.util.function.BiConsumer;
 
 public class BektRecipeType extends RecipeType {
     public static final RecipeType BEKT_JGHQQ;
+    public static final RecipeType BEKT_LZTQI;
 
     static {
+        //结构获取器
         BEKT_JGHQQ = new BektRecipeType(
                 BektMain.createKey("BEKT_JGHQQ"),
                 BektItemStack.BEKT_JGHQQ,
                 "",
                 "&7获取结构"
+        );
+
+        //粒子提取机
+        BEKT_LZTQI = new BektRecipeType(
+                BektMain.createKey("BEKT_LZTQI"),
+                BektItemStack.BEKT_LZTQI,
+                "",
+                "轰击物品产出对应粒子"
         );
     }
 

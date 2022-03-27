@@ -1,16 +1,10 @@
 package io.github.ctimet.bekt.BektItems;
 
-import io.github.ctimet.bekt.BektItems.SpecialItems.CoreBlisteringIngot;
-import io.github.ctimet.bekt.BektItems.SpecialRecipeType.BektRecipeType;
 import io.github.ctimet.bekt.BektMain;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.NestedItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
 
 /**
  * @author CTimet
@@ -79,195 +73,82 @@ public class BektItemGroup
     
     public static void registerSubCate(){
         //风扇
-        SlimefunItem BEKT_FS = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_FS,
-                RecipeType.ENHANCED_CRAFTING_TABLE,
-                new ItemStack[]{
-                        null,                               new ItemStack(Material.IRON_BLOCK), null,
-                        new ItemStack(Material.IRON_BLOCK), new ItemStack(Material.CHAIN),      new ItemStack(Material.IRON_BLOCK),
-                        null,                               new ItemStack(Material.IRON_BLOCK), null
-                }
-        );
-        BEKT_FS.register(main);
+        BektItems.BEKT_FS.register(main);
 
         //铝合金
-        SlimefunItem BEKT_LH = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_LH,
-                RecipeType.SMELTERY,
-                new ItemStack[]{
-                        SlimefunItems.ALUMINUM_INGOT,          SlimefunItems.ALUMINUM_DUST, SlimefunItems.COMPRESSED_CARBON,
-                        SlimefunItems.CORINTHIAN_BRONZE_INGOT, new ItemStack(Material.GLASS)
-                }
-        );
-        BEKT_LH.register(main);
+        BektItems.BEKT_LH.register(main);
 
         //齿轮
-        SlimefunItem BEKT_CL = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_CL,
-                RecipeType.ENHANCED_CRAFTING_TABLE,
-                new ItemStack[]{
-                        new ItemStack(Material.IRON_INGOT), null,                               new ItemStack(Material.IRON_INGOT),
-                        null,                               new ItemStack(Material.IRON_BLOCK), null,
-                        new ItemStack(Material.IRON_INGOT), null,                               new ItemStack(Material.IRON_INGOT)
-                }
-        );
-        BEKT_CL.register(main);
+        BektItems.BEKT_CL.register(main);
 
         //提速器
-        SlimefunItem BEKT_TS = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_TS,
-                RecipeType.ENHANCED_CRAFTING_TABLE,
-                new ItemStack[]{
-                        BektItemStack.BEKT_CL,              new ItemStack(Material.IRON_INGOT), BektItemStack.BEKT_CJ,
-                        new ItemStack(Material.IRON_INGOT), SlimefunItems.OIL_BUCKET,           new ItemStack(Material.IRON_INGOT),
-                        BektItemStack.BEKT_CL,              new ItemStack(Material.IRON_INGOT), BektItemStack.BEKT_CL
-                }
-        );
-        BEKT_TS.register(main);
+        BektItems.BEKT_TS.register(main);
 
         //铜线圈
-        SlimefunItem BEKT_XQ = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_XQ,
-                RecipeType.ENHANCED_CRAFTING_TABLE,
-                new ItemStack[]{
-                        SlimefunItems.COPPER_WIRE,          SlimefunItems.COPPER_WIRE,          SlimefunItems.COPPER_WIRE,
-                        SlimefunItems.COPPER_WIRE,          null,                               SlimefunItems.COPPER_WIRE,
-                        SlimefunItems.COPPER_WIRE,          SlimefunItems.COPPER_WIRE,          SlimefunItems.COPPER_WIRE
-                }
-        );
-        BEKT_XQ.register(main);
+        BektItems.BEKT_XQ.register(main);
 
         //大型铜线圈
-        SlimefunItem BEKT_DT = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_DT,
-                RecipeType.ENHANCED_CRAFTING_TABLE,
-                new ItemStack[]{
-                        BektItemStack.BEKT_XQ,          BektItemStack.BEKT_XQ,          BektItemStack.BEKT_XQ,
-                        BektItemStack.BEKT_XQ,          null,                           BektItemStack.BEKT_XQ,
-                        BektItemStack.BEKT_XQ,          BektItemStack.BEKT_XQ,          BektItemStack.BEKT_XQ
-                }
-        );
-        BEKT_DT.register(main);
+        BektItems.BEKT_DT.register(main);
 
         //强化合金核心
-        SlimefunItem BEKT_QH = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_QH,
-                RecipeType.COMPRESSOR,
-                new ItemStack[]{
-                        new CustomItemStack(SlimefunItems.REINFORCED_ALLOY_INGOT, 8)
-                }
-        );
-        BEKT_QH.register(main);
+        BektItems.BEKT_QH.register(main);
 
         //起泡锭核心
-        SlimefunItem BEKT_QP = new CoreBlisteringIngot(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_QP,
-                RecipeType.COMPRESSOR,
-                new ItemStack[]{
-                        new CustomItemStack(SlimefunItems.BLISTERING_INGOT_3,8)
-                }
-        );
-        BEKT_QP.register(main);
+        BektItems.BEKT_QP.register(main);
 
         //变压器
-        SlimefunItem BEKT_BY = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_BY,
-                RecipeType.ENHANCED_CRAFTING_TABLE,
-                new ItemStack[]{
-                        BektItemStack.BEKT_DT,          BektItemStack.BEKT_DT,          BektItemStack.BEKT_DT,
-                        BektItemStack.BEKT_DT,          SlimefunItems.PLASTIC_SHEET,    BektItemStack.BEKT_DT,
-                        BektItemStack.BEKT_DT,          BektItemStack.BEKT_DT,          BektItemStack.BEKT_DT
-                }
-        );
-        BEKT_BY.register(main);
+        BektItems.BEKT_BY.register(main);
 
         //A结构
-        SlimefunItem BEKT_AJ = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_AJ,
-                BektRecipeType.BEKT_JGHQQ,
-                new ItemStack[]{
-                        BektItemStack.BEKT_AJ
-                }
-        );
-        BEKT_AJ.register(main);
+        BektItems.BEKT_AJ.register(main);
 
         //B结构
-        SlimefunItem BEKT_BJ = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_BJ,
-                BektRecipeType.BEKT_JGHQQ,
-                new ItemStack[]{
-                        BektItemStack.BEKT_BJ
-                }
-        );
-        BEKT_BJ.register(main);
+        BektItems.BEKT_BJ.register(main);
 
         //C结构
-        SlimefunItem BEKT_CJ = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_CJ,
-                BektRecipeType.BEKT_JGHQQ,
-                new ItemStack[]{
-                        BektItemStack.BEKT_CJ
-                }
-        );
-        BEKT_CJ.register(main);
+        BektItems.BEKT_CJ.register(main);
 
         //D结构
-        SlimefunItem BEKT_DJ = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_DJ,
-                BektRecipeType.BEKT_JGHQQ,
-                new ItemStack[]{
-                        BektItemStack.BEKT_DJ
-                }
-        );
-        BEKT_DJ.register(main);
+        BektItems.BEKT_DJ.register(main);
 
         //E结构
-        SlimefunItem BEKT_EJ = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_EJ,
-                BektRecipeType.BEKT_JGHQQ,
-                new ItemStack[]{
-                        BektItemStack.BEKT_EJ
-                }
-        );
-        BEKT_EJ.register(main);
+        BektItems.BEKT_EJ.register(main);
 
         //F结构
-        SlimefunItem BEKT_FJ = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_FJ,
-                BektRecipeType.BEKT_JGHQQ,
-                new ItemStack[]{
-                        BektItemStack.BEKT_FJ
-                }
-        );
-        BEKT_FJ.register(main);
+        BektItems.BEKT_FJ.register(main);
 
         //G结构
-        SlimefunItem BEKT_GJ = new SlimefunItem(
-                Bekt_SubGroup_JCCL,
-                BektItemStack.BEKT_GJ,
-                BektRecipeType.BEKT_JGHQQ,
-                new ItemStack[]{
-                        BektItemStack.BEKT_GJ
-                }
-        );
-        BEKT_GJ.register(main);
+        BektItems.BEKT_GJ.register(main);
 
-        //累死了，明天再写，提交推送！
+        //H结构
+        BektItems.BEKT_HJ.register(main);
+
+        //I结构
+        BektItems.BEKT_IJ.register(main);
+
+        //J结构
+        BektItems.BEKT_JJ.register(main);
+
+        //K结构
+        BektItems.BEKT_KJ.register(main);
+
+        //L结构
+        BektItems.BEKT_LJ.register(main);
+
+        //M结构
+        BektItems.BEKT_MJ.register(main);
+
+        //N结构
+        BektItems.BEKT_NJ.register(main);
+
+        //铜粒子
+        BektItems.BEKT_TONG.register(main);
+
+        //金粒子
+        BektItems.BEKT_JINL.register(main);
+
+        //锌粒子
+        BektItems.BEKT_XINL.register(main);
     }
 
     public static SubItemGroup getSubGroup(Material material,String key,String name){
