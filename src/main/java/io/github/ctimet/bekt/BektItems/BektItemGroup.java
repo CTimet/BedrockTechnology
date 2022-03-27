@@ -12,6 +12,7 @@ import org.bukkit.Material;
  */
 public class BektItemGroup
 {
+    //测试提交
     public static NestedItemGroup Bekt_MainGroup = new NestedItemGroup(BektMain.createKey("BEKT_BEKT_BE"),
             new CustomItemStack(Material.BEDROCK, "&lBEKT &7- &b基岩科技"));
     //基础材料
