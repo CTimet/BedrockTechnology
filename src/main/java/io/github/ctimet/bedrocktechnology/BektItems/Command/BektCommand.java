@@ -10,10 +10,9 @@ public class BektCommand implements CommandExecutor
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (args.length == 0)
+        if (args.length < 3)
             return false;
         if (command.getLabel().equals("bedrocktechnology") || label.equals("bt")){
-            if (args[0] == null || args[1] == null || args[2] == null) return false;
             if (args[0].equals("debug")){
                 if (args[1].equals("info-print")){
                     if (args[2].equals("true") || args[2].equals("t")){
