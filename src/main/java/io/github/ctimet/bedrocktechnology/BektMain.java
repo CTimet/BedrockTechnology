@@ -52,12 +52,12 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
     }
 
     public static void sayInfo(String information){
-        if (main.getConfig().getBoolean("info-print"))
+        if (main.getConfig().getBoolean("options.info-print"))
             main.getLogger().info(information);
     }
 
     public static void sayWarning(String warning){
-        if (main.getConfig().getBoolean("warning-print"))
+        if (main.getConfig().getBoolean("options.warning-print"))
             main.getLogger().warning(warning);
     }
 }
