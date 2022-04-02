@@ -4,6 +4,7 @@
   BEKT准确来说并不是BedrockTechnology的缩写，而是它的别称。
   
   下载链接：[ClickHere!](https://github.com/CTimet/BedrockTechnology#%E5%BD%93%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC-%E6%AD%A3%E5%BC%8F%E7%89%88)
+  BUG汇报：[ClickHere!]( https://ctimet.github.io/CTimet-BedrockTechnologyBugWebsite/)
 
 ## 帮我们一起维护此附属
   目前该附属由CTimet与CLIEDS共同维护;
@@ -29,7 +30,7 @@
   
   您可以参与到插件开发之中，不过为了让您理解我们的代码和让我们理解您的代码，请务必加入团队后再进行开发操作。如有意向，请发送邮件至 2261868330@qq.com ；我们将在1星期内处理您的请求。
 ## BUG汇报
-  [clickHere](https://ctimet.github.io/CTimet-BedrockTechnologyBugWebsite/)
+  [ClickHere!](https://ctimet.github.io/CTimet-BedrockTechnologyBugWebsite/)
 ## 翻译此插件
   BEKT默认使用中文，如果您想把它翻译成别的语言，可以向我们提出申请（发送邮件至2261868330@qq.com），开发者将加入国际化内容。不过我们目前还没有接到相关要求，所以目前并没有开发关于国际化这一部分的内容。
   
