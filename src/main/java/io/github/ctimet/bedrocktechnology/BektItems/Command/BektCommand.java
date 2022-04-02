@@ -9,10 +9,13 @@ import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
 
+import static io.github.ctimet.bedrocktechnology.BektMain.VERSION;
+
 public class BektCommand implements CommandExecutor
 {
     public static final Config cfg = new Config(BektMain.main);
 
+    /*Help的显示页*/
     private static final ArrayList<String[]> mes = new ArrayList<>();
 
     static {
@@ -27,53 +30,48 @@ public class BektCommand implements CommandExecutor
                     "    |    setValue                            §a-- 设置config.yml中的值",
                     "    |    |     xxx <true/t||false/f||?>           §a-- 设置相关值",
                     "    help                                    §a-- 获取指令帮助",
+                    "    version                                  §a--获取当前版本",
                     "—————————————————————————————————HELP1—————————————————————————————————————",
-                    "排序先后顺序以A~Z的字母顺序为基准，可使用/bt help-next来阅读下一页，/bt help-back来阅读上一页"
+                    "排序先后顺序以A~Z的字母顺序为基准，可使用/bt help-2来阅读下一页"
             }
         );
         /*第二页*/
         mes.add(
                 new String[]{
                         "—————————————————————————————————HELP2————————————————————————————————————",
-                        "/bt debug    fff                               §a-- 使用调试指令",
-                        "    |    getValue                            §a-- 获取config.yml中的相关值",
-                        "    |    |     xxx                           §a-- 获取值名为xxx的值",
-                        "    |    setValue                            §a-- 设置config.yml中的值",
-                        "    |    |     xxx <true/t||false/f||?>           §a-- 设置相关值",
-                        "    help                                    §a-- 获取指令帮助",
+
                         "—————————————————————————————————HELP2—————————————————————————————————————",
-                        "排序先后顺序以A~Z的字母顺序为基准，可使用/bt help-next来阅读下一页，/bt help-back来阅读上一页"
+                        "排序先后顺序以A~Z的字母顺序为基准，可使用/bt help-3来阅读下一页，/bt help-1来阅读上一页"
                 }
         );
         mes.add(
                 new String[]{
-                        "—————————————————————————————————HELP2————————————————————————————————————",
-                        "/bt debug    fff    c                          §a-- 使用调试指令",
-                        "    |    getValue                            §a-- 获取config.yml中的相关值",
-                        "    |    |     xxx                           §a-- 获取值名为xxx的值",
-                        "    |    setValue                            §a-- 设置config.yml中的值",
-                        "    |    |     xxx <true/t||false/f||?>           §a-- 设置相关值",
-                        "    help                                    §a-- 获取指令帮助",
-                        "—————————————————————————————————HELP2—————————————————————————————————————",
-                        "排序先后顺序以A~Z的字母顺序为基准，可使用/bt help-next来阅读下一页，/bt help-back来阅读上一页"
+                        "—————————————————————————————————HELP3————————————————————————————————————",
+                        "—————————————————————————————————HELP3—————————————————————————————————————",
+                        "排序先后顺序以A~Z的字母顺序为基准，可使用/bt help-4来阅读下一页，/bt help-2来阅读上一页"
                 }
         );
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        SendMessageToPlayer st = new SendMessageToPlayer(sender);
+        SendMessageToPlayer st = new SendMessageToPlayer(sender,args);
         if (args.length < 1)
         {
             st.sendWarning("未知命令，请检查是否有拼写错误");
             return false;
         }
-        if (command.getLabel().equals("bedrocktechnology") || label.equals("bt")){
-            switch (args[0]) {
+        if (command.getLabel().equals("bedrocktechnology") || label.equals("bt"))
+        {
+            switch (args[0])
+            {
                 case "debug":
-                    if (args[1].equals("setValue")) {
-                        if (args[2].equals("info-print")) {
-                            if (args[3].equals("true") || args[3].equals("t")) {
+                    if (args[1].equals("setValue") && st.isNotNull(2))
+                    {
+                        if (args[2].equals("info-print") && st.isNotNull(3))
+                        {
+                            if (args[3].equals("true") || args[3].equals("t"))
+                            {
                                 cfg.setValue("options.info-print", true);
                                 BektMain.sayInfo(
                                         "管理者 " +
@@ -86,8 +84,11 @@ public class BektCommand implements CommandExecutor
                                                 " set the info-print from config.yml as true"
                                 );
                                 cfg.save();
+                                st.sendInfo("成功将 info-print 设置为" + cfg.getBoolean("options.info-print"));
                                 return true;
-                            } else if (args[3].equals("false") || args[3].equals("f")) {
+                            }
+                            else if (args[3].equals("false") || args[3].equals("f"))
+                            {
                                 cfg.setValue("options.info-print", false);
                                 BektMain.sayInfo(
                                         "管理者 " +
@@ -100,12 +101,15 @@ public class BektCommand implements CommandExecutor
                                                 " set the info-print from config.yml as false"
                                 );
                                 cfg.save();
+                                st.sendInfo("成功将 info-print 设置为" + cfg.getBoolean("options.info-print"));
                                 return true;
                             } else {
                                 st.sendWarning("未知命令，请检查是否有拼写错误");
                                 return false;
                             }
-                        } else if (args[2].equals("warning-print")) {
+                        }
+                        else if (args[2].equals("warning-print"))
+                        {
                             if (args[3].equals("true") || args[3].equals("t")) {
                                 cfg.setValue("options.warning-print", true);
                                 BektMain.sayInfo(
@@ -119,6 +123,7 @@ public class BektCommand implements CommandExecutor
                                                 " set the warning-print from config.yml as true"
                                 );
                                 cfg.save();
+                                st.sendInfo("成功将 warning-print 设置为" + cfg.getBoolean("options.warning-print"));
                                 return true;
                             } else if (args[3].equals("false") || args[3].equals("f")) {
                                 cfg.setValue("options.warning-print", false);
@@ -133,6 +138,7 @@ public class BektCommand implements CommandExecutor
                                                 " set the warning-print from config.yml as false"
                                 );
                                 cfg.save();
+                                st.sendInfo("成功将 warning-print 设置为" + cfg.getBoolean("options.warning-print"));
                                 return true;
                             } else {
                                 st.sendWarning("未知命令，请检查是否有拼写错误");
@@ -140,8 +146,9 @@ public class BektCommand implements CommandExecutor
                             }
                         }
                         return false;
-                    } else if (args[1].equals("getValue")) {
-                        if (args[2].equals("info-print")) {
+                    } else if (args[1].equals("getValue") && st.isNotNull(2))
+                    {
+                        if (args[2].equals("info-print") && st.isNotNull(3)) {
                             st.sendInfo(String.valueOf(cfg.getBoolean("options.info-print")));
                         } else if (args[2].equals("warning-print")) {
                             st.sendInfo(String.valueOf(cfg.getBoolean("options.warning-print")));
@@ -162,11 +169,15 @@ public class BektCommand implements CommandExecutor
                 case "help-3":
                     st.showTheHelp(mes, 2);
                     return true;
+                case "version":
+                    st.sendInfo(VERSION);
+                default:
+                    st.sendWarning("未知命令，请检查是否有拼写错误");
+                    return false;
             }
-            st.sendWarning("未知命令，请检查是否有拼写错误");
-            return false;
         }
         return false;
     }
+
 
 }
