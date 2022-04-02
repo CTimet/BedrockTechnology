@@ -2,6 +2,8 @@
   这是一个由CTimet与CLIEDS合作开发的Slimefun附属插件，我们称其为基岩科技BedrockTechnology；不过我们不太喜欢这个直译的名字，于是我们将其称作 BEKT
   
   BEKT准确来说并不是BedrockTechnology的缩写，而是它的别称。
+  
+  下载链接：[ClickHere!](https://github.com/CTimet/BedrockTechnology#%E5%BD%93%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC-%E6%AD%A3%E5%BC%8F%E7%89%88)
 
 ## 帮我们一起维护此附属
   目前该附属由CTimet与CLIEDS共同维护;
