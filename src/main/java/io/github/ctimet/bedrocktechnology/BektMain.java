@@ -1,7 +1,7 @@
 package io.github.ctimet.bedrocktechnology;
 
 import io.github.ctimet.bedrocktechnology.BektItems.BektItemGroup;
-import io.github.ctimet.bedrocktechnology.BektItems.Command.BektCommand;
+import io.github.ctimet.bedrocktechnology.Command.BektCommand;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;

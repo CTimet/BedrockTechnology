@@ -13,7 +13,7 @@ commands:
     aliases:
       - "bt"
     usage:
-      "§a[BedrockTechnology] >> §e 如果你想获取指令帮助，可使用/bt help 来获取帮助"
+      "§a[BedrockTechnology] >> §e 你刚刚输入了错误的指令，如果你想获取指令帮助，可使用/bt help 来获取帮助"
     description: "核心指令"
     permission: none
     permission-message: ""

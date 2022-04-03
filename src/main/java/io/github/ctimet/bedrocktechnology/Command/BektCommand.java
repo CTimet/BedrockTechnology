@@ -1,6 +1,6 @@
-package io.github.ctimet.bedrocktechnology.BektItems.Command;
+package io.github.ctimet.bedrocktechnology.Command;
 
-import io.github.ctimet.bedrocktechnology.BektItems.Command.MessagePage.SendMessageToPlayer;
+import io.github.ctimet.bedrocktechnology.Command.MessagePage.SendMessageToPlayer;
 import io.github.ctimet.bedrocktechnology.BektMain;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import org.bukkit.command.Command;

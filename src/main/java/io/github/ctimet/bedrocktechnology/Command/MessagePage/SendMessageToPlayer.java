@@ -1,4 +1,4 @@
-package io.github.ctimet.bedrocktechnology.BektItems.Command.MessagePage;
+package io.github.ctimet.bedrocktechnology.Command.MessagePage;
 
 import org.bukkit.command.CommandSender;
 

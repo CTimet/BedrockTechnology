@@ -2,6 +2,7 @@ package io.github.ctimet.bedrocktechnology.BektItems;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.Material;
+import org.jcp.xml.dsig.internal.dom.ApacheNodeSetData;
 
 
 /**
@@ -334,6 +335,12 @@ public class BektItemStack
             "&7密度达到了普通基岩的&4 729 &7倍！",
             "&7长时间放在背包中会&4严重消耗饱食度"
     );
+    public static final SlimefunItemStack BEKT_JYLZ = new SlimefunItemStack(
+            "BEKT_JYLZ",
+            Material.IRON_NUGGET,
+            "&4基岩粒子",
+            ""
+    );
     public static final SlimefunItemStack BEKT_QHLZ = new SlimefunItemStack(
             "BEKT-QHLZ",
             Material.IRON_NUGGET,
@@ -364,6 +371,13 @@ public class BektItemStack
             "",
             "&7从汞中轰击得来",
             "&7非常纯的金子"
+    );
+    public static final SlimefunItemStack BEKT_JBKK = new SlimefunItemStack(
+            "BEKT_JBKK",
+            Material.IRON_NUGGET,
+            "&7基本夸克",
+            "",
+            "&o&7我好小..."
     );
 
     //----------------------------------------基础机器----------------------------------------//
@@ -625,7 +639,7 @@ public class BektItemStack
     public static final SlimefunItemStack BEKT_GQJYD = new SlimefunItemStack(
             "BEKT_GQLZD",
             Material.RED_SHULKER_BOX,
-            "&5高强度基岩对撞机",
+            "&5基岩对撞机",
             "",
             "轰击基岩粒子得到基岩夸克",
             getPow("3,000,000"),

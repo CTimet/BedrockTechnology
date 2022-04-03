@@ -6,6 +6,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
 
+import static io.github.ctimet.bedrocktechnology.BektItems.BektItems.items;
+
 /**
  * @author CTimet
  * @author CLIEDS
@@ -73,83 +75,7 @@ public class BektItemGroup
 
     
     public static void registerSubCate(){
-        //风扇
-        BektItems.BEKT_FS.register(main);
-
-        //铝合金
-        BektItems.BEKT_LH.register(main);
-
-        //齿轮
-        BektItems.BEKT_CL.register(main);
-
-        //提速器
-        BektItems.BEKT_TS.register(main);
-
-        //铜线圈
-        BektItems.BEKT_XQ.register(main);
-
-        //大型铜线圈
-        BektItems.BEKT_DT.register(main);
-
-        //强化合金核心
-        BektItems.BEKT_QH.register(main);
-
-        //起泡锭核心
-        BektItems.BEKT_QP.register(main);
-
-        //变压器
-        BektItems.BEKT_BY.register(main);
-
-        //A结构
-        BektItems.BEKT_AJ.register(main);
-
-        //B结构
-        BektItems.BEKT_BJ.register(main);
-
-        //C结构
-        BektItems.BEKT_CJ.register(main);
-
-        //D结构
-        BektItems.BEKT_DJ.register(main);
-
-        //E结构
-        BektItems.BEKT_EJ.register(main);
-
-        //F结构
-        BektItems.BEKT_FJ.register(main);
-
-        //G结构
-        BektItems.BEKT_GJ.register(main);
-
-        //H结构
-        BektItems.BEKT_HJ.register(main);
-
-        //I结构
-        BektItems.BEKT_IJ.register(main);
-
-        //J结构
-        BektItems.BEKT_JJ.register(main);
-
-        //K结构
-        BektItems.BEKT_KJ.register(main);
-
-        //L结构
-        BektItems.BEKT_LJ.register(main);
-
-        //M结构
-        BektItems.BEKT_MJ.register(main);
-
-        //N结构
-        BektItems.BEKT_NJ.register(main);
-
-        //铜粒子
-        BektItems.BEKT_TONG.register(main);
-
-        //金粒子
-        BektItems.BEKT_JINL.register(main);
-
-        //锌粒子
-        BektItems.BEKT_XINL.register(main);
+        items.forEach(e -> e.register(main));
     }
 
     public static SubItemGroup getSubGroup(Material material,String key,String name){
