@@ -834,6 +834,112 @@ public class BektItems
                 }
         );
         items.add(BEKT_FZLZT);
+
+        /*方块挖掘核心*/
+        BEKT_FKWJJ = new SlimefunItem(
+                Bekt_SubGroup_GJJQ,
+                BektItemStack.BEKT_FKWJJ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        SlimefunItems.ANDROID_MEMORY_CORE,          SlimefunItems.PROGRAMMABLE_ANDROID_MINER,           SlimefunItems.ANDROID_MEMORY_CORE,
+                        SlimefunItems.PROGRAMMABLE_ANDROID_MINER,   new ItemStack(Material.DIAMOND_PICKAXE),            SlimefunItems.PROGRAMMABLE_ANDROID_MINER,
+                        SlimefunItems.ANDROID_MEMORY_CORE,          SlimefunItems.PROGRAMMABLE_ANDROID_MINER,           SlimefunItems.ANDROID_MEMORY_CORE
+                }
+        );
+        items.add(BEKT_FKWJJ);
+
+        /*WH*/
+        BEKT_WHFXQ = new SlimefunItem(
+                Bekt_SubGroup_GJJQ,
+                BektItemStack.BEKT_WHFXQ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        SlimefunItems.STEEL_THRUSTER,           null,                               SlimefunItems.STEEL_THRUSTER,
+                        null,                                   new ItemStack(Material.ELYTRA),     null,
+                        SlimefunItems.HOLOGRAM_PROJECTOR,       SlimefunItems.HOLOGRAM_PROJECTOR,   SlimefunItems.HOLOGRAM_PROJECTOR
+                }
+        );
+        items.add(BEKT_WHFXQ);
+
+        /*物品粒子提取机*/
+        BEKT_WPLZT = new SlimefunItem(
+                Bekt_SubGroup_GJJQ,
+                BektItemStack.BEKT_WPLZT,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        null,                                   SlimefunItems.ELECTRIC_PRESS_2,             null,
+                        new ItemStack(Material.DIAMOND_PICKAXE),SlimefunItems.REINFORCED_PLATE,             new ItemStack(Material.DIAMOND_PICKAXE),
+                        null,                                   SlimefunItems.ELECTRIC_PRESS_2,             null
+                }
+        );
+        items.add(BEKT_WPLZT);
+
+        /*高级物品提取机*/
+        BEKT_GJWPT = new SlimefunItem(
+                Bekt_SubGroup_GJJQ,
+                BektItemStack.BEKT_GJWPT,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        SlimefunItems.REINFORCED_PLATE,         SlimefunItems.PROGRAMMABLE_ANDROID_MINER,           SlimefunItems.REINFORCED_PLATE,
+                        SlimefunItems.OIL_BUCKET,               BektItemStack.BEKT_WPLZT,                           SlimefunItems.OIL_BUCKET,
+                        SlimefunItems.REINFORCED_PLATE,         SlimefunItems.PROGRAMMABLE_ANDROID_MINER,           SlimefunItems.REINFORCED_PLATE
+                }
+        );
+        items.add(BEKT_GJWPT);
+
+        /*高级的WH*/
+        BEKT_GJDWH = new SlimefunItem(
+                Bekt_SubGroup_GJJQ,
+                BektItemStack.BEKT_GJDWH,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        null,                       SlimefunItems.ENDER_LUMP_3,                 null,
+                        SlimefunItems.ENDER_LUMP_3, BektItemStack.BEKT_WHFXQ,                   SlimefunItems.ENDER_LUMP_3,
+                        null,                       SlimefunItems.ENDER_LUMP_3,                 null
+                }
+        );
+        items.add(BEKT_GJDWH);
+
+        /*低级的粒子对撞机*/
+        BEKT_DJLZZ = new SlimefunItem(
+                Bekt_SubGroup_GJJQ,
+                BektItemStack.BEKT_DJLZZ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        BektItemStack.BEKT_JBLZ,            BektItemStack.BEKT_LZJSJ,           BektItemStack.BEKT_JBLZ,
+                        BektItemStack.BEKT_DT,              BektItemStack.BEKT_WHFXQ,           BektItemStack.BEKT_DT,
+                        BektItemStack.BEKT_JBLZ,            BektItemStack.BEKT_LZJSJ,           BektItemStack.BEKT_JBLZ
+                }
+        );
+        items.add(BEKT_DJLZZ);
+
+        /*高级的粒子对撞机*/
+        BEKT_GJLZZ = new SlimefunItem(
+                Bekt_SubGroup_GJJQ,
+                BektItemStack.BEKT_GJLZZ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        null,                   BektItemStack.BEKT_DJLZZ,               null,
+                        BektItemStack.BEKT_DT,  BektItemStack.BEKT_GJDWH,               BektItemStack.BEKT_DT,
+                        null,                   BektItemStack.BEKT_LZJSJ,               null
+                }
+        );
+        items.add(BEKT_GJLZZ);
+
+        /*粒子加速机*/
+        BEKT_LZJSJ = new SlimefunItem(
+                Bekt_SubGroup_GJJQ,
+                BektItemStack.BEKT_LZJSJ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        null,                   BektItemStack.BEKT_DT,                  null,
+                        BektItemStack.BEKT_DT,  SlimefunItems.ORE_WASHER,               BektItemStack.BEKT_DT,
+                        null,                   BektItemStack.BEKT_DT,                  null
+                }
+        );
+        items.add(BEKT_LZJSJ);
+
+
     }
 
 }
