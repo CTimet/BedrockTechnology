@@ -5,6 +5,7 @@ import io.github.ctimet.bedrocktechnology.BektMain;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.recipes.MinecraftRecipe;
+import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 
@@ -25,6 +26,14 @@ public class BektRecipeType extends RecipeType
     public static final RecipeType BEKT_GTQJQ;
     public static final RecipeType BEKT_GHJJQ;
     public static final RecipeType BEKT_DJLZZ;
+    public static final RecipeType BEKT_QHGZT;
+
+    public static final SlimefunItemStack BEKT_QHGZTT = new SlimefunItemStack(
+            "BEKT_QHGZTT",
+            Material.CRAFTING_TABLE,
+            "&b强化工作台",
+            ""
+    );
 
     static {
         //结构获取器
@@ -89,6 +98,13 @@ public class BektRecipeType extends RecipeType
                 BektItemStack.BEKT_DJLZZ,
                 "",
                 "分裂粒子产出夸克"
+        );
+
+        //强化工作台
+        BEKT_QHGZT = new BektRecipeType(
+                BektMain.createKey("BEKT_QHGZT"),
+                BEKT_QHGZTT,
+                ""
         );
     }
 

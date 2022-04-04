@@ -6,11 +6,9 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
-import org.bukkit.entity.Slime;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
 import static io.github.ctimet.bedrocktechnology.BektItems.BektItemGroup.*;
 
@@ -102,34 +100,34 @@ public class BektItems
     public static final SlimefunItem BEKT_GJJGH;
     
     public static final SlimefunItem BEKT_HJJJJ;
-    public static final SlimefunItem BEKT_JYHJQ=null;
-    public static final SlimefunItem BEKT_JYHCT=null;
-    public static final SlimefunItem BEKT_LZFDJ=null;
-    public static final SlimefunItem BEKT_JYLZF=null;
+    public static final SlimefunItem BEKT_JYHJQ;
+    public static final SlimefunItem BEKT_JYHCT;
+    public static final SlimefunItem BEKT_LZFDJ;
+    public static final SlimefunItem BEKT_JYLZF;
     
-    public static final SlimefunItem BEKT_GQJYD=null;
-    public static final SlimefunItem BEKT_ZJJYD=null;
-    public static final SlimefunItem BEKT_GTQJQ=null;
-    public static final SlimefunItem BEKT_QCHQJ=null;
-    public static final SlimefunItem BEKT_HYJSJ=null;
-    public static final SlimefunItem BEKT_HYMTQ=null;
-    public static final SlimefunItem BEKT_GNLZJ=null;
-    public static final SlimefunItem BEKT_GHJJQ=null;
+    public static final SlimefunItem BEKT_GQJYD;
+    public static final SlimefunItem BEKT_ZJJYD;
+    public static final SlimefunItem BEKT_GTQJQ;
+    public static final SlimefunItem BEKT_QCHQJ;
+    public static final SlimefunItem BEKT_HYJSJ;
+    public static final SlimefunItem BEKT_HYMTQ;
+    public static final SlimefunItem BEKT_GNLZJ;
+    public static final SlimefunItem BEKT_GHJJQ;
     
-    public static final SlimefunItem BEKT_LZHCJ=null;
-    public static final SlimefunItem BEKT_YYSCJ=null;
-    public static final SlimefunItem BEKT_QCSCQ=null;
-    public static final SlimefunItem BEKT_JJJGH=null;
-    public static final SlimefunItem BEKT_JYLZT=null;
+    public static final SlimefunItem BEKT_LZHCJ;
+    public static final SlimefunItem BEKT_YYSCJ;
+    public static final SlimefunItem BEKT_QCSCQ;
+    public static final SlimefunItem BEKT_JJJGH;
+    public static final SlimefunItem BEKT_JYLZT;
     
-    public static final SlimefunItem BEKT_JYJZF=null;
-    public static final SlimefunItem BEKT_JYKKF=null;
-    public static final SlimefunItem BEKT_JYFYD=null;
+    public static final SlimefunItem BEKT_JYJZF;
+    public static final SlimefunItem BEKT_JYKKF;
+    public static final SlimefunItem BEKT_JYFYD;
     
-    public static final SlimefunItem BEKT_JYLR=null;
-    public static final SlimefunItem BEKT_JYMF=null;
-    public static final SlimefunItem BEKT_JYLG=null;
-    public static final SlimefunItem BEKT_JYZQ=null;
+    public static final SlimefunItem BEKT_JYLR;
+    public static final SlimefunItem BEKT_JYMF;
+    public static final SlimefunItem BEKT_JYLG;
+    public static final SlimefunItem BEKT_JYZQ;
     
 
     static {
@@ -141,9 +139,9 @@ public class BektItems
                 BektItemStack.BEKT_FS,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
-                        null,                               new ItemStack(Material.IRON_BLOCK), null,
-                        new ItemStack(Material.IRON_BLOCK), new ItemStack(Material.CHAIN),      new ItemStack(Material.IRON_BLOCK),
-                        null,                               new ItemStack(Material.IRON_BLOCK), null
+                        null,                               i(Material.IRON_BLOCK), null,
+                        i(Material.IRON_BLOCK),             i(Material.CHAIN),      i(Material.IRON_BLOCK),
+                        null,                               i(Material.IRON_BLOCK), null
                 }
         );
          items.add(BEKT_FS);
@@ -155,7 +153,7 @@ public class BektItems
                 BektRecipeType.SMELTERY,
                 new ItemStack[]{
                         SlimefunItems.ALUMINUM_INGOT,          SlimefunItems.ALUMINUM_DUST, SlimefunItems.COMPRESSED_CARBON,
-                        SlimefunItems.CORINTHIAN_BRONZE_INGOT, new ItemStack(Material.GLASS)
+                        SlimefunItems.CORINTHIAN_BRONZE_INGOT, i(Material.GLASS)
                 }
         );
          items.add(BEKT_LH);
@@ -166,9 +164,9 @@ public class BektItems
                 BektItemStack.BEKT_CL,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
-                        new ItemStack(Material.IRON_INGOT), null,                               new ItemStack(Material.IRON_INGOT),
-                        null,                               new ItemStack(Material.IRON_BLOCK), null,
-                        new ItemStack(Material.IRON_INGOT), null,                               new ItemStack(Material.IRON_INGOT)
+                        i(Material.IRON_INGOT), null,                               i(Material.IRON_INGOT),
+                        null,                               i(Material.IRON_BLOCK), null,
+                        i(Material.IRON_INGOT), null,                               i(Material.IRON_INGOT)
                 }
         );
          items.add(BEKT_CL);
@@ -179,9 +177,9 @@ public class BektItems
                 BektItemStack.BEKT_TS,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
-                        BektItemStack.BEKT_CL,              new ItemStack(Material.IRON_INGOT), BektItemStack.BEKT_CL,
-                        new ItemStack(Material.IRON_INGOT), SlimefunItems.OIL_BUCKET,           new ItemStack(Material.IRON_INGOT),
-                        BektItemStack.BEKT_CL,              new ItemStack(Material.IRON_INGOT), BektItemStack.BEKT_CL
+                        BektItemStack.BEKT_CL,              i(Material.IRON_INGOT),             BektItemStack.BEKT_CL,
+                        i(Material.IRON_INGOT),             SlimefunItems.OIL_BUCKET,           i(Material.IRON_INGOT),
+                        BektItemStack.BEKT_CL,              i(Material.IRON_INGOT),             BektItemStack.BEKT_CL
                 }
         );
          items.add(BEKT_TS);
@@ -470,7 +468,7 @@ public class BektItems
                  BektItemStack.BEKT_TIEL,
                  BektRecipeType.BEKT_WPLZT,
                  new ItemStack[]{
-                        new ItemStack(Material.IRON_INGOT)
+                        i(Material.IRON_INGOT)
                  }
          );
          items.add(BEKT_TIEL);
@@ -577,9 +575,9 @@ public class BektItems
                 BektItemStack.BEKT_GJJY,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
-                        new ItemStack(Material.BEDROCK),    new ItemStack(Material.BEDROCK),    new ItemStack(Material.BEDROCK),
-                        new ItemStack(Material.BEDROCK),    new ItemStack(Material.BEDROCK),    new ItemStack(Material.BEDROCK),
-                        new ItemStack(Material.BEDROCK),    new ItemStack(Material.BEDROCK),    new ItemStack(Material.BEDROCK)
+                        i(Material.BEDROCK),    i(Material.BEDROCK),    i(Material.BEDROCK),
+                        i(Material.BEDROCK),    i(Material.BEDROCK),    i(Material.BEDROCK),
+                        i(Material.BEDROCK),    i(Material.BEDROCK),    i(Material.BEDROCK)
                 }
         );
         items.add(BEKT_GJJY);
@@ -695,9 +693,9 @@ public class BektItems
                 BektItemStack.BEKT_YSJZI,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
-                        new ItemStack(Material.COBBLESTONE),            new ItemStack(Material.OBSIDIAN),           new ItemStack(Material.COBBLESTONE),
-                        new ItemStack(Material.WATER_BUCKET),           new ItemStack(Material.DIAMOND_PICKAXE),    new ItemStack(Material.LAVA_BUCKET),
-                        new ItemStack(Material.COBBLESTONE),            new ItemStack(Material.OBSIDIAN),           new ItemStack(Material.COBBLESTONE)
+                        i(Material.COBBLESTONE),            i(Material.OBSIDIAN),           i(Material.COBBLESTONE),
+                        i(Material.WATER_BUCKET),           i(Material.DIAMOND_PICKAXE),    i(Material.LAVA_BUCKET),
+                        i(Material.COBBLESTONE),            i(Material.OBSIDIAN),           i(Material.COBBLESTONE)
                 }
         );
         items.add(BEKT_YSJZI);
@@ -708,9 +706,9 @@ public class BektItems
                 BektItemStack.BEKT_EYHGI,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
-                        new ItemStack(Material.GLASS),            SlimefunItems.CARBON,                         new ItemStack(Material.GLASS),
+                        i(Material.GLASS),                        SlimefunItems.CARBON,                         i(Material.GLASS),
                         SlimefunItems.HEATING_COIL,               SlimefunItems.CARBONADO_EDGED_FURNACE,        SlimefunItems.HEATING_COIL,
-                        new ItemStack(Material.GLASS),            SlimefunItems.CARBON,                         new ItemStack(Material.GLASS)
+                        i(Material.GLASS),                        SlimefunItems.CARBON,                         i(Material.GLASS)
                 }
         );
         items.add(BEKT_EYHGI);
@@ -721,8 +719,8 @@ public class BektItems
                 BektItemStack.BEKT_FLFDI,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
-                        null,                               new ItemStack(Material.IRON_BLOCK),             null,
-                        new ItemStack(Material.IRON_BLOCK), BektItemStack.BEKT_FS,                          new ItemStack(Material.IRON_BLOCK),
+                        null,                               i(Material.IRON_BLOCK),                         null,
+                        i(Material.IRON_BLOCK),             BektItemStack.BEKT_FS,                          i(Material.IRON_BLOCK),
                         null,                               SlimefunItems.ENERGY_CONNECTOR,                 null
                 }
         );
@@ -763,7 +761,7 @@ public class BektItems
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
                         BektItemStack.BEKT_LH,                  BektItemStack.BEKT_YSJZI,               BektItemStack.BEKT_LH,
-                        new ItemStack(Material.WATER_BUCKET),   new ItemStack(Material.DIAMOND_PICKAXE),new ItemStack(Material.LAVA_BUCKET),
+                        i(Material.WATER_BUCKET),               i(Material.DIAMOND_PICKAXE),            i(Material.LAVA_BUCKET),
                         BektItemStack.BEKT_LH,                  BektItemStack.BEKT_YSJZI,               BektItemStack.BEKT_LH
                 }
         );
@@ -776,7 +774,7 @@ public class BektItems
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
                         null,                               BektItemStack.BEKT_CL,                          null,
-                        BektItemStack.BEKT_CL,              new ItemStack(Material.DIAMOND_PICKAXE),        BektItemStack.BEKT_CL,
+                        BektItemStack.BEKT_CL,              i(Material.DIAMOND_PICKAXE),                    BektItemStack.BEKT_CL,
                         SlimefunItems.BLISTERING_INGOT_3,   BektItemStack.BEKT_TS,                          SlimefunItems.BLISTERING_INGOT_3
                 }
         );
@@ -828,7 +826,7 @@ public class BektItems
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
                         SlimefunItems.ANDROID_MEMORY_CORE,          SlimefunItems.PROGRAMMABLE_ANDROID_MINER,           SlimefunItems.ANDROID_MEMORY_CORE,
-                        SlimefunItems.PROGRAMMABLE_ANDROID_MINER,   new ItemStack(Material.DIAMOND_PICKAXE),            SlimefunItems.PROGRAMMABLE_ANDROID_MINER,
+                        SlimefunItems.PROGRAMMABLE_ANDROID_MINER,   i(Material.DIAMOND_PICKAXE),                        SlimefunItems.PROGRAMMABLE_ANDROID_MINER,
                         SlimefunItems.ANDROID_MEMORY_CORE,          SlimefunItems.PROGRAMMABLE_ANDROID_MINER,           SlimefunItems.ANDROID_MEMORY_CORE
                 }
         );
@@ -841,7 +839,7 @@ public class BektItems
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
                         SlimefunItems.STEEL_THRUSTER,           null,                               SlimefunItems.STEEL_THRUSTER,
-                        null,                                   new ItemStack(Material.ELYTRA),     null,
+                        null,                                   i(Material.ELYTRA),                 null,
                         SlimefunItems.HOLOGRAM_PROJECTOR,       SlimefunItems.HOLOGRAM_PROJECTOR,   SlimefunItems.HOLOGRAM_PROJECTOR
                 }
         );
@@ -854,7 +852,7 @@ public class BektItems
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
                         null,                                   SlimefunItems.ELECTRIC_PRESS_2,             null,
-                        new ItemStack(Material.DIAMOND_PICKAXE),SlimefunItems.REINFORCED_PLATE,             new ItemStack(Material.DIAMOND_PICKAXE),
+                        i(Material.DIAMOND_PICKAXE),            SlimefunItems.REINFORCED_PLATE,             i(Material.DIAMOND_PICKAXE),
                         null,                                   SlimefunItems.ELECTRIC_PRESS_2,             null
                 }
         );
@@ -971,7 +969,7 @@ public class BektItems
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
                         BektItemStack.BEKT_CNIII,           BektItemStack.BEKT_CNIII,           BektItemStack.BEKT_CNIII,
-                        BektItemStack.BEKT_AJ,              SlimefunItems.OIL_PUMP,             BektItemStack.BEKT_BJ,
+                        BektItemStack.BEKT_AJ,              SlimefunItems.PLASTIC_SHEET,        BektItemStack.BEKT_BJ,
                         BektItemStack.BEKT_JBLZ,            BektItemStack.BEKT_JBLZ,            BektItemStack.BEKT_JBLZ
                 }
         );
@@ -984,7 +982,7 @@ public class BektItems
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
                         BektItemStack.BEKT_CNHIV,           BektItemStack.BEKT_CNHIV,           BektItemStack.BEKT_CNHIV,
-                        BektItemStack.BEKT_LNJG,            SlimefunItems.OIL_PUMP,             BektItemStack.BEKT_EKJG,
+                        BektItemStack.BEKT_LNJG,            SlimefunItems.PLASTIC_SHEET,        BektItemStack.BEKT_EKJG,
                         BektItemStack.BEKT_EYHGI,           BektItemStack.BEKT_EYHGI,           BektItemStack.BEKT_EYHGI
                 }
         );
@@ -997,8 +995,8 @@ public class BektItems
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
                         SlimefunItems.GEO_MINER,            SlimefunItems.GEO_MINER,                  SlimefunItems.GEO_MINER,
-                        SlimefunItems.ENERGIZED_CAPACITOR,  new ItemStack(Material.DIAMOND_PICKAXE),  SlimefunItems.ENERGIZED_CAPACITOR,
-                        new ItemStack(Material.BUCKET),     BektItemStack.BEKT_QH,                    new ItemStack(Material.BUCKET)
+                        SlimefunItems.ENERGIZED_CAPACITOR,  i(Material.DIAMOND_PICKAXE),  SlimefunItems.ENERGIZED_CAPACITOR,
+                        i(Material.BUCKET),     BektItemStack.BEKT_QH,                    i(Material.BUCKET)
                 }
         );
         items.add(BEKT_JGHQQ);
@@ -1022,15 +1020,340 @@ public class BektItems
         BEKT_HJJJJ = new SlimefunItem(
                 Bekt_SubGroup_JYJQ_DJ,
                 BektItemStack.BEKT_HJJJJ,
-                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                BektRecipeType.BEKT_QHGZT,
                 new ItemStack[]{
-                        null
+
                 }
         );
         items.add(BEKT_HJJJJ);
+        
+        /*基岩轰击器*/
+        BEKT_JYHJQ = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_DJ,
+                BektItemStack.BEKT_JYHJQ,
+                BektRecipeType.BEKT_QHGZT,
+                new ItemStack[]{
+                        c(BektItemStack.BEKT_QHLZ,32),          BektItemStack.BEKT_LJ,          c(SlimefunItems.CARBON,32),
+                        BektItemStack.BEKT_NJ,                     BektItemStack.BEKT_DJLZZ,       BektItemStack.BEKT_GJ,
+                        BektItemStack.BEKT_LNJG,                   BektItemStack.BEKT_FJ,          BektItemStack.BEKT_GFJG
+                }
+        );
+        items.add(BEKT_JYHJQ);
 
+        /*基岩合成台*/
+        BEKT_JYHCT = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_DJ,
+                BektItemStack.BEKT_JYHCT,
+                BektRecipeType.BEKT_QHGZT,
+                new ItemStack[]{
+                        BektItemStack.BEKT_JYLZ,                BektItemStack.BEKT_JYLZ,                BektItemStack.BEKT_JYLZ,
+                        c(BektItemStack.BEKT_LNJG,16),       i(Material.CRAFTING_TABLE),             c(BektItemStack.BEKT_GFJG,16),
+                        BektItemStack.BEKT_JBLZ,                BektItemStack.BEKT_JBLZ,                BektItemStack.BEKT_JBLZ
+                }
+        );
+        items.add(BEKT_JYHCT);
 
+        /*粒子发电*/
+        BEKT_LZFDJ = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_DJ,
+                BektItemStack.BEKT_LZFDJ,
+                BektRecipeType.BEKT_QHGZT,
+                new ItemStack[]{
+                        c(BektItemStack.BEKT_LNJG,32),      c(BektItemStack.BEKT_LNJG,32),      c(BektItemStack.BEKT_LNJG,32),
+                        BektItemStack.BEKT_QH,                 SlimefunItems.NETHER_STAR_REACTOR,     BektItemStack.BEKT_QH,
+                        c(BektItemStack.BEKT_JBLZ,32),      c(BektItemStack.BEKT_JBLZ,32),      c(BektItemStack.BEKT_JBLZ,32)
+                }
+        );
+        items.add(BEKT_LZFDJ);
 
+        /*简化粒子发电机*/
+        BEKT_JYLZF = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_DJ,
+                BektItemStack.BEKT_JYLZF,
+                BektRecipeType.BEKT_QHGZT,
+                new ItemStack[]{
+                        BektItemStack.BEKT_JBLZ,                BektItemStack.BEKT_JBLZ,                BektItemStack.BEKT_JBLZ,
+                        SlimefunItems.NUCLEAR_REACTOR,          SlimefunItems.NUCLEAR_REACTOR,          SlimefunItems.NUCLEAR_REACTOR,
+                        c(BektItemStack.BEKT_GFJG,32),       c(BektItemStack.BEKT_GFJG,32),       c(BektItemStack.BEKT_GFJG,32)
+                }
+        );
+        items.add(BEKT_JYLZF);
+
+        //============================高级基岩机器============================//
+
+        /*基岩对撞机*/
+        BEKT_GQJYD = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_GJ,
+                BektItemStack.BEKT_GQJYD,
+                BektRecipeType.BEKT_QHGZT,
+                new ItemStack[]{
+                        SlimefunItems.ENERGIZED_CAPACITOR,          BektItemStack.BEKT_EYHGI,           SlimefunItems.ENERGIZED_CAPACITOR,
+                        c(BektItemStack.BEKT_HJJJJ,16),          BektItemStack.BEKT_JYLZ,            c(BektItemStack.BEKT_HJJJJ,16),
+                        c(BektItemStack.BEKT_LNJG,32),           BektItemStack.BEKT_EYHGI,           c(BektItemStack.BEKT_GFJG,32)
+                }
+        );
+        items.add(BEKT_GQJYD);
+
+        /*加强基岩对撞机*/
+        BEKT_ZJJYD = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_GJ,
+                BektItemStack.BEKT_ZJJYD,
+                BektRecipeType.BEKT_QHGZT,
+                new ItemStack[]{
+                        BektItemStack.BEKT_YJGG,                    c(BektItemStack.BEKT_JYLZ,4),             BektItemStack.BEKT_YJGG,
+                        SlimefunItems.PROGRAMMABLE_ANDROID_MINER,   BektItemStack.BEKT_GQJYD,                    SlimefunItems.PROGRAMMABLE_ANDROID_MINER,
+                        BektItemStack.BEKT_LNJG,                    c(BektItemStack.BEKT_JYLZ,4),             BektItemStack.BEKT_GFJG
+                }
+        );
+        items.add(BEKT_ZJJYD);
+
+        /*汞提取机*/
+        BEKT_GTQJQ = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_GJ,
+                BektItemStack.BEKT_GHJJQ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        BektItemStack.BEKT_HJJJJ,                   BektItemStack.BEKT_HJJJJ,                   BektItemStack.BEKT_HJJJJ,
+                        BektItemStack.BEKT_JYKK,                    SlimefunItems.PROGRAMMABLE_ANDROID_MINER,   BektItemStack.BEKT_JYKK,
+                        BektItemStack.BEKT_GJJGH,                   i(Material.BEDROCK),                        BektItemStack.BEKT_GJJGH
+                }
+        );
+        items.add(BEKT_GTQJQ);
+
+        /*鞘翅获取器*/
+        BEKT_QCHQJ = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_GJ,
+                BektItemStack.BEKT_QCHQJ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        BektItemStack.BEKT_GJLZT,                   BektItemStack.BEKT_JBLZ,                    BektItemStack.BEKT_GJLZT,
+                        BektItemStack.BEKT_CJ,                      BektItemStack.BEKT_CNHII,                   BektItemStack.BEKT_HJ,
+                        BektItemStack.BEKT_GJLZT,                   BektItemStack.BEKT_JBLZ,                    BektItemStack.BEKT_GJLZT
+                }
+        );
+        items.add(BEKT_QCHQJ);
+
+        /*幻翼击杀机*/
+        BEKT_HYJSJ = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_GJ,
+                BektItemStack.BEKT_HYJSJ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        BektItemStack.BEKT_JBLZ,                    i(Material.PHANTOM_MEMBRANE),   BektItemStack.BEKT_JBLZ,
+                        i(Material.DIAMOND_PICKAXE),                BektItemStack.BEKT_CNIII,       i(Material.DIAMOND_PICKAXE),
+                        BektItemStack.BEKT_JBLZ,                    i(Material.PHANTOM_MEMBRANE),   BektItemStack.BEKT_JBLZ
+                }
+        );
+        items.add(BEKT_HYJSJ);
+
+        /*幻翼提取机*/
+        BEKT_HYMTQ = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_GJ,
+                BektItemStack.BEKT_HYMTQ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        BektItemStack.BEKT_JBLZ,                    SlimefunItems.GPS_TRANSMITTER_4,            BektItemStack.BEKT_JBLZ,
+                        BektItemStack.BEKT_JYDL,                    BektItemStack.BEKT_HYJSJ,                   BektItemStack.BEKT_JYDL,
+                        BektItemStack.BEKT_JBLZ,                    SlimefunItems.GPS_TRANSMITTER_4,            BektItemStack.BEKT_JBLZ
+                }
+        );
+        items.add(BEKT_HYMTQ);
+        
+        /*高级粒子转换器*/
+        BEKT_GNLZJ = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_GJ,
+                BektItemStack.BEKT_GNLZJ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        BektItemStack.BEKT_JBLZ,                    SlimefunItems.ADVANCED_CIRCUIT_BOARD,       BektItemStack.BEKT_JBLZ,
+                        BektItemStack.BEKT_JYDL,                    i(Material.CHEST),                          BektItemStack.BEKT_JYDL,
+                        BektItemStack.BEKT_JBLZ,                    SlimefunItems.ADVANCED_CIRCUIT_BOARD,       BektItemStack.BEKT_JBLZ
+                }
+        );
+        items.add(BEKT_GNLZJ);
+
+        /*汞轰击器*/
+        BEKT_GHJJQ = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_GJ,
+                BektItemStack.BEKT_GHJJQ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        BektItemStack.BEKT_JBLZ,                    BektItemStack.BEKT_HIJG,                    BektItemStack.BEKT_JBLZ,
+                        BektItemStack.BEKT_LZJSJ,                   BektItemStack.BEKT_HJJJJ,                   BektItemStack.BEKT_LZJSJ,
+                        BektItemStack.BEKT_HJ,                      BektItemStack.BEKT_EKJG,                    BektItemStack.BEKT_IJ
+                }
+        );
+        items.add(BEKT_GHJJQ);
+
+        //============================终极基岩机器============================//
+
+        /*粒子合成机*/
+        BEKT_LZHCJ = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_ZJ,
+                BektItemStack.BEKT_LZHCJ,
+                BektRecipeType.BEKT_QHGZT,
+                new ItemStack[]{
+                        c(BektItemStack.BEKT_XIJI,16),          c(BektItemStack.BEKT_YJGG,16),              c(BektItemStack.BEKT_JYHCT,16),
+                        c(BektItemStack.BEKT_JYLZ,16),          c(i(Material.BEDROCK),16),                  c(BektItemStack.BEKT_JYDL,16),
+                        c(BektItemStack.BEKT_JYKK,16),          c(BektItemStack.BEKT_LNJG,16),              c(BektItemStack.BEKT_GFJG,16)
+                }
+        );
+        items.add(BEKT_LZHCJ);
+
+        /*原油生成机*/
+        BEKT_YYSCJ = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_ZJ,
+                BektItemStack.BEKT_YYSCJ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        SlimefunItems.OIL_PUMP,                     SlimefunItems.GPS_TRANSMITTER_4,                    SlimefunItems.OIL_PUMP,
+                        SlimefunItems.OIL_PUMP,                     i(Material.BEDROCK),                                SlimefunItems.OIL_PUMP,
+                        SlimefunItems.OIL_PUMP,                     SlimefunItems.OIL_PUMP,                             SlimefunItems.OIL_PUMP
+                }
+        );
+        items.add(BEKT_YYSCJ);
+        
+        /*鞘翅生成*/
+        BEKT_QCSCQ = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_ZJ,
+                BektItemStack.BEKT_QCSCQ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        i(Material.ELYTRA),             i(Material.ELYTRA),                     i(Material.ELYTRA),
+                        BektItemStack.BEKT_XIJI,        i(Material.BEDROCK),                    BektItemStack.BEKT_XIJI,
+                        i(Material.ELYTRA),             i(Material.ELYTRA),                     i(Material.ELYTRA)
+                }
+        );
+        items.add(BEKT_QCSCQ);
+        
+        /*终极结构获取器*/
+        BEKT_JJJGH = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_ZJ,
+                BektItemStack.BEKT_JJJGH,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        BektItemStack.BEKT_GJJGH,                   BektItemStack.BEKT_GJJGH,                   BektItemStack.BEKT_GJJGH,
+                        BektItemStack.BEKT_LNJG,                    i(Material.BEDROCK),                        BektItemStack.BEKT_GFJG,
+                        BektItemStack.BEKT_XIJI,                    BektItemStack.BEKT_XIJI,                    BektItemStack.BEKT_XIJI
+                }
+        );
+        items.add(BEKT_JJJGH);
+        
+        /*基岩粒子提取器*/
+        BEKT_JYLZT = new SlimefunItem(
+                Bekt_SubGroup_JYJQ_ZJ,
+                BektItemStack.BEKT_JYLZT,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        BektItemStack.BEKT_FZLZT,               BektItemStack.BEKT_FZLZT,       BektItemStack.BEKT_FZLZT,
+                        BektItemStack.BEKT_XIJI,                i(Material.BEDROCK),            BektItemStack.BEKT_XIJI,
+                        BektItemStack.BEKT_GJJY,                i(Material.DIAMOND_PICKAXE),    BektItemStack.BEKT_GJJY
+                }
+        );
+        items.add(BEKT_JYLZT);
+
+        //==============================基岩发电==============================//
+        
+        /*基岩粒子发电机*/
+        BEKT_JYJZF = new SlimefunItem(
+                Bekt_SubGroup_JYFD,
+                BektItemStack.BEKT_JYLZF,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        i(Material.BEDROCK),            BektItemStack.BEKT_JYLZ,            i(Material.BEDROCK),
+                        i(Material.BEDROCK),            BektItemStack.BEKT_YSJY,            i(Material.BEDROCK),
+                        i(Material.BEDROCK),            i(Material.BEDROCK),                i(Material.BEDROCK)
+                }
+        );
+        items.add(BEKT_JYJZF);
+
+        /*夸克发电*/
+        BEKT_JYKKF = new SlimefunItem(
+                Bekt_SubGroup_JYFD,
+                BektItemStack.BEKT_JYKKF,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        BektItemStack.BEKT_YSJY,        BektItemStack.BEKT_YSJY,        BektItemStack.BEKT_YSJY,
+                        BektItemStack.BEKT_YSJY,        BektItemStack.BEKT_JMJY,        BektItemStack.BEKT_YSJY,
+                        BektItemStack.BEKT_YSJY,        BektItemStack.BEKT_YSJY,        BektItemStack.BEKT_YSJY
+                }
+        );
+        items.add(BEKT_JYKKF);
+
+        /*基岩反应堆*/
+        BEKT_JYFYD = new SlimefunItem(
+                Bekt_SubGroup_JYFD,
+                BektItemStack.BEKT_JYFYD,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        BektItemStack.BEKT_JMJY,        BektItemStack.BEKT_JMJY,            BektItemStack.BEKT_JMJY,
+                        BektItemStack.BEKT_JMJY,        SlimefunItems.NETHER_STAR_REACTOR,  BektItemStack.BEKT_JMJY,
+                        BektItemStack.BEKT_JMJY,        BektItemStack.BEKT_JMJY,            BektItemStack.BEKT_JMJY
+                }
+        );
+        items.add(BEKT_JYFYD);
+
+        //==============================基岩工具==============================//
+
+        /*基岩利刃*/
+        BEKT_JYLR = new SlimefunItem(
+                Bekt_SubGroup_JYGJ,
+                BektItemStack.BEKT_JYLR,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        null,           BektItemStack.BEKT_JMJY,            null,
+                        null,           BektItemStack.BEKT_JMJY,            null,
+                        null,           i(Material.BEDROCK),                null
+                }
+        );
+        items.add(BEKT_JYLR);
+
+        /*基岩猛斧子*/
+        BEKT_JYMF = new SlimefunItem(
+                Bekt_SubGroup_JYGJ,
+                BektItemStack.BEKT_JYMF,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        BektItemStack.BEKT_JMJY,            BektItemStack.BEKT_JMJY,            null,
+                        BektItemStack.BEKT_JMJY,            BektItemStack.BEKT_YSJY,            null,
+                        null,                               i(Material.BEDROCK),                null
+                }
+        );
+        items.add(BEKT_JYMF);
+
+        /*基岩烈镐*/
+        BEKT_JYLG = new SlimefunItem(
+                Bekt_SubGroup_JYGJ,
+                BektItemStack.BEKT_JYLG,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        BektItemStack.BEKT_JMJY,            BektItemStack.BEKT_JMJY,            BektItemStack.BEKT_JMJY,
+                        null,                               i(Material.BEDROCK),                null,
+                        null,                               i(Material.BEDROCK),                null
+                }
+        );
+        items.add(BEKT_JYLG);
+
+        /*基岩之锹*/
+        BEKT_JYZQ = new SlimefunItem(
+                Bekt_SubGroup_JYGJ,
+                BektItemStack.BEKT_JYZQ,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        null,                   BektItemStack.BEKT_JMJY,                    null,
+                        null,                   BektItemStack.BEKT_YSJY,                    null,
+                        null,                   i(Material.BEDROCK),                        null
+                }
+        );
+        items.add(BEKT_JYZQ);
+    }
+
+    static CustomItemStack c(ItemStack itemStack, int n){
+        return new CustomItemStack(itemStack,n);
+    }
+    
+    static ItemStack i(Material material){
+        return new ItemStack(material);
     }
 
 }
