@@ -17,7 +17,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class BektMain extends JavaPlugin implements SlimefunAddon
 {
     public static BektMain main;
-    //插件版本号
+    //插件版本号tttt
     public static final String VERSION = "v1.0-beta-220402";
 
     @Override
