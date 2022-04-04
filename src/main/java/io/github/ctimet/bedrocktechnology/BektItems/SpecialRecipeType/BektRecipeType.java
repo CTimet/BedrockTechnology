@@ -40,7 +40,7 @@ public class BektRecipeType extends RecipeType
                 BektMain.createKey("BEKT_LZTQI"),
                 BektItemStack.BEKT_LZTQI,
                 "",
-                "轰击物品产出对应粒子"
+                "产出基本粒子"
         );
 
         //基岩轰击器
