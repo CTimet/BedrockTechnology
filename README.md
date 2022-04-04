@@ -1,5 +1,5 @@
 # Slimefun4 附属 -- BedrockTechnology
-  这是一个由CTimet与CLIEDS合作开发的Slimefun附属插件，我们称其为基岩科技BedrockTechnology；不过我们不太喜欢这个直译的名字，于是我们将其称作 BEKT
+  这是一个由CTimet与CLIEDS合作开发的Slimefun附属插件，我们称其为基岩科技BedrockTechnology；不过我们觉得这个直译的名字有些累赘，于是我们将其称作 BEKT
   
   BEKT准确来说并不是BedrockTechnology的缩写，而是它的别称。
   
