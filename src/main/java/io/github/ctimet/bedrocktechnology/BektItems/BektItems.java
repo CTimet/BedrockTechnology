@@ -2,6 +2,7 @@ package io.github.ctimet.bedrocktechnology.BektItems;
 
 import io.github.ctimet.bedrocktechnology.BektItems.SpecialItems.CoreBlisteringIngot;
 import io.github.ctimet.bedrocktechnology.BektItems.SpecialRecipeType.BektRecipeType;
+import io.github.ctimet.bedrocktechnology.BlockMenu.menu.JcjqBasicMachine.Kfjzi;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
@@ -113,22 +114,22 @@ public class BektItems
     public static final SlimefunItem BEKT_HYMTQ;
     public static final SlimefunItem BEKT_GNLZJ;
     public static final SlimefunItem BEKT_GHJJQ;
-    
+
     public static final SlimefunItem BEKT_LZHCJ;
     public static final SlimefunItem BEKT_YYSCJ;
     public static final SlimefunItem BEKT_QCSCQ;
     public static final SlimefunItem BEKT_JJJGH;
     public static final SlimefunItem BEKT_JYLZT;
-    
+
     public static final SlimefunItem BEKT_JYJZF;
     public static final SlimefunItem BEKT_JYKKF;
     public static final SlimefunItem BEKT_JYFYD;
-    
+
     public static final SlimefunItem BEKT_JYLR;
     public static final SlimefunItem BEKT_JYMF;
     public static final SlimefunItem BEKT_JYLG;
     public static final SlimefunItem BEKT_JYZQ;
-    
+
 
     static {
         //==============================基本材料==============================//
@@ -675,7 +676,7 @@ public class BektItems
         //==============================基础机器==============================//
 
         /*矿粉制造机I*/
-        BEKT_KFJZI = new SlimefunItem(
+        BEKT_KFJZI = new Kfjzi(
                 Bekt_SubGroup_JCJQ,
                 BektItemStack.BEKT_KFJZI,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
@@ -686,7 +687,7 @@ public class BektItems
                 }
         );
         items.add(BEKT_KFJZI);
-        
+
         /*圆石制造机*/
         BEKT_YSJZI = new SlimefunItem(
                 Bekt_SubGroup_JCJQ,
@@ -699,7 +700,7 @@ public class BektItems
                 }
         );
         items.add(BEKT_YSJZI);
-        
+
         /*二氧化硅提取机*/
         BEKT_EYHGI = new SlimefunItem(
                 Bekt_SubGroup_JCJQ,
@@ -935,7 +936,7 @@ public class BektItems
                 }
         );
         items.add(BEKT_CNHXI);
-        
+
         /*充能核心II*/
         BEKT_CNHII = new SlimefunItem(
                 Bekt_SubGroup_GJJQ,
@@ -948,7 +949,7 @@ public class BektItems
                 }
         );
         items.add(BEKT_CNHII);
-        
+
         /*充能核心III*/
         BEKT_CNIII = new SlimefunItem(
                 Bekt_SubGroup_GJJQ,
@@ -961,7 +962,7 @@ public class BektItems
                 }
         );
         items.add(BEKT_CNIII);
-        
+
         /*充能核心IV*/
         BEKT_CNHIV = new SlimefunItem(
                 Bekt_SubGroup_GJJQ,
@@ -974,7 +975,7 @@ public class BektItems
                 }
         );
         items.add(BEKT_CNHIV);
-        
+
         /*充能核心V*/
         BEKT_CNHXV = new SlimefunItem(
                 Bekt_SubGroup_GJJQ,
@@ -987,7 +988,7 @@ public class BektItems
                 }
         );
         items.add(BEKT_CNHXV);
-        
+
         /*结构获取器*/
         BEKT_JGHQQ = new SlimefunItem(
                 Bekt_SubGroup_GJJQ,
@@ -1000,7 +1001,7 @@ public class BektItems
                 }
         );
         items.add(BEKT_JGHQQ);
-        
+
         /*高级结构获取器*/
         BEKT_GJJGH = new SlimefunItem(
                 Bekt_SubGroup_GJJQ,
@@ -1015,7 +1016,7 @@ public class BektItems
         items.add(BEKT_GJJGH);
 
         //============================低级基岩机器============================//
-        
+
         /*轰击机*/
         BEKT_HJJJJ = new SlimefunItem(
                 Bekt_SubGroup_JYJQ_DJ,
@@ -1026,7 +1027,7 @@ public class BektItems
                 }
         );
         items.add(BEKT_HJJJJ);
-        
+
         /*基岩轰击器*/
         BEKT_JYHJQ = new SlimefunItem(
                 Bekt_SubGroup_JYJQ_DJ,
@@ -1110,7 +1111,7 @@ public class BektItems
         /*汞提取机*/
         BEKT_GTQJQ = new SlimefunItem(
                 Bekt_SubGroup_JYJQ_GJ,
-                BektItemStack.BEKT_GHJJQ,
+                BektItemStack.BEKT_GTQJQ,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
                         BektItemStack.BEKT_HJJJJ,                   BektItemStack.BEKT_HJJJJ,                   BektItemStack.BEKT_HJJJJ,
@@ -1158,7 +1159,7 @@ public class BektItems
                 }
         );
         items.add(BEKT_HYMTQ);
-        
+
         /*高级粒子转换器*/
         BEKT_GNLZJ = new SlimefunItem(
                 Bekt_SubGroup_JYJQ_GJ,
@@ -1257,7 +1258,7 @@ public class BektItems
         /*基岩粒子发电机*/
         BEKT_JYJZF = new SlimefunItem(
                 Bekt_SubGroup_JYFD,
-                BektItemStack.BEKT_JYLZF,
+                BektItemStack.BEKT_JYJZF,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
                         i(Material.BEDROCK),            BektItemStack.BEKT_JYLZ,            i(Material.BEDROCK),
