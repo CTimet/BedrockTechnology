@@ -51,5 +51,5 @@
   null,当前未发布任何正式版本，请耐心等待
   
   #### 历史版本(包含测试版)与相应介绍：
-  v1.0-beta-220402f0: [BedrockTechnology_v1.0-beta-220402f0](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-beta-220402f0/)
+  null,当前未发布任何测试版本，请耐心等待
       
