@@ -1,7 +1,7 @@
-package io.github.ctimet.bedrocktechnology.Command;
+package io.github.ctimet.bedrocktechnology.core.Command;
 
-import io.github.ctimet.bedrocktechnology.Command.MessagePage.SendMessageToPlayer;
-import io.github.ctimet.bedrocktechnology.BektMain;
+import io.github.ctimet.bedrocktechnology.core.Command.MessagePage.SendMessageToPlayer;
+import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
 
-import static io.github.ctimet.bedrocktechnology.BektMain.VERSION;
+import static io.github.ctimet.bedrocktechnology.initial.BektMain.VERSION;
 
 public class BektCommand implements CommandExecutor
 {

@@ -1,4 +1,4 @@
-package io.github.ctimet.bedrocktechnology.BektItems.SpecialItems;
+package io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem.SpecialItems;
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;

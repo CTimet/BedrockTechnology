@@ -1,7 +1,7 @@
-package io.github.ctimet.bedrocktechnology.BektItems.SpecialRecipeType;
+package io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem.SpecialRecipeType;
 
-import io.github.ctimet.bedrocktechnology.BektItems.BektItemStack;
-import io.github.ctimet.bedrocktechnology.BektMain;
+import io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem.BektItemStack;
+import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.recipes.MinecraftRecipe;

@@ -1,12 +1,12 @@
-package io.github.ctimet.bedrocktechnology.BektItems;
+package io.github.ctimet.bedrocktechnology.core.BektItems;
 
-import io.github.ctimet.bedrocktechnology.BektMain;
+import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.NestedItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
 
-import static io.github.ctimet.bedrocktechnology.BektItems.BektItems.items;
+import static io.github.ctimet.bedrocktechnology.initial.BektItems.items;
 
 /**
  * @author CTimet

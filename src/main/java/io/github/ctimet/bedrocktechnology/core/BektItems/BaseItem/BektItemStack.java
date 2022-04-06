@@ -1,4 +1,4 @@
-package io.github.ctimet.bedrocktechnology.BektItems;
+package io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.Material;
