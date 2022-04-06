@@ -262,7 +262,13 @@ public class BektItemStack
             "&7通过机器开采",
             "&o&7它很空虚"
     );
-
+    public static final SlimefunItemStack BEKT_SYJJ = new SlimefunItemStack(
+            "BEKT_SYJJ",
+            Material.,
+            "",
+            "",
+            ""
+    );
     //----------------------------------------基岩材料----------------------------------------//
     public static final SlimefunItemStack BEKT_LNJG = new SlimefunItemStack(
             "BEKT_LNJG",
