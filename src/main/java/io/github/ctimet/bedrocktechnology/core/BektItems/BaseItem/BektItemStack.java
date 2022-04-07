@@ -437,7 +437,7 @@ public class BektItemStack
             "",
             "由塑料纸二次加工而来的橡胶,可用于制作各种物品"
     );
-
+e
     //----------------------------------------基岩材料----------------------------------------//
     public static final SlimefunItemStack BEKT_LNJG = new SlimefunItemStack(
             "BEKT_LNJG",
