@@ -262,6 +262,118 @@ public class BektItemStack
             "&7通过机器开采",
             "&o&7它很空虚"
     );
+    public static final SlimefunItemStack BEKT_SYJJ = new SlimefunItemStack(
+            "BEKT_SYJJ",
+            Material.AIR,
+            "硅结晶",
+            "",
+            "被二次烧炼的硅,它变得更加光滑了"
+    );
+    public static final SlimefunItemStack BEKT_CDLB = new SlimefunItemStack(
+            "BEKT_CDLB",
+            Material.AIR,
+            "磁电路板",
+            "",
+            "一种特殊的电路板,是BEKT的机器的组件"
+    );
+    public static final SlimefunItemStack BEKT_CPU = new SlimefunItemStack(
+            "BEKT_CPU",
+            Material.AIR,
+            "机器CPU",
+            "",
+            "单核CPU,是构成BEKT机器的重要核心组件"
+    );
+    public static final SlimefunItemStack BEKT_CZKJ = new SlimefunItemStack(
+            "BEKT_CZKJ",
+            Material.IRON_BLOCK,
+            "粗制的机械框架",
+            "",
+            "最基础的机器框架 是机器的模型"
+    );
+    public static final SlimefunItemStack BEKT_JRKJ = new SlimefunItemStack(
+            "BEKT_JRKJ",
+            Material.GOLD_BLOCK,
+            "坚韧的机械框架",
+            "",
+            "工业通用的机械框架,可用来制作大部分机器"
+    );
+    public static final SlimefunItemStack BEKT_PYKG = new SlimefunItemStack(
+            "BEKT_PYKG",
+            Material.DIAMOND_BLOCK,
+            "贫铀合金机械框架",
+            "",
+            "最高级的机械框架,可以用来制造更加高级的机器"
+    );
+    public static final SlimefunItemStack BEKT_PYHJ = new SlimefunItemStack(
+            "BEKT_PYHJ",
+            Material.GOLD_INGOT,
+            "贫铀合金锭",
+            "",
+            "更加坚固的机械组件"
+    );
+    public static final SlimefunItemStack BEKT_JXFHB = new SlimefunItemStack(
+            "BEKT_JXFHB",
+            Material.PAPER,
+            "贫铀合金机械防护板",
+            "",
+            "机器组件"
+    );
+    public static final SlimefunItemStack BEKT_LID = new SlimefunItemStack(
+            "BEKT_LID",
+            Material.IRON_INGOT,
+            "锂锭",
+            "",
+            "核聚变发电的重要原料"
+    );
+    public static final SlimefunItemStack BEKT_QPHJ = new SlimefunItemStack(
+            "BEKT_QPHJ",
+            Material.GOLD_INGOT,
+            "起泡合金锭",
+            "",
+            "辐射机械组件"
+    );
+    public static final SlimefunItemStack BEKT_CCC1 = new SlimefunItemStack(
+            "BEKT_CCC1",
+            Material.PLAYER_HEAD,
+            "化学流体罐[内容物:氚(33%)]",
+            "",
+            "核聚变的燃料之一,通过超高压压力仓加热富集到100%纯度即可用于发电"
+    );
+    public static final SlimefunItemStack BEKT_CCC2 = new SlimefunItemStack(
+            "BEKT_CCC2",
+            Material.PLAYER_HEAD,
+            "化学流体罐[内容物:氚(66%)]",
+            "",
+            "核聚变的燃料之一,通过超高压压力仓加热富集到100%纯度即可用于发电"
+    );
+    public static final SlimefunItemStack BEKT_CCCC = new SlimefunItemStack(
+            "BEKT_CCCC",
+            Material.PLAYER_HEAD,
+            "化学流体罐[内容物:氚]",
+            "",
+            "核聚变的燃料之一,此富集度的氚可以用于核聚变发电"
+    );
+    public static final SlimefunItemStack BEKT_LF = new SlimefunItemStack(
+            "BEKT_LF",
+            Material.SUGAR,
+            "锂粉",
+            "",
+            "第10种矿粉,可以在洗矿机内洗出,概率3%"
+    );
+    public static final SlimefunItemStack BEKT_LMHJ = new SlimefunItemStack(
+            "BEKT_LMHJ",
+            Material.IRON_INGOT,
+            "锂镁合金",
+            "",
+            "核聚变燃料的本体,可用于制作氚"
+    );
+    public static final SlimefunItemStack BEKT_05YB = new SlimefunItemStack(
+            "BEKT_05YB",
+            Material.烈焰棒(未找到),
+            "铀燃料棒(富集度:0.5%)",
+            "",
+            "快中子增殖反应堆的发电材料,富集到5%即可用于生产"
+    );
     //----------------------------------------基岩材料----------------------------------------//
     public static final SlimefunItemStack BEKT_LNJG = new SlimefunItemStack(
             "BEKT_LNJG",
