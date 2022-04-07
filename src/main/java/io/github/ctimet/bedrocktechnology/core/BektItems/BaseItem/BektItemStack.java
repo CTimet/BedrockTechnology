@@ -374,6 +374,70 @@ public class BektItemStack
             "",
             "快中子增殖反应堆的发电材料,富集到5%即可用于生产"
     );
+    public static final SlimefunItemStack BEKT_10YB = new SlimefunItemStack(
+            "BEKT_10YB",
+            Material.烈焰棒,
+            "铀燃料棒(富集度:1.0%)",
+            "",
+            "快中子增殖反应堆的发电材料,富集到5%即可用于生产"
+    );
+    public static final SlimefunItemStack BEKT_30YB = new SlimefunItemStack(
+            "BEKT_30YB",
+            Material.烈焰棒,
+            "铀燃料棒(富集度3%)",
+            "",
+            "快中子增殖反应堆的发电材料,富集到5%即可用于生产"
+    );
+    public static final SlimefunItemStack BEKT_50YB = new SlimefunItemStack(
+            "BEKT_50YB",
+            Material.烈焰棒,
+            "铀燃料棒(富集度5%)",
+            "",
+            "快中子增殖反应堆的发电材料,此富集度的铀燃料棒可以投入生产"
+    );
+    public static final SlimefunItemStack BEKT_DJZS = new SlimefunItemStack(
+            "BEKT_DJZS",
+            Material.WATER_BUCKET,
+            "化学流体罐[内容物:电解水]",
+            "",
+            "电解而来的重水,可以提取氘用于核聚变发电"
+    );
+    public static final SlimefunItemStack BEKT_DDDD = new SlimefunItemStack(
+            "BEKT_DDDD",
+            Material.PLAYER_HEAD,
+            "化学流体罐[内容物:氘]",
+            "",
+            "由电解水离心而来的氘,可用于核聚变发电"
+    );
+    public static final SlimefunItemStack BEKT_LTG = new SlimefunItemStack(
+            "BEKT_LTG",
+            Material.BUCKET,
+            "化学流体罐[内容物:无物品]",
+            "",
+            "承载化学物品的罐子,蕴含着未知神秘的力量......"
+    );
+    public static final SlimefunItemStack BEKT_XBHX = new SlimefunItemStack(
+            "BEKT_XBHX",
+            Material.NETHER_STAR,
+            "信标核心",
+            "",
+            "由信标二次加工提取而来的信标核心,是高级机械的核心材料"
+    );
+    public static final SlimefunItemStack BEKT_GQDFHB = new SlimefunItemStack(
+            "BEKT_GQDFHB",
+            Material.PAPER,
+            "高强度防护板材",
+            "",
+            "由稀有金属制成的防护板材,可以抵挡大部分伤害"
+    );
+    public static final SlimefunItemStack BEKT_XJ = new SlimefunItemStack(
+            "BEKT_XJ",
+            Material.WHITE_DYE,
+            "橡胶",
+            "",
+            "由塑料纸二次加工而来的橡胶,可用于制作各种物品"
+    );
+
     //----------------------------------------基岩材料----------------------------------------//
     public static final SlimefunItemStack BEKT_LNJG = new SlimefunItemStack(
             "BEKT_LNJG",
