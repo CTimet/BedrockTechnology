@@ -1,12 +1,11 @@
 package io.github.ctimet.bedrocktechnology.core.BektItems;
 
+import io.github.ctimet.bedrocktechnology.initial.BektItems;
 import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.NestedItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
-
-import static io.github.ctimet.bedrocktechnology.initial.BektItems.items;
 
 /**
  * @author CTimet
@@ -75,13 +74,10 @@ public class BektItemGroup
     public static SubItemGroup Bekt_SubGroup_MFWP = getSubGroup(
             Material.REDSTONE,
             "BEKT_MFWP",
-            "&lBEKT &7-魔法物品"
+            "&lBEKT &7- 魔法物品"
     );
-    public static final BektMain main = BektMain.main;
-
-    
     public static void registerSubCate(){
-        items.forEach(e -> e.register(main));
+        BektItems.register();
     }
 
     public static SubItemGroup getSubGroup(Material material,String key,String name){

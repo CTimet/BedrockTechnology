@@ -5,11 +5,12 @@ import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.recipes.MinecraftRecipe;
-import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.function.BiConsumer;
+
+import static io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem.BektItemStack.BEKT_QHGZTT;
 
 /**
  * 这是一个特殊的类，用于标记一些特殊物品的来源机器
@@ -27,13 +28,6 @@ public class BektRecipeType extends RecipeType
     public static final RecipeType BEKT_GHJJQ;
     public static final RecipeType BEKT_DJLZZ;
     public static final RecipeType BEKT_QHGZT;
-
-    public static final SlimefunItemStack BEKT_QHGZTT = new SlimefunItemStack(
-            "BEKT_QHGZTT",
-            Material.CRAFTING_TABLE,
-            "&b强化工作台",
-            ""
-    );
 
     static {
         //结构获取器

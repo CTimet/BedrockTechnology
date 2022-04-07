@@ -630,6 +630,12 @@ public class BektItemStack
             "",
             getPow("800,000")
     );
+    public static final SlimefunItemStack BEKT_QHGZTT = new SlimefunItemStack(
+            "BEKT_QHGZTT",
+            Material.CRAFTING_TABLE,
+            "&b强化工作台",
+            ""
+    );
 
     //----------------------------------------高级基岩机器----------------------------------------//
 
@@ -791,12 +797,29 @@ public class BektItemStack
     //---------------------------------BEKTITEMINFORMATIONEND--------------------------------//
 
 
+    /**
+     * 机器的速度，eff内一定要带上x，比如1x，代表1倍
+     * @param eff 速度，单位x
+     * @return 速度
+     */
     public static String getEff(String eff){
         return "&7⇨ &e⚡ &7速度: &b" + eff;
     }
+
+    /**
+     * 机器的耗电量，当一个机器需要持续耗电时，请用这个方法添加lore
+     * @param j 电量，单位J/S，输入的字符串中不需要带单位，只需要输入数字即可
+     * @return 电量
+     */
     public static String getPow(String j){
         return "&7⇨ &e⚡ &7" + j + "J/s";
     }
+
+    /**
+     * 机器的耗电量，当一个机器只在用的时候才耗电时，使用这个方法添加lore
+     * @param j 电量，单位J/S,输入的字符串不需要带单位
+     * @return 电量
+     */
     public static String getUse(String j){
         return "&7⇨ &e⚡ &7" + j + "J每次使用";
     }
