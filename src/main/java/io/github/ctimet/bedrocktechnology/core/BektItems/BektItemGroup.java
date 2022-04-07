@@ -71,6 +71,12 @@ public class BektItemGroup
             "BEKT_JYGJ",
             "&lBEKT &7- 基岩工具"
     );
+    //魔法物品
+    public static SubItemGroup Bekt_SubGroup_MFWP = getSubGroup(
+            Material.REDSTONE,
+            "BEKT_MFWP",
+            "&lBEKT &7-魔法物品"
+    );
     public static final BektMain main = BektMain.main;
 
     
