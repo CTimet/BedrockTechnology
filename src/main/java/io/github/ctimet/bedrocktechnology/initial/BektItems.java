@@ -72,6 +72,7 @@ public class BektItems
                 }
         ).register(main);
 
+
         /*铜线圈*/
          new SlimefunItem(
                 BektItemGroup.Bekt_SubGroup_JCCL,
@@ -528,10 +529,10 @@ public class BektItems
                         SlimefunItems.REINFORCED_ALLOY_INGOT,       SlimefunItems.REINFORCED_PLATE,             SlimefunItems.REINFORCED_ALLOY_INGOT,
                         SlimefunItems.ELECTRIC_ORE_GRINDER_3,       SlimefunItems.ELECTRIFIED_CRUCIBLE_3,       SlimefunItems.ELECTRIC_DUST_WASHER_3
                 }
-        ).setCapacity(20)
-         .setEnergyConsumption(2)
-         .setProcessingSpeed(1)
-         .register(main);
+        ).setCapacity(300)
+                .setProcessingSpeed(3)
+                .setEnergyConsumption(300)
+                .register(main);
 
         /*圆石制造机*/
         new SlimefunItem(
