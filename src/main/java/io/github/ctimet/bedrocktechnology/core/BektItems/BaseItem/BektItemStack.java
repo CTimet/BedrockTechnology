@@ -551,6 +551,23 @@ public class BektItemStack
             "",
             "&o&7我好小..."
     );
+    //----------------------------------------魔法物品----------------------------------------//
+    public static final SlimefunItemStack BEKT_CJXF_ZC = new SlimefunItemStack(
+            "BEKT-CJXF-ZC",
+            Material.STICK,
+            "&a超级修复-注册",
+            "",
+            "&7&o注册你的机器，当你的机器被卡掉时，可以通过 &b超级修复-修复&7 来修复你的机器",
+            "&7&o修复前提是&4你的机器以被注册,未被注册的机器不受保护！"
+    );
+    public static final SlimefunItemStack BEKT_CJXF_XF = new SlimefunItemStack(
+            "BEKT-CJXF-XF",
+            Material.STICK,
+            "&a超级修复-修复",
+            "",
+            "&7&o修复你的机器，当你的机器被卡掉时，你可以用此物品右键机器来修复你的机器",
+            "&7&o修复前提是&4你的机器已被注册,未被注册的机器不受保护！"
+    );
 
     //----------------------------------------基础机器----------------------------------------//
     public static final SlimefunItemStack BEKT_KFJZI = new SlimefunItemStack(

@@ -354,6 +354,28 @@ public class BektItems
                  }
          ).register(main);
 
+        //==============================魔法材料==============================//
+
+        /*超级修复-注册*/
+         new SlimefunItem(
+                BektItemGroup.Bekt_SubGroup_MFWP,
+                BektItemStack.BEKT_CJXF_ZC,
+                BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+
+                }
+         ).register(main);
+
+         /*超级修复*/
+         new SlimefunItem(
+                 BektItemGroup.Bekt_SubGroup_MFWP,
+                 BektItemStack.BEKT_CJXF_XF,
+                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
+                 new ItemStack[]{
+
+                 }
+         ).register(main);
+
         //==============================基岩材料==============================//
 
         /*LN结构*/
