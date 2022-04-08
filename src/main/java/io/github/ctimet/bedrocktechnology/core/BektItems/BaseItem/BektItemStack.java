@@ -262,7 +262,6 @@ public class BektItemStack
             "&7通过机器开采",
             "&o&7它很空虚"
     );
-    /*
     public static final SlimefunItemStack BEKT_SYJJ = new SlimefunItemStack(
             "BEKT_SYJJ",
             Material.AIR,
@@ -368,13 +367,77 @@ public class BektItemStack
             "",
             "核聚变燃料的本体,可用于制作氚"
     );
-    /*public static final SlimefunItemStack BEKT_05YB = new SlimefunItemStack(
+    public static final SlimefunItemStack BEKT_05YB = new SlimefunItemStack(
             "BEKT_05YB",
             Material.烈焰棒(未找到),
             "铀燃料棒(富集度:0.5%)",
             "",
             "快中子增殖反应堆的发电材料,富集到5%即可用于生产"
-    );*/
+    );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //----------------------------------------基岩材料----------------------------------------//
     public static final SlimefunItemStack BEKT_LNJG = new SlimefunItemStack(
             "BEKT_LNJG",

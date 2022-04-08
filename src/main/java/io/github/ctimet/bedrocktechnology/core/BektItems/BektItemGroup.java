@@ -76,6 +76,13 @@ public class BektItemGroup
             "BEKT_MFWP",
             "&lBEKT &7- 魔法物品"
     );
+    //无尽发电机面板数据削弱恢复  恢复无尽检测其他附属按比例削弱的发电量 建议各位腐竹ban掉无尽的发电机使用我们修复过的,以免玩家搞混
+    //包含制作无尽太阳能系列所需的全部材料及其材质  面板数据1:1同步 且有此附属单独标签,无法与无尽物品联用!
+    public static SubItemGroup Bekt_SubGroup_FDXF = getSubGroup(
+            Material.NETHER_STAR,
+            "BEKT_INFINITY_SLOAR_FIX",
+            "&lBEKT &7-无尽发电机面板数据修复"
+    );
     public static void registerSubCate(){
         BektItems.register();
     }
