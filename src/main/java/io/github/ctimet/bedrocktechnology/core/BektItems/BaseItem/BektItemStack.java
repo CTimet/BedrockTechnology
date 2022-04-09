@@ -612,6 +612,31 @@ public class BektItemStack
             getEff("1x"),
             getPow("1500")
     );
+    public static final SlimefunItemStack BEKT_JCSL = new SlimefunItemStack(
+            "BEKT_JCSL",
+            Material.海精石砖墙,
+            "基础水力发电机",
+            "",
+            "利用最基础的连通器水流缓慢发电",
+            getPow("60")
+    );
+    public static final SlimefunItemStack BEKT_WIND = new SlimefunItemStack(
+            "BEKT_WIND",
+            Material.BLACK_STAINED_GLASS,
+            "基础风力发电机",
+            "",
+            "利用风力缓慢发电",
+            getPow("60")
+    );
+    public static final SlimefunItemStack BEKT_JCKJ = new SlimefunItemStack(
+            "BEKT_JCKJ",
+            Material.END_STONE,
+            "基础采矿机",
+            "",
+            "使用电力缓慢开采矿物,不受区块内矿物数量限制",
+            getEff("1x"),
+            getPow("600")
+    );
 
     //----------------------------------------高级机器----------------------------------------//
     public static final SlimefunItemStack BEKT_KFJII = new SlimefunItemStack(
@@ -784,6 +809,162 @@ public class BektItemStack
             "&7更快地获得结构",
             getPow("3600"),
             getEff("2.5x")
+    );
+    public static final SlimefunItemStack BEKT_CYHX = new SlimefunItemStack(
+            "BEKT_CYHX",
+            Material.潮涌核心,
+            "潮涌核心发电机",
+            "",
+            "像激活潮涌核心那样激活它,即可利用潮涌能量大量发电,同时为半径64格内生物提供潮涌能量效果",
+            getPow("4000")
+    );
+    public static final SlimefunItemStack BEKT_GJSL = new SlimefunItemStack(
+            "BEKT_GJSL",
+            Material.END_STONE_BRICK_WALL,
+            "高级水力发电机",
+            "",
+            "更高级的水力发电机",
+            getPow("200")
+    );
+    public static final SlimefunItemStack BEKT_GJWIND = new SlimefunItemStack(
+            "BEKT_GJWIND",
+            Material.WHITE_STAINED_GLASS,
+            "高级风力发电机",
+            "",
+            "更高级使用扇叶转动动能的发电机",
+            getPow("300")
+    );
+    public static final SlimefunItemStack BEKT_KQYS = new SlimefunItemStack(
+            "BEKT_KQYS",
+            Material.LIGHT_BLUE_STAINED_GLASS,
+            "空气压缩发电机",
+            "",
+            "使用碳压机的能量压缩空气进行发电",
+            getPow("3000")
+    );
+    public static final SlimefunItemStack BEKT_CJTYN = new SlimefunItemStack(
+            "BEKT_CJTYN",
+            Material.阳光传感器,
+            "高级充能太阳能发电机",
+            "",
+            "升级版的充能太阳能发电机,夜间可以使用热能发电",
+            getPow("512")
+    );
+    public static final SlimefunItemStack BEKT_HJBFYD = new SlimefunItemStack(
+            "BEKT_HJBFYD",
+            Material.信标,
+            "核聚变反应堆",
+            "",
+            "最高级的核动力发电,安全可靠",
+            getPow("1000000")
+    );
+    public static final SlimefunItemStack BEKT_ZZHJ = new SlimefunItemStack(
+            "BEKT_ZZHJ",
+            Material.绯红菌岩,
+            "中子轰炸机",
+            "",
+            "产生氚",
+            getEff("1x"),
+            getPow("50000")
+    );
+    public static final SlimefunItemStack BEKT_JQYLC = new SlimefunItemStack(
+            "BEKT_JQYLC",
+            Material.淡灰色染色玻璃,
+            "超高压加热压力仓",
+            "",
+            "巨大的压力,提纯核聚变所需的原料",
+            getEff("1x"),
+            getUse("8000")
+    );
+    public static final SlimefunItemStack BEKT_ZZZZJ = new SlimefunItemStack(
+            "BEKT_ZZZZJ",
+            Material.重生猫,
+            "快中子增值反应堆",
+            "",
+            "二次利用核燃料进行增值",
+            getEff("1x"),
+            getPow(5000)
+    );
+    public static final SlimefunItemStack BEKT_LXJ = new SlimefunItemStack(
+            "BEKT_LXJ",
+            Material.钳制下界砖块,
+            "核燃料离心机",
+            "",
+            "离心物品获得核聚变原料",
+            getEff("1x"),
+            getPow(20000)
+    );
+    public static final SlimefunItemStack BEKT_SHJ = new SlimefunItemStack(
+            "BEKT_SHJ",
+            Material.红色玻璃,
+            "骨粉/染料刷花机",
+            "",
+            "电力刷花",
+            getEff("1x"),
+            getPow("300")
+    );
+    public static final SlimefunItemStack BEKT_HNT = new SlimefunItemStack(
+            "BEKT_HNT",
+            Material.白色混凝土,
+            "混凝土制造机",
+            "",
+            "投入沙砾即可制造混凝土,由碎矿机和洗矿机结合而来",
+            getEff("1x"),
+            getPow("500")
+    );
+    public static final SlimefunItemStack BEKT_LSYFSJ = new SlimefunItemStack(
+            "BEKT_LSYFSJ",
+            Material.熔炉,
+            "硫酸盐制造机",
+            "",
+            "圆石粉碎为硫酸盐",
+            getEff("1x"),
+            getPow("2000")
+    );
+    public static final SlimefunItemStack BEKT_ZDDF = new SlimefunItemStack(
+            "BEKT_ZDDF",
+            Material.堆肥桶,
+            "自动堆肥机",
+            "",
+            "全自动制造堆肥机物品",
+            getEff("1x"),
+            getPow("600")
+    );
+    public static final SlimefunItemStack BEKT_SWCWJ = new SlimefunItemStack(
+            "BEKT_SWCWJ",
+            Material.刷怪笼,
+            "生物学产物制造机",
+            "",
+            "放入末影生物容器读取此生物的DNA并制造掉落物",
+            getEff("1x"),
+            getPow("25000")
+    );
+    public static final SlimefunItemStack BEKT_ZSJ = new SlimefunItemStack(
+            "BEKT_ZSJ",
+            Material.OAK_WOOD,
+            "自动植树机",
+            "",
+            "全自动伐木与再种植树木",
+            getEff("1x"),
+            getPow("1000")
+    );
+    public static final SlimefunItemStack BEKT_ZDNC = new SlimefunItemStack(
+            "BEKT_ZDNC",
+            Material.GRASS_BLOCK,
+            "自动农场",
+            "",
+            "自动收割再种植作物,支持全种类可放在地上的自然资源产物",
+            getEff("1x"),
+            getPow("2000")
+    );
+    public static final SlimefunItemStack BEKT_XJTQJ = new SlimefunItemStack(
+            "BEKT_XJTQJ",
+            Material.标靶,
+            "橡胶提取机",
+            "",
+            "橡木提取橡胶",
+            getEff("1x"),
+            getPow("2500")
     );
 
     //----------------------------------------低级基岩机器----------------------------------------//
