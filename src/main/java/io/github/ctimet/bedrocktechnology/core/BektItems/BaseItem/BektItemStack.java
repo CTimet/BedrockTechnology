@@ -568,6 +568,14 @@ public class BektItemStack
             "&7&o修复你的机器，当你的机器被卡掉时，你可以用此物品右键机器来修复你的机器",
             "&7&o修复前提是&4你的机器已被注册,未被注册的机器不受保护！"
     );
+    public static final SlimefunItemStack BEKT_JZMZ = new SlimefunItemStack(
+            "BEKT_JZMZ",
+            Material.BLAZE_ROD,
+            "建筑魔杖",
+            "",
+            "古代神秘的力量,可以自由选取128x128x384范围内的方块进行大批量修改",
+            "蹲下右键绑定存储器,需要有领地内place与destory权限"
+    );
 
     //----------------------------------------基础机器----------------------------------------//
     public static final SlimefunItemStack BEKT_KFJZI = new SlimefunItemStack(
