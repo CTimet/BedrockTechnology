@@ -3,8 +3,9 @@
   
   BEKT准确来说并不是BedrockTechnology的缩写，而是它的别称。
   
-  下载链接：[ClickHere!](https://github.com/CTimet/BedrockTechnology#%E5%BD%93%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC-%E6%AD%A3%E5%BC%8F%E7%89%88)
-  BUG汇报：[ClickHere!](https://github.com/CTimet/BedrockTechnology/issues)
+  **[下载链接](https://github.com/CTimet/BedrockTechnology#%E5%BD%93%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC-%E6%AD%A3%E5%BC%8F%E7%89%88)
+  **[BUG汇报](https://github.com/CTimet/BedrockTechnology/issues)
+  **[Q&A](https://ctimet.github.io/BedrockTechnologyQuestion/)
 
 ## 帮我们一起维护此附属
   目前该附属由CTimet与CLIEDS共同维护;
