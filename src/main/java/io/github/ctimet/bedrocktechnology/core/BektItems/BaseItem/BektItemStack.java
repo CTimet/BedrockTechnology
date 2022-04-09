@@ -262,6 +262,7 @@ public class BektItemStack
             "&7通过机器开采",
             "&o&7它很空虚"
     );
+    /*
     public static final SlimefunItemStack BEKT_SYJJ = new SlimefunItemStack(
             "BEKT_SYJJ",
             Material.AIR,
@@ -436,7 +437,7 @@ public class BektItemStack
             "橡胶",
             "",
             "由塑料纸二次加工而来的橡胶,可用于制作各种物品"
-    );
+    );*/
     //----------------------------------------基岩材料----------------------------------------//
     public static final SlimefunItemStack BEKT_LNJG = new SlimefunItemStack(
             "BEKT_LNJG",
