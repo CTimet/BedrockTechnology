@@ -9,8 +9,6 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.IOException;
-
 /**
  * Main Class
  * @author CTimet
@@ -23,14 +21,14 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
     //插件版本号
     public static final String VERSION = "v1.0-beta-220402";
 
-    public static int ERROR = 0;
+    //public static int ERROR = 0;
 
     @Override
     public void onEnable(){
         main = this;
         Bukkit.getPluginManager().registerEvents(new FixAndResEvent(), this);
         saveDefaultConfig();
-        saveResource("protected.dat",false);
+        //saveResource("protected.dat",false);
 
         BektItemGroup.registerSubCate();
 
@@ -39,6 +37,7 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
             command.setExecutor(new BektCommand());
         }
 
+        /*
         try {
             FixAndResEvent.readTheDat();
         } catch (IOException | ClassNotFoundException e) {
@@ -50,12 +49,14 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
             getLogger().info("物品与命令注册完成！一切正常！");
         else
             getLogger().warning("发生" + ERROR + "个报错！");
+
+         */
     }
 
     @Override
     public void onDisable(){
-        FixAndResEvent.writeTheDat();
-        getLogger().info("成功将被保护的方块写入dat数据文件！");
+        //FixAndResEvent.writeTheDat();
+        //getLogger().info("成功将被保护的方块写入dat数据文件！");
     }
 
     @Override
