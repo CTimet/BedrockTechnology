@@ -574,6 +574,14 @@ public class BektItemStack
             "&4     该物品目前仍在开发中，目前仅支持注册的机器卡死修复，未被注册的机器暂不支持修复。且由于技术原因，注册信息无法保存至本地。因而当服务器重启时，注册信息将被刷新，具体原因请看",
             "&7&o https://ctimet.github.io/BedrockTechnologyQuestion/"
     );
+    public static final SlimefunItemStack BEKT_JZMZ = new SlimefunItemStack(
+            "BEKT_JZMZ",
+            Material.BLAZE_ROD,
+            "建筑魔杖",
+            "",
+            "古代神秘的力量,可以自由选取128x128x384范围内的方块进行大批量修改",
+            "蹲下右键绑定存储器,需要有领地内place与destory权限"
+    );
 
     //----------------------------------------基础机器----------------------------------------//
     public static final SlimefunItemStack BEKT_KFJZI = new SlimefunItemStack(
