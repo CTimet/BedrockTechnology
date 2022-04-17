@@ -437,6 +437,13 @@ public class BektItemStack
             "",
             "由塑料纸二次加工而来的橡胶,可用于制作各种物品"
     );
+    public static final SlimefunItemStack BEKT_EYHG = new SlimefunItemStack(
+            "BEKT_EYHG",
+            Material.SAND,
+            "&f二氧化硅",
+            "",
+            "&o&7一种非常纯的沙子"
+    );
     //----------------------------------------基岩材料----------------------------------------//
     public static final SlimefunItemStack BEKT_LNJG = new SlimefunItemStack(
             "BEKT_LNJG",

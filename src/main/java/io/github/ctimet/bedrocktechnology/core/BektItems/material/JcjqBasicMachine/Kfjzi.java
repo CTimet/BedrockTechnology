@@ -17,15 +17,15 @@ public class Kfjzi extends BektAcontainerTwoSlot
 
     static {
         addAll(
-                new SlimefunItemStack(SlimefunItems.IRON_DUST,2),
-                new SlimefunItemStack(SlimefunItems.COPPER_DUST,2),
-                new SlimefunItemStack(SlimefunItems.TIN_DUST,2),
-                new SlimefunItemStack(SlimefunItems.SILVER_DUST,2),
-                new SlimefunItemStack(SlimefunItems.LEAD_DUST,2),
-                new SlimefunItemStack(SlimefunItems.ALUMINUM_DUST,2),
-                new SlimefunItemStack(SlimefunItems.ZINC_DUST,2),
-                new SlimefunItemStack(SlimefunItems.MAGNESIUM_DUST,2),
-                new SlimefunItemStack(SlimefunItems.GOLD_DUST,2)
+                new SlimefunItemStack(SlimefunItems.IRON_DUST,number),
+                new SlimefunItemStack(SlimefunItems.COPPER_DUST,number),
+                new SlimefunItemStack(SlimefunItems.TIN_DUST,number),
+                new SlimefunItemStack(SlimefunItems.SILVER_DUST,number),
+                new SlimefunItemStack(SlimefunItems.LEAD_DUST,number),
+                new SlimefunItemStack(SlimefunItems.ALUMINUM_DUST,number),
+                new SlimefunItemStack(SlimefunItems.ZINC_DUST,number),
+                new SlimefunItemStack(SlimefunItems.MAGNESIUM_DUST,number),
+                new SlimefunItemStack(SlimefunItems.GOLD_DUST,number)
         );
     }
 
@@ -44,6 +44,7 @@ public class Kfjzi extends BektAcontainerTwoSlot
         //机器标识
         return "BEKT-KFJZI";
     }
+
 
     /**
      * 注册配方

@@ -4,7 +4,9 @@ import io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem.BektItemStack;
 import io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem.SpecialItems.CoreBlisteringIngot;
 import io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem.SpecialRecipeType.BektRecipeType;
 import io.github.ctimet.bedrocktechnology.core.BektItems.BektItemGroup;
+import io.github.ctimet.bedrocktechnology.core.BektItems.material.JcjqBasicMachine.Eyhgt;
 import io.github.ctimet.bedrocktechnology.core.BektItems.material.JcjqBasicMachine.Kfjzi;
+import io.github.ctimet.bedrocktechnology.core.BektItems.material.JcjqBasicMachine.Ysjzi;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
@@ -554,10 +556,11 @@ public class BektItems
         ).setCapacity(300)
                 .setEnergyConsumption(300)
                 .setProcessingSpeed(3)
+                .setNumber(2)
                 .register(main);
 
         /*圆石制造机*/
-        new SlimefunItem(
+        new Ysjzi(
                 BektItemGroup.Bekt_SubGroup_JCJQ,
                 BektItemStack.BEKT_YSJZI,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
@@ -566,10 +569,13 @@ public class BektItems
                         i(Material.WATER_BUCKET),           i(Material.DIAMOND_PICKAXE),    i(Material.LAVA_BUCKET),
                         i(Material.COBBLESTONE),            i(Material.OBSIDIAN),           i(Material.COBBLESTONE)
                 }
-        ).register(main);
+        ).setCapacity(30)
+                .setEnergyConsumption(30)
+                .setProcessingSpeed(1)
+                .register(main);
 
         /*二氧化硅提取机*/
-        new SlimefunItem(
+        new Eyhgt(
                 BektItemGroup.Bekt_SubGroup_JCJQ,
                 BektItemStack.BEKT_EYHGI,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
@@ -578,7 +584,10 @@ public class BektItems
                         SlimefunItems.HEATING_COIL,               SlimefunItems.CARBONADO_EDGED_FURNACE,        SlimefunItems.HEATING_COIL,
                         i(Material.GLASS),                        SlimefunItems.CARBON,                         i(Material.GLASS)
                 }
-        ).register(main);
+        ).setCapacity(500)
+                .setEnergyConsumption(500)
+                .setProcessingSpeed(4)
+                .register(main);
 
         /*风力发电机*/
         new SlimefunItem(
