@@ -552,8 +552,8 @@ public class BektItems
                         SlimefunItems.ELECTRIC_ORE_GRINDER_3,       SlimefunItems.ELECTRIFIED_CRUCIBLE_3,       SlimefunItems.ELECTRIC_DUST_WASHER_3
                 }
         ).setCapacity(300)
-                .setProcessingSpeed(3)
                 .setEnergyConsumption(300)
+                .setProcessingSpeed(3)
                 .register(main);
 
         /*圆石制造机*/

@@ -1226,7 +1226,6 @@ public class BektItemStack
             "左键拆除机器",
             "右键查看机器详细内容"
     );
-    
 
     //----------------------------------------低级基岩机器----------------------------------------//
     public static final SlimefunItemStack BEKT_HJJJJ = new SlimefunItemStack(
