@@ -356,6 +356,14 @@ public class BektItems
                  }
          ).register(main);
 
+        /*二氧化硅*/
+        new SlimefunItem(
+                BektItemGroup.Bekt_SubGroup_JCCL,
+                BektItemStack.BEKT_EYHG,
+                BektRecipeType.BEKT_EYHGT,
+                new ItemStack[]{new ItemStack(Material.SAND)}
+        ).register(main);
+
         //==============================魔法材料==============================//
 
         /*超级修复-注册*/
@@ -577,7 +585,7 @@ public class BektItems
         /*二氧化硅提取机*/
         new Eyhgt(
                 BektItemGroup.Bekt_SubGroup_JCJQ,
-                BektItemStack.BEKT_EYHGI,
+                BektItemStack.BEKT_EYHGT,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
                         i(Material.GLASS),                        SlimefunItems.CARBON,                         i(Material.GLASS),
@@ -839,7 +847,7 @@ public class BektItems
                 new ItemStack[]{
                         BektItemStack.BEKT_CNHIV,           BektItemStack.BEKT_CNHIV,           BektItemStack.BEKT_CNHIV,
                         BektItemStack.BEKT_LNJG,            SlimefunItems.PLASTIC_SHEET,        BektItemStack.BEKT_EKJG,
-                        BektItemStack.BEKT_EYHGI,           BektItemStack.BEKT_EYHGI,           BektItemStack.BEKT_EYHGI
+                        BektItemStack.BEKT_EYHG,            BektItemStack.BEKT_EYHG,            BektItemStack.BEKT_EYHG
                 }
         ).register(main);
 
@@ -935,9 +943,9 @@ public class BektItems
                 BektItemStack.BEKT_GQJYD,
                 BektRecipeType.BEKT_QHGZT,
                 new ItemStack[]{
-                        SlimefunItems.ENERGIZED_CAPACITOR,          BektItemStack.BEKT_EYHGI,           SlimefunItems.ENERGIZED_CAPACITOR,
+                        SlimefunItems.ENERGIZED_CAPACITOR,          BektItemStack.BEKT_EYHG,           SlimefunItems.ENERGIZED_CAPACITOR,
                         c(BektItemStack.BEKT_HJJJJ,16),          BektItemStack.BEKT_JYLZ,            c(BektItemStack.BEKT_HJJJJ,16),
-                        c(BektItemStack.BEKT_LNJG,32),           BektItemStack.BEKT_EYHGI,           c(BektItemStack.BEKT_GFJG,32)
+                        c(BektItemStack.BEKT_LNJG,32),           BektItemStack.BEKT_EYHG,           c(BektItemStack.BEKT_GFJG,32)
                 }
         ).register(main);
 

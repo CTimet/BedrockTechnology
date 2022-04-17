@@ -28,6 +28,7 @@ public class BektRecipeType extends RecipeType
     public static final RecipeType BEKT_GHJJQ;
     public static final RecipeType BEKT_DJLZZ;
     public static final RecipeType BEKT_QHGZT;
+    public static final RecipeType BEKT_EYHGT;
 
     static {
         //结构获取器
@@ -99,6 +100,14 @@ public class BektRecipeType extends RecipeType
                 BektMain.createKey("BEKT_QHGZT"),
                 BEKT_QHGZTT,
                 ""
+        );
+
+        //二氧化硅提取器
+        BEKT_EYHGT = new BektRecipeType(
+                BektMain.createKey("BEKT_EYHGT"),
+                BektItemStack.BEKT_EYHGT,
+                ""
+
         );
     }
 

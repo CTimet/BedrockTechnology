@@ -1,6 +1,6 @@
 package io.github.ctimet.bedrocktechnology.core.BektItems.material.JcjqBasicMachine;
 
-import io.github.ctimet.bedrocktechnology.abstractClass.BektAcontainerTwoSlot;
+import io.github.ctimet.bedrocktechnology.abstractClass.BektAContainerTwoSlot;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Kfjzi extends BektAcontainerTwoSlot
+public class Kfjzi extends BektAContainerTwoSlot
 {
     private static final ArrayList<ItemStack> outputItems = new ArrayList<>();
 

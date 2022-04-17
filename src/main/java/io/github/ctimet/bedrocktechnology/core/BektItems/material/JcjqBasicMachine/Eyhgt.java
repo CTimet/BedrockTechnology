@@ -1,6 +1,6 @@
 package io.github.ctimet.bedrocktechnology.core.BektItems.material.JcjqBasicMachine;
 
-import io.github.ctimet.bedrocktechnology.abstractClass.BektAcontainerTwoSlot;
+import io.github.ctimet.bedrocktechnology.abstractClass.BektAContainerTwoSlot;
 import io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem.BektItemStack;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -9,7 +9,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-public class Eyhgt extends BektAcontainerTwoSlot
+public class Eyhgt extends BektAContainerTwoSlot
 {
 
     /**
@@ -25,7 +25,7 @@ public class Eyhgt extends BektAcontainerTwoSlot
     }
 
     /**
-     * 此方法返回{@link BektAcontainerTwoSlot}用作进度条的{@link ItemStack}物品
+     * 此方法返回{@link BektAContainerTwoSlot}用作进度条的{@link ItemStack}物品
      * <p>
      * 覆盖此方法可以设置进度条
      *
@@ -51,6 +51,6 @@ public class Eyhgt extends BektAcontainerTwoSlot
      */
     @Override
     protected void registerDefaultRecipes() {
-        this.registerRecipe(4,new ItemStack[]{new ItemStack(Material.SAND)},new ItemStack[]{BektItemStack.BEKT_});
+        this.registerRecipe(4,new ItemStack[]{new ItemStack(Material.SAND)},new ItemStack[]{BektItemStack.BEKT_EYHG});
     }
 }
