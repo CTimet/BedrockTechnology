@@ -355,6 +355,11 @@ public abstract class BektAcontainerTwoSlot extends SlimefunItem implements Inve
         CraftingOperation currentOperation = processor.getOperation(b);
         int res = isEmpty.getEmptySlot(inv,getOutputSlots());
 
+        if (res == -1 && isAnother) {
+            inv.replaceExistingItem(22, new CustomItemStack(Material.RED_STAINED_GLASS_PANE, "&4没有足够的空间！"));
+            return;
+        }
+
         if (currentOperation != null) {
             if (takeCharge(b.getLocation())) {
 
@@ -363,19 +368,14 @@ public abstract class BektAcontainerTwoSlot extends SlimefunItem implements Inve
                     currentOperation.addProgress(1);
                 } else {
                     inv.replaceExistingItem(22, new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, " "));
-
                     if (!isAnother){
                         for (ItemStack output : currentOperation.getResults()) {
                             inv.pushItem(output.clone(), getOutputSlots());
                         }
                     }else if (!itemStacks.isEmpty()){
-                        if (res != -1){
-                            inv.pushItem(itemStacks.get(index).clone(),getOutputSlots());
-                            index += 1;
-                            if (index == itemStacks.size()) index = 0;
-                        }else {
-                            inv.replaceExistingItem(22,new CustomItemStack(Material.ORANGE_STAINED_GLASS_PANE,"没有足够的空间！"));
-                        }
+                        inv.pushItem(itemStacks.get(index).clone(),getOutputSlots());
+                        index += 1;
+                        if (index == itemStacks.size()) index = 0;
                     }
 
                     processor.endOperation(b);
