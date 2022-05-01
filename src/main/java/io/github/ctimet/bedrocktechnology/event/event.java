@@ -14,6 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -103,6 +104,16 @@ public class event implements Listener
             else
                 st.sendPrompt("该机器未被损坏");
         }
+   }
+
+   @EventHandler
+   public static void onBreak(BlockBreakEvent event)
+   {
+       Location location = event.getBlock().getLocation();
+
+       String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ();
+
+       MAP.remove(xyz);
    }
 
    public static boolean isInventoryFull(Inventory inventory)
