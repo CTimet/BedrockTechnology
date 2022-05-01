@@ -148,7 +148,7 @@ public class BektCommand implements CommandExecutor
                         return false;
                     } else if (args[1].equals("getValue") && st.isNotNull(2))
                     {
-                        if (args[2].equals("info-print") && st.isNotNull(3)) {
+                        if (args[2].equals("info-print")) {
                             st.sendInfo(String.valueOf(cfg.getBoolean("options.info-print")));
                         } else if (args[2].equals("warning-print")) {
                             st.sendInfo(String.valueOf(cfg.getBoolean("options.warning-print")));

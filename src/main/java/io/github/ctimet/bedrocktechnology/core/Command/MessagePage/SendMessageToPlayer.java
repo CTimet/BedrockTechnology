@@ -1,6 +1,7 @@
 package io.github.ctimet.bedrocktechnology.core.Command.MessagePage;
 
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.List;
 
@@ -15,9 +16,20 @@ public class SendMessageToPlayer
         this.sender = commandSender;
     }
 
+    public SendMessageToPlayer(Player player)
+    {
+        this.args = new String[]{};
+        sender = player;
+    }
+
+    public void sendPrompt(String mes)
+    {
+        this.sender.sendMessage("§e[BedrockTechnology] >> " + mes + ".");
+    }
+
     public void sendWarning(String mes)
     {
-        this.sender.sendMessage("§4[BedrockTechnology] >> " + mes + "!");
+        this.sender.sendMessage("§4[BedrockTechnology] >> " + mes + "！");
     }
 
     public void sendInfo(String mes)

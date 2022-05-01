@@ -437,6 +437,7 @@ public class BektItemStack
             "",
             "由塑料纸二次加工而来的橡胶,可用于制作各种物品"
     );
+    
     public static final SlimefunItemStack BEKT_EYHG = new SlimefunItemStack(
             "BEKT_EYHG",
             Material.SAND,
@@ -566,9 +567,7 @@ public class BektItemStack
             "",
             "&7&o注册你的机器，当你的机器被卡掉时，可以通过 &b超级修复-修复&7 来修复你的机器",
             "",
-            "&4警告：",
-            "&4     该物品目前仍在开发中，目前仅支持注册的机器卡死修复，未被注册的机器暂不支持修复。且由于技术原因，注册信息无法保存至本地。因而当服务器重启时，注册信息将被刷新，具体原因请看",
-            "&7&o https://ctimet.github.io/BedrockTechnologyQuestion/"
+            "&4警告：该物品尚处测试阶段。滥用可能会导致某些方块损坏"
     );
     public static final SlimefunItemStack BEKT_CJXF_XF = new SlimefunItemStack(
             "BEKT-CJXF-XF",
@@ -577,9 +576,7 @@ public class BektItemStack
             "",
             "&7&o修复你的机器，当你的机器被卡掉时，你可以用此物品右键机器来修复你的机器",
             "",
-            "&4警告：",
-            "&4     该物品目前仍在开发中，目前仅支持注册的机器卡死修复，未被注册的机器暂不支持修复。且由于技术原因，注册信息无法保存至本地。因而当服务器重启时，注册信息将被刷新，具体原因请看",
-            "&7&o https://ctimet.github.io/BedrockTechnologyQuestion/"
+            "&4警告：该物品尚处测试阶段。滥用可能会导致某些方块损坏！"
     );
     public static final SlimefunItemStack BEKT_JZMZ = new SlimefunItemStack(
             "BEKT_JZMZ",
@@ -667,6 +664,7 @@ public class BektItemStack
             "右键 捕捉生物",
             "右键方块可放出生物,也可以放入生物产物机生产掉落物"
     );
+    
 
 
     //----------------------------------------基础机器----------------------------------------//
@@ -687,7 +685,7 @@ public class BektItemStack
             getEff("1x"),
             getPow("30")
     );
-    public static final SlimefunItemStack BEKT_EYHGI = new SlimefunItemStack(
+    public static final SlimefunItemStack BEKT_EYHGT = new SlimefunItemStack(
             "BEKT-EYHGI",
             Material.GREEN_STAINED_GLASS,
             "&b二氧化硅提取机",
