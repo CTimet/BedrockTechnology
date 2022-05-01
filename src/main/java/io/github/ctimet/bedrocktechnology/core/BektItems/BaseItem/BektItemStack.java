@@ -565,18 +565,14 @@ public class BektItemStack
             Material.STICK,
             "&a超级修复-注册",
             "",
-            "&7&o注册你的机器，当你的机器被卡掉时，可以通过 &b超级修复-修复&7 来修复你的机器",
-            "",
-            "&4警告：该物品尚处测试阶段。滥用可能会导致某些方块损坏"
+            "&7&o注册你的机器，当你的机器被卡掉时，可以通过 &b超级修复-修复&7 来修复你的机器"
     );
     public static final SlimefunItemStack BEKT_CJXF_XF = new SlimefunItemStack(
             "BEKT-CJXF-XF",
             Material.STICK,
             "&a超级修复-修复",
             "",
-            "&7&o修复你的机器，当你的机器被卡掉时，你可以用此物品右键机器来修复你的机器",
-            "",
-            "&4警告：该物品尚处测试阶段。滥用可能会导致某些方块损坏！"
+            "&7&o修复你的机器，当你的机器被卡掉时，你可以用此物品右键机器来修复你的机器"
     );
     public static final SlimefunItemStack BEKT_JZMZ = new SlimefunItemStack(
             "BEKT_JZMZ",
