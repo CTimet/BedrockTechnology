@@ -4,7 +4,10 @@ import io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem.BektItemStack;
 import io.github.ctimet.bedrocktechnology.core.Command.MessagePage.SendMessageToPlayer;
 import io.github.ctimet.bedrocktechnology.data.Map;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
+import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -55,80 +58,60 @@ public class event implements Listener
 
         String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ();
 
-        Collection<ItemStack> itemStacks = block.getDrops();
-
-        String[] items = new String[itemStacks.size()];
-
-        int i = 0;
-
-        for (ItemStack stack : itemStacks)
-        {
-            SlimefunItem item = SlimefunItem.getByItem(stack);
-            if (item == null)
-            {
-                items[i] = "noItem";
-                continue;
-            }
-            items[i] = item.getId();
-        }
-
         SendMessageToPlayer st = new SendMessageToPlayer(player);
 
+        SlimefunItem item = BlockStorage.check(block);
+
         //注册
-        if (holdName.equals(resName) && !MAP.containsKey(xyz))
+        if (holdName.equals(resName))
         {
-            //System.out.println("zbc");
-            if (isEmpty(items))
+            if (!MAP.containsKey(xyz))
             {
-                st.sendInfo("我很抱歉。这个方块暂时不能注册。因为它属于非sf物品");
-            }
-            else
-            {
-                int put = 0;
-                for (String item : items)
+                if (item == null)
                 {
-                    if (put == 0) MAP.put(xyz,item);
-                    MAP.put(xyz + put,item);
-                    put++;
+                    st.sendInfo("非sf物品。暂不支持注册");
+                    return;
                 }
-                st.sendInfo("以成功注册你的sf物品");
+                String id = item.getId();
+                MAP.put(xyz,id);
+                st.sendInfo("已成功注册您的方块。方块位于"
+                        + block.getWorld().getName()
+                        + " x=" + location.getX()
+                        + " y=" + location.getY()
+                        + " z=" + location.getZ());
             }
-            return;
+            else st.sendPrompt("该机器已被注册过了");
         }
-        else st.sendWarning("错误！此物品已被注册");
 
         //修复
-        if (holdName.equals(fixName) && MAP.containsKey(xyz))
+        if (holdName.equals(fixName))
         {
-            //System.out.println("zbc2");
-            int put = 1;
-
-            Inventory inventory = player.getInventory();
-
-            inventory.addItem(SlimefunItem.getById(MAP.get(xyz)).getItem());
-
-            MAP.remove(xyz);
-
-            while (MAP.containsKey(xyz + put))
+            if (MAP.containsKey(xyz) && item == null)
             {
-                put ++;
-                inventory.addItem(SlimefunItem.getById(MAP.get(xyz + put)).getItem());
-                MAP.remove(xyz + put);
+                Inventory inventory = player.getInventory();
+                if (isInventoryFull(inventory))
+                {
+                    st.sendWarning("您的背包已满！强制填充可能会造成严重后果！已取消本次赔偿");
+                    return;
+                }
+                inventory.addItem(SlimefunItem.getById(MAP.get(xyz)).getItem());
+                MAP.remove(xyz);
+                st.sendInfo("已赔偿您的损失至背包。请查看背包寻找物品");
             }
-
-            st.sendInfo("物品已赔偿至您的背包。请查看背包寻找赔偿物品");
+            else if (!MAP.containsKey(xyz))
+                st.sendPrompt("该机器未被注册");
+            else
+                st.sendPrompt("该机器未被损坏");
         }
-        else st.sendWarning("错误！此物品未被注册");
    }
 
-   public static boolean isEmpty(String[] strings)
+   public static boolean isInventoryFull(Inventory inventory)
    {
-        boolean i = true;
-        for (String s : strings){
-            if (s.equals("noItem")) continue;
-            i = false;
-        }
-        return i;
+       for (ItemStack stack : inventory)
+       {
+           if (stack == null) return false;
+       }
+       return true;
    }
 
    public static void readData()

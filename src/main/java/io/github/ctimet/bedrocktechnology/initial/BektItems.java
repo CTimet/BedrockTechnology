@@ -372,7 +372,9 @@ public class BektItems
                 BektItemStack.BEKT_CJXF_ZC,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
-
+                        BektItemStack.BEKT_AJ,          BektItemStack.BEKT_AJ,              BektItemStack.BEKT_AJ,
+                        null,                           i(Material.STICK),                  null,
+                        BektItemStack.BEKT_BJ,          BektItemStack.BEKT_BJ,              BektItemStack.BEKT_BJ
                 }
          ).register(main);
 
@@ -382,7 +384,9 @@ public class BektItems
                  BektItemStack.BEKT_CJXF_XF,
                  BektRecipeType.ENHANCED_CRAFTING_TABLE,
                  new ItemStack[]{
-
+                         BektItemStack.BEKT_BJ,          BektItemStack.BEKT_BJ,              BektItemStack.BEKT_BJ,
+                         null,                           i(Material.STICK),                  null,
+                         BektItemStack.BEKT_AJ,          BektItemStack.BEKT_AJ,              BektItemStack.BEKT_AJ
                  }
          ).register(main);
 

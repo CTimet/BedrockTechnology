@@ -1,6 +1,8 @@
 package io.github.ctimet.bedrocktechnology.data;
 
-public class Map
+import java.io.Serializable;
+
+public class Map implements Serializable
 {
     public String s01;
     public String s02;
