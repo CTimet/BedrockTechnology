@@ -3,6 +3,7 @@ package io.github.ctimet.bedrocktechnology.event;
 import io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem.BektItemStack;
 import io.github.ctimet.bedrocktechnology.core.Command.MessagePage.SendMessageToPlayer;
 import io.github.ctimet.bedrocktechnology.data.Map;
+import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
@@ -12,7 +13,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -78,7 +79,7 @@ public class event implements Listener
                         + " y=" + location.getY()
                         + " z=" + location.getZ());
             }
-            else st.sendPrompt("该机器已被注册过了");
+            else st.sendPrompt("该方块已被注册过了");
         }
 
         //修复
@@ -97,14 +98,14 @@ public class event implements Listener
                 st.sendInfo("已赔偿您的损失至背包。请查看背包寻找物品");
             }
             else if (!MAP.containsKey(xyz))
-                st.sendPrompt("该机器未被注册");
+                st.sendPrompt("该方块未被注册");
             else
-                st.sendPrompt("该机器未被损坏");
+                st.sendPrompt("该方块未被损坏");
         }
    }
 
    @EventHandler
-   public static void onBreak(BlockBreakEvent event)
+   public static void onPlace(BlockPlaceEvent event)
    {
        Location location = event.getBlock().getLocation();
 
@@ -126,9 +127,9 @@ public class event implements Listener
    {
        try
        {
-           ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("block.dat"));
+           ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("plugins/" + BektMain.main.getName() + "/" +  "block.dat"));
 
-           Config cfg = new Config("save.yml");
+           Config cfg = new Config(BektMain.main,"save.yml");
 
            int save = cfg.getInt("save");
 
@@ -152,7 +153,7 @@ public class event implements Listener
 
        try
        {
-           ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("block.dat"));
+           ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("plugins/" + BektMain.main.getName() + "/" +  "block.dat"));
 
            int save = 0;
            for (Map map : DATA_MAP)
@@ -161,7 +162,7 @@ public class event implements Listener
                save++;
            }
 
-           Config cfg = new Config("save.yml");
+           Config cfg = new Config(BektMain.main,"save.yml");
 
            cfg.setValue("save",save);
 
