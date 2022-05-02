@@ -1,6 +1,9 @@
 package io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.utils.itemstack.ColoredFireworkStar;
+
+import org.bukkit.Color;
 import org.bukkit.Material;
 
 
@@ -611,8 +614,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_FWSY = new SlimefunItemStack(
             "BEKT_FWSY",
-            Material.烟火之星_橙色,
-            "古代符文_[时运]",
+            new ColoredFireworkStar(Color.fromRGB(255, 165, 0), "&7古代符文 &8&l[&6&l时运&8&l]"),
             "",
             "具备时运效果的符文"
     );
@@ -625,36 +627,34 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_FWYS = new SlimefunItemStack(
             "BEKT_FWYS",
-            Material.烟火之星_粉色,
+            Material.FIREWORK_STAR,
             "古代符文_[药水][药水类型:I级别药水变量]",
             "",
             "这使得装备可以附上更高等级的药水效果.蹲下右键消耗1个2级药水绑定类型!"
     );
     public static final SlimefunItemStack BEKT_FWWS = new SlimefunItemStack(
             "BEKT_FWWS",
-            Material.烟火之星_黑色,
-            "古代符文_[无限]",
+            new ColoredFireworkStar(Color.fromRGB(0, 0, 0), "&7古代符文 &8&l[&6&l无限&8&l]"),
             "",
             "消耗大量资源制作",
             "右键消耗符文,使得副手物品基数变为0无限消耗"
     );
     public static final SlimefunItemStack BEKT_FWUNDES = new SlimefunItemStack(
             "BEKT_FWUNDES",
-            Material.烟火之星_青绿色,
-            "古代符文_[无法破坏]",
+            new ColoredFireworkStar(Color.fromRGB(50, 205, 50), "&7古代符文 &8&l[&6&l无法破坏&8&l]"),
             "",
             "安装这个符文的任意工具/装备将无法破坏"
     );
     public static final SlimefunItemStack BEKT_NANAHO = new SlimefunItemStack(
             "BEKT_NANAHO",
-            Material.恶魂之泪,
+            Material.GHAST_TEAR,
             "纳米因子",
             "",
             "制造精密魔法仪器的必备材料"
     );
     public static final SlimefunItemStack BEKT_SWRQ = new SlimefunItemStack(
             "BEKT_SWRQ",
-            Material.拴绳,
+            Material.LEAD,
             "末影生物容器[生物类型:生物变量]",
             "",
             "右键 捕捉生物",
@@ -1062,7 +1062,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_TNTSSJ = new SlimefunItemStack(
             "BEKT_TNTSSJ",
-            Material.錾制石砖块,
+            Material.CHISELED_STONE_BRICKS,
             "TNT刷石机",
             "",
             "使用TNT大批量生成圆石",
@@ -1071,7 +1071,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_KFJLJ = new SlimefunItemStack(
             "BEKT_KFJLJ",
-            Material.熔炉,
+            Material.FURNACE,
             "矿粉提取机",
             "",
             "直接从圆石提取矿粉.",
@@ -1080,7 +1080,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_QHZDJ = new SlimefunItemStack(
             "BEKT_QHZDJ",
-            Material.红色陶瓦,
+            Material.RED_TERRACOTTA,
             "高速成锭机",
             "",
             "1秒2锭 更快的成锭机",
@@ -1089,7 +1089,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_QHYLJ = new SlimefunItemStack(
             "BEKT_QHYLJ",
-            Material.高炉,
+            Material.BLAST_FURNACE,
             "高速冶炼厂",
             "",
             "更加快速的冶炼厂 1秒可成1块金属",
@@ -1107,7 +1107,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_JSCJJ = new SlimefunItemStack(
             "BEKT_JSCJJ",
-            Material.石英砖,
+            Material.QUARTZ_BLOCK,
             "金属还原机",
             "",
             "将金属还原至原来的配方",
@@ -1117,7 +1117,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_KSFSQ = new SlimefunItemStack(
             "BEKT_KSFSQ",
-            Material.錾制磨制深板岩,
+            Material.POLISHED_DEEPSLATE,
             "矿石发生器",
             "",
             "插入矿物芯片 自动生成对应矿物",
@@ -1127,7 +1127,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_GJKJ = new SlimefunItemStack(
             "BEKT_GJKJ",
-            Material.錾制红砂岩,
+            Material.CHISELED_RED_SANDSTONE,
             "高级采矿机",
             "",
             "更快速的挖掘矿石",
@@ -1153,7 +1153,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_NMZJ = new SlimefunItemStack(
             "BEKT_NMZJ",
-            Material.制箭台,
+            Material.FLETCHING_TABLE,
             "纳米产物编织机",
             "",
             "生产珍贵的纳米材料,如将压缩碳编织成石墨烯",
@@ -1162,7 +1162,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_MJGJ = new SlimefunItemStack(
             "BEKT_MJGJ",
-            Material.苔石砖,
+            Material.MOSSY_STONE_BRICKS,
             "生物酶反应加工机",
             "",
             "加工生物产物",
@@ -1171,7 +1171,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_YLLL = new SlimefunItemStack(
             "BEKT_YLLL",
-            Material.哭泣的黑曜石,
+            Material.CRYING_OBSIDIAN,
             "引力乱流发生器",
             "",
             "放置后,周围半径64格内的生物将可以获得创造模式的飞行能力",
@@ -1180,7 +1180,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_JBKWXP = new SlimefunItemStack(
             "BEKT_JBKWXP",
-            Material.金盔甲,
+            Material.GOLDEN_HELMET,
             "基础矿石芯片[类型:矿石变量]",
             "",
             "插入矿石发生器使用,蹲下右键绑定手持矿物",
@@ -1190,7 +1190,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_GJKWXP = new SlimefunItemStack(
             "BEKT_GJKWXP",
-            Material.钻石胸甲,
+            Material.DIAMOND_CHESTPLATE,
             "高级矿物芯片[类型:矿石变量]",
             "",
             "插入矿石发生器使用,蹲下右键绑定手持矿物",
@@ -1200,7 +1200,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_ZJKWXP = new SlimefunItemStack(
             "BEKT_ZJKWXP",
-            Material.下界合金胸甲,
+            Material.NETHERITE_CHESTPLATE,
             "终极矿物芯片[类型:矿石变量]",
             "",
             "插入矿石发生器使用,蹲下右键绑定手持矿物",
@@ -1210,7 +1210,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_QKJZQ = new SlimefunItemStack(
             "BEKT_QKJZQ",
-            Material.信标,
+            Material.BEACON,
             "区块加载器",
             "",
             "加载当前区块,蹲下右键与uuid绑定后才可使用",
@@ -1221,7 +1221,7 @@ public class BektItemStack
     );
     public static final SlimefunItemStack BEKT_XZJ = new SlimefunItemStack(
             "BEKT_XZJ",
-            Material.下界合金锄,
+            Material.NETHERITE_HOE,
             "机械卸载器",
             "",
             "左键拆除机器",
