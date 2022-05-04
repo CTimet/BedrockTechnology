@@ -5,7 +5,7 @@
   ✔[下载链接](https://github.com/CTimet/BedrockTechnology#%E5%BD%93%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC-%E6%AD%A3%E5%BC%8F%E7%89%88)<br>
   🔎[Q&A | BUG汇报](https://github.com/CTimet/BedrockTechnology/issues)<br>
   🛠[参与开发](https://github.com/CTimet/BedrockTechnology#%E5%B8%AE%E6%88%91%E4%BB%AC%E4%B8%80%E8%B5%B7%E7%BB%B4%E6%8A%A4%E6%AD%A4%E9%99%84%E5%B1%9E)<br>
-  ⚡[转载支持]()
+  ⚡[转载支持](https://github.com/CTimet/BedrockTechnology#%E8%BD%AC%E8%BD%BD%E6%94%AF%E6%8C%81)
 
 ## 帮我们一起维护此附属
   目前该附属由CTimet与CLIEDS共同维护;<br>
