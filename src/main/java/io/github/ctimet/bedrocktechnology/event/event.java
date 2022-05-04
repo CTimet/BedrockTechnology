@@ -3,17 +3,26 @@ package io.github.ctimet.bedrocktechnology.event;
 import io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem.BektItemStack;
 import io.github.ctimet.bedrocktechnology.core.Command.MessagePage.SendMessageToPlayer;
 import io.github.ctimet.bedrocktechnology.data.Map;
+import io.github.ctimet.bedrocktechnology.data.PlayerBlock;
 import io.github.ctimet.bedrocktechnology.initial.BektMain;
+import io.github.thebusybiscuit.slimefun4.api.events.AndroidMineEvent;
+import io.github.thebusybiscuit.slimefun4.api.events.BlockPlacerPlaceEvent;
+import io.github.thebusybiscuit.slimefun4.api.events.ExplosiveToolBreakBlocksEvent;
+import io.github.thebusybiscuit.slimefun4.api.events.ReactorExplodeEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.block.*;
+import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -25,7 +34,7 @@ import java.util.TreeMap;
 
 public class event implements Listener
 {
-    public static final TreeMap<String,String> MAP = new TreeMap<>();
+    public static final TreeMap<String, PlayerBlock> MAP = new TreeMap<>();
     public static final List<Map> DATA_MAP = new ArrayList<>();
 
     @EventHandler
@@ -57,125 +66,300 @@ public class event implements Listener
 
         String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ();
 
-        SendMessageToPlayer st = new SendMessageToPlayer(player);
-
         SlimefunItem item = BlockStorage.check(block);
 
         //注册
         if (holdName.equals(resName))
         {
-            if (!MAP.containsKey(xyz))
-            {
-                if (item == null)
-                {
-                    st.sendInfo("非sf物品。暂不支持注册");
-                    return;
-                }
-                String id = item.getId();
-                MAP.put(xyz,id);
-                st.sendInfo("已成功注册您的方块。方块位于"
-                        + block.getWorld().getName()
-                        + " x=" + location.getX()
-                        + " y=" + location.getY()
-                        + " z=" + location.getZ());
-            }
-            else st.sendPrompt("该方块已被注册过了");
+            registerBlock(xyz,item,player,block);
         }
 
         //修复
         if (holdName.equals(fixName))
         {
-            if (MAP.containsKey(xyz) && item == null)
-            {
-                Inventory inventory = player.getInventory();
-                if (isInventoryFull(inventory))
-                {
-                    st.sendWarning("您的背包已满！强制填充可能会造成严重后果！已取消本次赔偿");
-                    return;
-                }
-                inventory.addItem(SlimefunItem.getById(MAP.get(xyz)).getItem());
-                MAP.remove(xyz);
-                st.sendInfo("已赔偿您的损失至背包。请查看背包寻找物品");
-            }
-            else if (!MAP.containsKey(xyz))
-                st.sendPrompt("该方块未被注册");
-            else
-                st.sendPrompt("该方块未被损坏");
+            fixBlock(xyz,item,player);
         }
    }
 
-   @EventHandler
-   public static void onPlace(BlockPlaceEvent event)
+   //注册方块
+   public static void registerBlock(String xyz,SlimefunItem item, Player player, Block block)
    {
-       Location location = event.getBlock().getLocation();
-
-       String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ();
-
-       MAP.remove(xyz);
-   }
-
-   public static boolean isInventoryFull(Inventory inventory)
-   {
-       for (ItemStack stack : inventory)
+       SendMessageToPlayer st = new SendMessageToPlayer(player);
+       String playerName = player.getName();
+       Location location = block.getLocation();
+       if (!MAP.containsKey(xyz))
        {
-           if (stack == null) return false;
-       }
-       return true;
-   }
-
-   public static void readData()
-   {
-       try
-       {
-           ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("plugins/" + BektMain.main.getName() + "/" +  "block.dat"));
-
-           Config cfg = new Config(BektMain.main,"save.yml");
-
-           int save = cfg.getInt("save");
-
-           while (save > 0)
+           if (item == null)
            {
-               save --;
-               Object o = inputStream.readObject();
-               Map map = (Map) o;
-               MAP.put(map.getS01(),map.getS02());
+               st.sendInfo("非sf物品。暂不支持注册");
+               return;
            }
+           String id = item.getId();
+           MAP.put(xyz,new PlayerBlock(playerName,id));
+           st.sendInfo("已成功注册您的方块。方块位于"
+                   + block.getWorld().getName()
+                   + " x=" + location.getX()
+                   + " y=" + location.getY()
+                   + " z=" + location.getZ());
        }
-       catch (IOException | ClassNotFoundException e)
-       {
-           e.printStackTrace();
-       }
+       else st.sendPrompt("该方块已被注册过了");
    }
 
-   public static void saveData()
+   //修复方块
+   public static void fixBlock(String xyz, SlimefunItem item, Player player)
    {
-       MAP.forEach((k,v) -> DATA_MAP.add(new Map(k,v)));
-
-       try
-       {
-           ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("plugins/" + BektMain.main.getName() + "/" +  "block.dat"));
-
-           int save = 0;
-           for (Map map : DATA_MAP)
-           {
-               outputStream.writeObject(map);
-               save++;
-           }
-
-           Config cfg = new Config(BektMain.main,"save.yml");
-
-           cfg.setValue("save",save);
-
-           cfg.save();
-       }
-       catch (IOException e)
-       {
-           e.printStackTrace();
-       }
-       finally
-       {
-           DATA_MAP.clear();
-           MAP.clear();
-       }
+        SendMessageToPlayer st = new SendMessageToPlayer(player);
+        String playerName = player.getName();
+        if (MAP.containsKey(xyz) && item == null && MAP.get(xyz).getPlayerName().equals(playerName))
+        {
+            Inventory inventory = player.getInventory();
+            if (isInventoryFull(inventory))
+            {
+                st.sendWarning("您的背包已满！强制填充可能会造成严重后果！已取消本次赔偿");
+                return;
+            }
+            inventory.addItem(SlimefunItem.getById(MAP.get(xyz).getBlockId()).getItem());
+            MAP.remove(xyz);
+            st.sendInfo("已赔偿您的损失至背包。请查看背包寻找物品");
+        }
+        else if (!MAP.containsKey(xyz))
+            st.sendPrompt("该方块未被注册");
+        else if (!MAP.get(xyz).getPlayerName().equals(playerName))
+            st.sendPrompt("抱歉，您不是此方块的注册者，您不能获得赔偿");
+        else
+            st.sendPrompt("该方块未被损坏");
    }
+
+    public static boolean isInventoryFull(Inventory inventory)
+    {
+        for (ItemStack stack : inventory)
+        {
+            if (stack == null) return false;
+        }
+        return true;
+    }
+
+    public static void readData()
+    {
+        try
+        {
+            ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("plugins/" + BektMain.main.getName() + "/" +  "block.dat"));
+
+            Config cfg = new Config(BektMain.main,"save.yml");
+
+            int save = cfg.getInt("save");
+
+            while (save > 0)
+            {
+                save --;
+                Object o = inputStream.readObject();
+                Map map = (Map) o;
+                MAP.put(map.getS01(),map.getS02());
+            }
+        }
+        catch (IOException | ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveData()
+    {
+        MAP.forEach((k,v) -> DATA_MAP.add(new Map(k,v)));
+
+        try
+        {
+            ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("plugins/" + BektMain.main.getName() + "/" +  "block.dat"));
+
+            int save = 0;
+            for (Map map : DATA_MAP)
+            {
+                outputStream.writeObject(map);
+                save++;
+            }
+
+            Config cfg = new Config(BektMain.main,"save.yml");
+
+            cfg.setValue("save",save);
+
+            cfg.save();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            DATA_MAP.clear();
+            MAP.clear();
+        }
+    }
+
+    //------------------------------自动保护机制------------------------------//
+    @EventHandler
+    public static void onPlace(BlockPlaceEvent event)
+    {
+        //方块放置
+        protect(event.getBlock());
+    }
+
+    @EventHandler
+    public static void onBreak(BlockBreakEvent event)
+    {
+        //方块破坏
+        protect(event.getBlock());
+    }
+
+    @EventHandler
+    public static void onIgnite(BlockIgniteEvent event)
+    {
+        //方块被燃烧
+        protect(event.getBlock());
+    }
+
+    @EventHandler
+    public static void onPiston(BlockPistonEvent event)
+    {
+        //活塞事件
+        BlockFace face = event.getDirection();
+        double x = event.getBlock().getX();
+        double y = event.getBlock().getY();
+        double z = event.getBlock().getZ();
+        Location location;
+        tion t = new tion(event.getBlock());
+        switch (face)
+        {
+            case EAST:
+                location = t.getLocation(x+1,y,z);
+                break;
+            case WEST:
+                location = t.getLocation(x-1,y,z);
+                break;
+            case NORTH:
+                location = t.getLocation(x,y,z-1);
+                break;
+            case SOUTH:
+                location = t.getLocation(x,y,z+1);
+                break;
+            case UP:
+                location = t.getLocation(x,y+1,z);
+                break;
+            case DOWN:
+                location = t.getLocation(x,y-1,z);
+                break;
+            default:
+                return;
+        }
+        Block block = location.getBlock();
+        protect(block);
+    }
+
+    @EventHandler
+    public static void onBlockExp(BlockExpEvent event)
+    {
+        //方块爆炸事件
+        exp(event.getBlock().getLocation());
+    }
+
+    @EventHandler
+    public static void onEntityChangeBlock(EntityChangeBlockEvent event)
+    {
+        //实体修改方块事件
+        protect(event.getBlock());
+    }
+
+    @EventHandler
+    public static void onBlockDropItem(BlockDropItemEvent event)
+    {
+        //方块掉落事件
+        protect(event.getBlock());
+    }
+
+    @EventHandler
+    public static void onAndroidBreakBlock(AndroidMineEvent event)
+    {
+        //机器人挖掘方块事件
+        protect(event.getBlock());
+    }
+
+    @EventHandler
+    public static void onBlockPlayerPlace(BlockPlacerPlaceEvent event)
+    {
+        //BlockPlayer放置方块事件
+        protect(event.getBlock());
+    }
+
+    @EventHandler
+    public static void onExplosiveToolBreakBlocks(ExplosiveToolBreakBlocksEvent event)
+    {
+        //爆炸工具爆炸事件
+        protect(event.getPrimaryBlock());
+        for (Block block : event.getAdditionalBlocks())
+        {
+            protect(block);
+        }
+    }
+
+   //------------------------------自动保护机制------------------------------//
+
+    @EventHandler
+    public static void onBlockChanged(BlockEvent event)
+    {
+        //当有方块被更改时则触发此事件
+        Block changedBlock = event.getBlock();
+
+        Location location = changedBlock.getLocation();
+
+        String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ();
+
+        MAP.remove(xyz);
+    }
+
+    public static void protect(Block block)
+    {
+        Location location = block.getLocation();
+
+        String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ();
+
+        MAP.remove(xyz);
+    }
+
+    //计算爆炸所伤害的方块
+    static void exp(Location location)
+    {
+        double x = location.getX();
+        double y = location.getY();
+        double z = location.getZ();
+
+        double[] xs = new double[]{x-4,x-3,x-2,x-1,x,x+1,x+2,x+3,x+4};
+        double[] ys = new double[]{y-3,y-2,y-1,y,y+1,y+2,y+3};
+        double[] zs = new double[]{z-4,z-3,z-2,z-1,z,z+1,z+2,z+3,z+4};
+
+        for (double xxs : xs)
+        {
+            for (double yys : ys)
+            {
+                for (double zzs : zs)
+                {
+                    String lt = xxs + "&" + yys + "&" + zzs;
+                    MAP.remove(lt);
+                }
+            }
+        }
+    }
+
+    static class tion
+    {
+        World world;
+
+        public tion(Block block)
+        {
+           world = block.getWorld();
+        }
+
+        public Location getLocation(double x,double y,double z)
+        {
+            return new Location(world,x,y,z);
+        }
+    }
 }

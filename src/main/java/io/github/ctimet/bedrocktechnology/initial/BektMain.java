@@ -21,7 +21,7 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
 {
     public static BektMain main;
     //插件版本号
-    public static final String VERSION = "v1.0-beta-220502f0";
+    public static final String VERSION = "v1.0-beta-220504f0";
 
     @Override
     public void onEnable(){
