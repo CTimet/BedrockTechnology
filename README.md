@@ -32,7 +32,7 @@
   null,当前未发布任何正式版本，请耐心等待
   
   #### 历史版本(包含测试版)与相应介绍：
-  null,当前未发布任何测试版本，请耐心等待
+  1.[BedrockTechnology_v1.0-beta-220504f0](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-beta-220504f0)
       
 ## 转载支持
     如果你觉得本插件还不错并且有意向向其他平台转载此插件。那么您只需要遵守以下几点，即可转载此插件而无需经过作者批准：
