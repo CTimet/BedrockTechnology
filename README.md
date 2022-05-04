@@ -1,10 +1,11 @@
-# Slimefun4 附属 -- BedrockTechnology
+# 👀Slimefun4 附属 -- BedrockTechnology👀
   这是一个由CTimet与CLIEDS合作开发的Slimefun附属插件，我们称其为基岩科技BedrockTechnology；不过我们觉得这个直译的名字有些累赘，于是我们将其称作 BEKT<br>
   BEKT准确来说并不是BedrockTechnology的缩写，而是它的别称。
   
-  * [下载链接](https://github.com/CTimet/BedrockTechnology#%E5%BD%93%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC-%E6%AD%A3%E5%BC%8F%E7%89%88)
-  * [BUG汇报](https://github.com/CTimet/BedrockTechnology/issues)
-  * [Q&A](https://ctimet.github.io/BedrockTechnologyQuestion/)
+  ✔[下载链接](https://github.com/CTimet/BedrockTechnology#%E5%BD%93%E5%89%8D%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC-%E6%AD%A3%E5%BC%8F%E7%89%88)<br>
+  🔎[Q&A | BUG汇报](https://github.com/CTimet/BedrockTechnology/issues)<br>
+  🛠[参与开发](https://github.com/CTimet/BedrockTechnology#%E5%B8%AE%E6%88%91%E4%BB%AC%E4%B8%80%E8%B5%B7%E7%BB%B4%E6%8A%A4%E6%AD%A4%E9%99%84%E5%B1%9E)<br>
+  ⚡[转载支持]()
 
 ## 帮我们一起维护此附属
   目前该附属由CTimet与CLIEDS共同维护;<br>
@@ -20,9 +21,6 @@
   目前BEKT由CTimet和CLIEDS共同维护。由于并不是单人维护，且CTimet和CLIEDS都是在闲时维护的，所以如果放开提交，那么这个插件将会变得一团糟，我们不希望这样。<br>
   您可以参与到插件开发之中，不过为了让您理解我们的代码和让我们理解您的代码，请务必加入团队后再进行开发操作。如有意向，请发送邮件至 2261868330@qq.com ；我们将在1星期内处理您的请求。<br>
   当然，您也可以创建属于您的版本分支。本项目使用GPL3.0许可证。<br>
-  
-## BUG汇报
-  [ClickHere!](https://github.com/CTimet/BedrockTechnology/issues)<br>
 
 ## 关于 BEKT 命名
  最初将其命名为BEKT是为了充当BedrockTechnology的缩写，事实上，BE很不适合作为BedRock(基岩)的简写。当我们的设计人员意识到这个问题的时候已经为时太晚了。储存库已经建立起来了，如果进行大规模的代码重构我们将不能保证代码的可靠性，它可能会出些问题。<br>
@@ -36,3 +34,14 @@
   #### 历史版本(包含测试版)与相应介绍：
   null,当前未发布任何测试版本，请耐心等待
       
+## 转载支持<br>
+    如果你觉得本插件还不错并且有意向向其他平台转载此插件。那么您只需要遵守以下几点，即可转载此插件而无需经过作者批准：<br>
+      a.转载时需标注原作者<br>
+      b.转载时需标注原帖地址<br>
+      c.转载者对于插件的介绍可以自己发挥，但不能虚构，歪曲事实，对插件的介绍以真实为目标<br>
+      d.转载的插件需使用本贴提供的下载渠道。在一般情况下，不得使用第三方下载渠道<br>
+      e.若必须使用第三方下载渠道，则通过第三方下载渠道下载的插件必须与原渠道下载的插件一致。不得将本插件通过反编译，注入等技术手段二次修改后发布<br>
+      f.使用第三方下载渠道需经过原作者同意<br>
+      g.无论通过哪种方式提供下载渠道，最后用户获得的插件信息绝不能与原信息发生冲突。即转载者不得以任何方式修改插件信息，包括作者名，源码等
+    这五条都是必须要遵守的，考虑到国内用户登录Github卡与慢的问题。我们允许在特殊情况下转载者提供第三方下载渠道。但必须遵守第e,f,g条规定！<br>
+    转载是对此插件的一种宣传，也是对我们的一种支持❤<br>
