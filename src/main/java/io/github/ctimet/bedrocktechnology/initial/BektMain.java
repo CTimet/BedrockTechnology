@@ -8,7 +8,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
 
 import static io.github.ctimet.bedrocktechnology.event.Event.readData;
 import static io.github.ctimet.bedrocktechnology.event.Event.saveData;
@@ -53,7 +52,7 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
     }
 
     @Override
-    public @NotNull JavaPlugin getJavaPlugin() {
+    public JavaPlugin getJavaPlugin() {
         return this;
     }
 
