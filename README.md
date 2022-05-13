@@ -32,8 +32,8 @@
   null,当前未发布任何正式版本，请耐心等待
   
   #### 历史版本(包含测试版)与相应介绍：
-  [BedrockTechnology_v1.0-beta-220513f1](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-beta-220513f1)
-  [BedrockTechnology_v1.0-beta-220504f0](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-beta-220504f0)
+  [BedrockTechnology_v1.0-beta-220513f1](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-beta-220513f1)<br>
+  [BedrockTechnology_v1.0-beta-220504f0](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-beta-220504f0)<br>
       
 ## 转载支持
     如果你觉得本插件还不错并且有意向向其他平台转载此插件。那么您只需要遵守以下几点，即可转载此插件而无需经过作者批准：
