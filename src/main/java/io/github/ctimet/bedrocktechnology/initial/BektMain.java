@@ -2,14 +2,16 @@ package io.github.ctimet.bedrocktechnology.initial;
 
 import io.github.ctimet.bedrocktechnology.core.BektItems.BektItemGroup;
 import io.github.ctimet.bedrocktechnology.core.Command.BektCommand;
-import io.github.ctimet.bedrocktechnology.event.event;
+import io.github.ctimet.bedrocktechnology.event.Event;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
-import static io.github.ctimet.bedrocktechnology.event.event.*;
+import static io.github.ctimet.bedrocktechnology.event.Event.readData;
+import static io.github.ctimet.bedrocktechnology.event.Event.saveData;
 
 /**
  * Main Class
@@ -21,24 +23,29 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
 {
     public static BektMain main;
     //插件版本号
-    public static final String VERSION = "v1.0-beta-220504f0";
+    public static final String VERSION = "v1.0-beta-220513f0";
+    public static boolean isReadFinish = false;
+
+    Runnable read = () -> {
+        readData();
+        isReadFinish = true;
+    };
 
     @Override
     public void onEnable(){
         main = this;
-        //Bukkit.getPluginManager().registerEvents(new fixAndResEvent(), this);
-        Bukkit.getPluginManager().registerEvents(new event(),main);
         saveDefaultConfig();
         saveResource("block.dat",false);
         saveResource("save.yml",false);
-        readData();
-
         BektItemGroup.registerSubCate();
+        Thread thread = new Thread(read);
+        thread.start();
 
         PluginCommand command = Bukkit.getPluginCommand("bedrocktechnology");
         if (command != null) {
             command.setExecutor(new BektCommand());
         }
+        Bukkit.getPluginManager().registerEvents(new Event(),this);
     }
 
     @Override
@@ -47,7 +54,7 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
     }
 
     @Override
-    public JavaPlugin getJavaPlugin() {
+    public @NotNull JavaPlugin getJavaPlugin() {
         return this;
     }
 

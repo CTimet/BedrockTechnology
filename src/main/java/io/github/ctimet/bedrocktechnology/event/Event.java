@@ -1,23 +1,18 @@
 package io.github.ctimet.bedrocktechnology.event;
 
-import io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem.BektItemStack;
-import io.github.ctimet.bedrocktechnology.core.Command.MessagePage.SendMessageToPlayer;
+import io.github.ctimet.bedrocktechnology.core.BektItems.BektItemStacks;
+import io.github.ctimet.bedrocktechnology.core.Command.SendMessageToPlayer;
 import io.github.ctimet.bedrocktechnology.data.Map;
 import io.github.ctimet.bedrocktechnology.data.PlayerBlock;
 import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.api.events.AndroidMineEvent;
 import io.github.thebusybiscuit.slimefun4.api.events.BlockPlacerPlaceEvent;
 import io.github.thebusybiscuit.slimefun4.api.events.ExplosiveToolBreakBlocksEvent;
-import io.github.thebusybiscuit.slimefun4.api.events.ReactorExplodeEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -32,14 +27,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-public class event implements Listener
+import static io.github.ctimet.bedrocktechnology.initial.BektMain.isReadFinish;
+
+public class Event implements Listener
 {
     public static final TreeMap<String, PlayerBlock> MAP = new TreeMap<>();
     public static final List<Map> DATA_MAP = new ArrayList<>();
 
     @EventHandler
-    public static void onClick(PlayerInteractEvent event)
+    public void onClick(PlayerInteractEvent event)
     {
+        if (!isReadFinish) return;
+
         Action action = event.getAction();
 
         if (action == Action.LEFT_CLICK_AIR ||
@@ -55,8 +54,8 @@ public class event implements Listener
         if (playerHold.getItemMeta() == null) return;
 
         String holdName = playerHold.getItemMeta().getDisplayName();
-        String resName = BektItemStack.BEKT_CJXF_ZC.getDisplayName();
-        String fixName = BektItemStack.BEKT_CJXF_XF.getDisplayName();
+        String resName = BektItemStacks.BEKT_CJXF_ZC.getDisplayName();
+        String fixName = BektItemStacks.BEKT_CJXF_XF.getDisplayName();
 
         Block block = event.getClickedBlock();
 
@@ -64,7 +63,7 @@ public class event implements Listener
 
         Location location = block.getLocation();
 
-        String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ();
+        String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ() + "^";
 
         SlimefunItem item = BlockStorage.check(block);
 
@@ -82,7 +81,7 @@ public class event implements Listener
    }
 
    //注册方块
-   public static void registerBlock(String xyz,SlimefunItem item, Player player, Block block)
+   public void registerBlock(String xyz,SlimefunItem item, Player player, Block block)
    {
        SendMessageToPlayer st = new SendMessageToPlayer(player);
        String playerName = player.getName();
@@ -106,7 +105,7 @@ public class event implements Listener
    }
 
    //修复方块
-   public static void fixBlock(String xyz, SlimefunItem item, Player player)
+   public void fixBlock(String xyz, SlimefunItem item, Player player)
    {
         SendMessageToPlayer st = new SendMessageToPlayer(player);
         String playerName = player.getName();
@@ -123,14 +122,12 @@ public class event implements Listener
             st.sendInfo("已赔偿您的损失至背包。请查看背包寻找物品");
         }
         else if (!MAP.containsKey(xyz))
-            st.sendPrompt("该方块未被注册");
-        else if (!MAP.get(xyz).getPlayerName().equals(playerName))
-            st.sendPrompt("抱歉，您不是此方块的注册者，您不能获得赔偿");
+            st.sendInfo("您不是此方块的注册者或该方块未被注册。您不能获得赔偿");
         else
             st.sendPrompt("该方块未被损坏");
    }
 
-    public static boolean isInventoryFull(Inventory inventory)
+    public boolean isInventoryFull(Inventory inventory)
     {
         for (ItemStack stack : inventory)
         {
@@ -195,6 +192,7 @@ public class event implements Listener
         }
     }
 
+
     //------------------------------自动保护机制------------------------------//
     @EventHandler
     public static void onPlace(BlockPlaceEvent event)
@@ -218,40 +216,10 @@ public class event implements Listener
     }
 
     @EventHandler
-    public static void onPiston(BlockPistonEvent event)
+    public static void onPiston(BlockPistonExtendEvent event)
     {
         //活塞事件
-        BlockFace face = event.getDirection();
-        double x = event.getBlock().getX();
-        double y = event.getBlock().getY();
-        double z = event.getBlock().getZ();
-        Location location;
-        tion t = new tion(event.getBlock());
-        switch (face)
-        {
-            case EAST:
-                location = t.getLocation(x+1,y,z);
-                break;
-            case WEST:
-                location = t.getLocation(x-1,y,z);
-                break;
-            case NORTH:
-                location = t.getLocation(x,y,z-1);
-                break;
-            case SOUTH:
-                location = t.getLocation(x,y,z+1);
-                break;
-            case UP:
-                location = t.getLocation(x,y+1,z);
-                break;
-            case DOWN:
-                location = t.getLocation(x,y-1,z);
-                break;
-            default:
-                return;
-        }
-        Block block = location.getBlock();
-        protect(block);
+        for (Block block : event.getBlocks()) protect(block);
     }
 
     @EventHandler
@@ -302,19 +270,6 @@ public class event implements Listener
 
    //------------------------------自动保护机制------------------------------//
 
-    @EventHandler
-    public static void onBlockChanged(BlockEvent event)
-    {
-        //当有方块被更改时则触发此事件
-        Block changedBlock = event.getBlock();
-
-        Location location = changedBlock.getLocation();
-
-        String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ();
-
-        MAP.remove(xyz);
-    }
-
     public static void protect(Block block)
     {
         Location location = block.getLocation();
@@ -341,25 +296,10 @@ public class event implements Listener
             {
                 for (double zzs : zs)
                 {
-                    String lt = xxs + "&" + yys + "&" + zzs;
+                    String lt = xxs + "&" + yys + "&" + zzs + "^";
                     MAP.remove(lt);
                 }
             }
-        }
-    }
-
-    static class tion
-    {
-        World world;
-
-        public tion(Block block)
-        {
-           world = block.getWorld();
-        }
-
-        public Location getLocation(double x,double y,double z)
-        {
-            return new Location(world,x,y,z);
         }
     }
 }

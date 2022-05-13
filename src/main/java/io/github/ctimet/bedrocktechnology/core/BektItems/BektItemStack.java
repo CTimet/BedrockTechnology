@@ -1,17 +1,19 @@
-package io.github.ctimet.bedrocktechnology.core.BektItems.BaseItem;
+package io.github.ctimet.bedrocktechnology.core.BektItems;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.itemstack.ColoredFireworkStar;
-
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 
 /**
- * 一个存放着各类物品的基础信息的类
+ * 一个存放着各类物品的基础信息的类，目前已被废弃，主要是大部分物品无意义，已将有意义的物品转移至{@link BektItemStacks},
  * @author CTimet
  * @author CLIEDS
  * @version beta1.0.0
+ * @deprecated 已被废弃，有关Bekt物品请至{@link BektItemStacks}
  */
 public class BektItemStack
 {
@@ -37,6 +39,7 @@ public class BektItemStack
             "",
             "&7咬合在机器内部达到牵引与提速效果"
     );
+    
     public static final SlimefunItemStack BEKT_TS = new SlimefunItemStack(
             "BEKT_TS",
             Material.INFESTED_CHISELED_STONE_BRICKS,
@@ -60,6 +63,7 @@ public class BektItemStack
             "&7由铜线圈围成的线圈",
             "&7具有更强的变压作用"
     );
+    
     public static final SlimefunItemStack BEKT_QH = new SlimefunItemStack(
             "BEKT_QH",
             Material.NETHER_STAR,
@@ -67,6 +71,7 @@ public class BektItemStack
             "",
             "&7用强化合金压制而成"
     );
+    
     public static final SlimefunItemStack BEKT_QP = new SlimefunItemStack(
             "BEKT_QP",
             Material.EMERALD,
@@ -82,6 +87,7 @@ public class BektItemStack
             "",
             "&7能够提供比普通线圈更强悍的电力"
     );
+    
     public static final SlimefunItemStack BEKT_AJ = new SlimefunItemStack(
             "BEKT_AJ",
             Material.MUSIC_DISC_13,
@@ -90,6 +96,7 @@ public class BektItemStack
             "&7一个特殊的结构",
             "&7可以拿来制作机器"
     );
+    
     public static final SlimefunItemStack BEKT_BJ = new SlimefunItemStack(
             "BEKT_BJ",
             Material.MUSIC_DISC_CAT,
@@ -98,6 +105,7 @@ public class BektItemStack
             "&7一个特殊的结构",
             "&7可以拿来制作机器"
     );
+    
     public static final SlimefunItemStack BEKT_CJ = new SlimefunItemStack(
             "BEKT_CJ",
             Material.MUSIC_DISC_BLOCKS,
@@ -106,6 +114,7 @@ public class BektItemStack
             "&7一个特殊的结构",
             "&7可以拿来制作机器"
     );
+    
     public static final SlimefunItemStack BEKT_DJ = new SlimefunItemStack(
             "BEKT_DJ",
             Material.MUSIC_DISC_CHIRP,
@@ -114,6 +123,7 @@ public class BektItemStack
             "&7一个特殊的结构",
             "&7可以拿来制作机器"
     );
+    
     public static final SlimefunItemStack BEKT_EJ = new SlimefunItemStack(
             "BEKT_EJ",
             Material.MUSIC_DISC_FAR,
@@ -122,6 +132,7 @@ public class BektItemStack
             "&7一个特殊的结构",
             "&7可以拿来制作机器"
     );
+    
     public static final SlimefunItemStack BEKT_FJ = new SlimefunItemStack(
             "BEKT_FJ",
             Material.MUSIC_DISC_MALL,
@@ -130,6 +141,7 @@ public class BektItemStack
             "&7稀有结构",
             "&7可以拿来制作机器和合成其他结构"
     );
+    
     public static final SlimefunItemStack BEKT_GJ = new SlimefunItemStack(
             "BEKT_GJ",
             Material.MUSIC_DISC_MELLOHI,
@@ -138,6 +150,7 @@ public class BektItemStack
             "&7稀有结构",
             "&7可以拿来制作机器和合成其他结构"
     );
+    
     public static final SlimefunItemStack BEKT_HJ = new SlimefunItemStack(
             "BEKT_HJ",
             Material.MUSIC_DISC_STAL,
@@ -146,6 +159,7 @@ public class BektItemStack
             "&7一个特殊的结构",
             "&7可以拿来制作机器"
     );
+    
     public static final SlimefunItemStack BEKT_IJ = new SlimefunItemStack(
             "BEKT_IJ",
             Material.MUSIC_DISC_WAIT,
@@ -154,6 +168,7 @@ public class BektItemStack
             "&7一个特殊的结构",
             "&7可以拿来制作机器"
     );
+    
     public static final SlimefunItemStack BEKT_JJ = new SlimefunItemStack(
             "BEKT_JJ",
             Material.MUSIC_DISC_WARD,
@@ -162,6 +177,7 @@ public class BektItemStack
             "&7一个特殊的结构",
             "&7可以拿来制作机器"
     );
+    
     public static final SlimefunItemStack BEKT_KJ = new SlimefunItemStack(
             "BEKT_KJ",
             Material.MUSIC_DISC_11,
@@ -170,6 +186,7 @@ public class BektItemStack
             "&7一个特殊的结构",
             "&7可以拿来制作机器"
     );
+    
     public static final SlimefunItemStack BEKT_LJ = new SlimefunItemStack(
             "BEKT_LJ",
             Material.NETHER_STAR,
@@ -178,6 +195,7 @@ public class BektItemStack
             "&7一种极其稀有的结构",
             "&7是一些机器和特殊结构的原料"
     );
+    
     public static final SlimefunItemStack BEKT_MJ = new SlimefunItemStack(
             "BEKT_MJ",
             Material.MUSIC_DISC_WARD,
@@ -186,6 +204,7 @@ public class BektItemStack
             "&7一个特殊的结构",
             "&7可以拿来制作机器"
     );
+    
     public static final SlimefunItemStack BEKT_NJ = new SlimefunItemStack(
             "BEKT_NJ",
             Material.NETHER_STAR,
@@ -194,6 +213,7 @@ public class BektItemStack
             "&7一种极其稀有的结构",
             "&7是一些机器和特殊结构的原料"
     );
+    
     public static final SlimefunItemStack BEKT_TONG = new SlimefunItemStack(
             "BEKT_TONG",
             Material.GOLD_NUGGET,
@@ -201,6 +221,7 @@ public class BektItemStack
             "",
             "&7一个从铜锭上轰击出来的粒子"
     );
+    
     public static final SlimefunItemStack BEKT_JINL = new SlimefunItemStack(
             "BEKT_JINL",
             Material.GOLD_NUGGET,
@@ -208,6 +229,7 @@ public class BektItemStack
             "",
             "&7从金锭上轰击出来的粒子"
     );
+    
     public static final SlimefunItemStack BEKT_XINL = new SlimefunItemStack(
             "BEKT_XINL",
             Material.IRON_NUGGET,
@@ -215,6 +237,7 @@ public class BektItemStack
             "",
             "&7从锌锭上轰击出来的粒子"
     );
+    
     public static final SlimefunItemStack BEKT_LVLI = new SlimefunItemStack(
             "BEKT_LVLI",
             Material.IRON_NUGGET,
@@ -222,6 +245,7 @@ public class BektItemStack
             "",
             "&7从铝锭上轰击出来的粒子"
     );
+    
     public static final SlimefunItemStack BEKT_QIAN = new SlimefunItemStack(
             "BEKT_QIAN",
             Material.IRON_NUGGET,
@@ -229,6 +253,7 @@ public class BektItemStack
             "",
             "&7从铅锭上轰击出来的粒子"
     );
+    
     public static final SlimefunItemStack BEKT_XILI = new SlimefunItemStack(
             "BEKT_XILI",
             Material.IRON_NUGGET,
@@ -236,6 +261,7 @@ public class BektItemStack
             "",
             "&7从锡锭上轰击出来的粒子"
     );
+    
     public static final SlimefunItemStack BEKT_YINL = new SlimefunItemStack(
             "BEKT_YINL",
             Material.IRON_NUGGET,
@@ -243,6 +269,7 @@ public class BektItemStack
             "",
             "&7从银锭上轰击出来的粒子"
     );
+    
     public static final SlimefunItemStack BEKT_TIEL = new SlimefunItemStack(
             "BEKT_TIEL",
             Material.IRON_NUGGET,
@@ -250,6 +277,7 @@ public class BektItemStack
             "",
             "&7从铁锭上轰击出来的粒子"
     );
+    
     public static final SlimefunItemStack BEKT_MEIL = new SlimefunItemStack(
             "BEKT_MEIL",
             Material.IRON_NUGGET,
@@ -257,6 +285,7 @@ public class BektItemStack
             "",
             "&7从镁锭上轰击出来的粒子"
     );
+    
     public static final SlimefunItemStack BEKT_JBLZ = new SlimefunItemStack(
             "BEKT_JBLZ",
             Material.IRON_NUGGET,
@@ -950,7 +979,7 @@ public class BektItemStack
             "核聚变反应堆",
             "",
             "最高级的核动力发电,安全可靠",
-            getPow("1000000")
+            getPow("10000")
     );
     public static final SlimefunItemStack BEKT_ZZHJ = new SlimefunItemStack(
             "BEKT_ZZHJ",
@@ -1436,6 +1465,8 @@ public class BektItemStack
      * @param eff 速度，单位x
      * @return 速度
      */
+    @Contract(pure = true)
+    @NotNull
     public static String getEff(String eff){
         return "&7⇨ &e⚡ &7速度: &b" + eff;
     }
@@ -1445,6 +1476,7 @@ public class BektItemStack
      * @param j 电量，单位J/S，输入的字符串中不需要带单位，只需要输入数字即可
      * @return 电量
      */
+    @NotNull
     public static String getPow(String j){
         return "&7⇨ &e⚡ &7" + j + "J/s";
     }
@@ -1454,6 +1486,7 @@ public class BektItemStack
      * @param j 电量，单位J/S,输入的字符串不需要带单位
      * @return 电量
      */
+    @NotNull
     public static String getUse(String j){
         return "&7⇨ &e⚡ &7" + j + "J每次使用";
     }
