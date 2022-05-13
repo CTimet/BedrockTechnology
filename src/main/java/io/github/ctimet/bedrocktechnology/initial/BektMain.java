@@ -32,6 +32,7 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
     @Override
     public void onEnable(){
         main = this;
+        //test
         saveDefaultConfig();
         saveResource("block.dat",false);
         saveResource("save.yml",false);
