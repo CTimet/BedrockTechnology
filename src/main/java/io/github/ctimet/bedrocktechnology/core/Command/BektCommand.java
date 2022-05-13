@@ -5,10 +5,9 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-
-import static io.github.ctimet.bedrocktechnology.initial.BektMain.VERSION;
 
 public class BektCommand implements CommandExecutor
 {
@@ -53,7 +52,7 @@ public class BektCommand implements CommandExecutor
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender,@NotNull Command command,@NotNull String label,@NotNull String[] args) {
         SendMessageToPlayer st = new SendMessageToPlayer(sender,args);
         if (args.length < 1)
         {
@@ -169,7 +168,7 @@ public class BektCommand implements CommandExecutor
                     st.showTheHelp(mes, 2);
                     return true;
                 case "version":
-                    st.sendInfo(VERSION);
+                    st.sendInfo(BektMain.main.getPluginVersion());
                 default:
                     st.sendWarning("未知命令，请检查是否有拼写错误");
                     return false;

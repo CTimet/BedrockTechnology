@@ -162,6 +162,7 @@ public class BektItems
                 BektItemStacks.BEKT_JYLR,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
+                        BektItemStacks.BEKT_EYHG
                 }
         ).register(main);
 
@@ -171,6 +172,7 @@ public class BektItems
                 BektItemStacks.BEKT_JYMF,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
+                        BektItemStacks.BEKT_EYHG,BektItemStacks.BEKT_EYHG
                 }
         ).register(main);
 
@@ -180,6 +182,7 @@ public class BektItems
                 BektItemStacks.BEKT_JYLG,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
+                        BektItemStacks.BEKT_EYHG,BektItemStacks.BEKT_EYHG,BektItemStacks.BEKT_EYHG
                 }
         ).register(main);
 
@@ -189,6 +192,7 @@ public class BektItems
                 BektItemStacks.BEKT_JYZQ,
                 BektRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{
+                        BektItemStacks.BEKT_EYHG,BektItemStacks.BEKT_EYHG,BektItemStacks.BEKT_EYHG,BektItemStacks.BEKT_EYHG
                 }
         ).register(main);
     }
