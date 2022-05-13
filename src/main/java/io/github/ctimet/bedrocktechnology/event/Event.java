@@ -37,7 +37,7 @@ public class Event implements Listener
     @EventHandler
     public void onClick(PlayerInteractEvent event)
     {
-        if (!isReadFinish) return;//test
+        if (!isReadFinish) return;
 
         Action action = event.getAction();
 
