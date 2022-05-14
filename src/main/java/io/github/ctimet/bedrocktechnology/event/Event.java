@@ -24,14 +24,14 @@ import org.bukkit.inventory.ItemStack;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.TreeMap;
 
 import static io.github.ctimet.bedrocktechnology.initial.BektMain.isReadFinish;
 
 public class Event implements Listener
 {
-    public static final TreeMap<String, PlayerBlock> MAP = new TreeMap<>();
+    public static final HashMap<String, PlayerBlock> MAP = new HashMap<>();
     public static final List<Map> DATA_MAP = new ArrayList<>();
 
     @EventHandler
