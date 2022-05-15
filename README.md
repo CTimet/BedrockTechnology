@@ -26,16 +26,6 @@
  最初将其命名为BEKT是为了充当BedrockTechnology的缩写，事实上，BE很不适合作为BedRock(基岩)的简写。当我们的设计人员意识到这个问题的时候已经为时太晚了。储存库已经建立起来了，如果进行大规模的代码重构我们将不能保证代码的可靠性，它可能会出些问题。<br>
   由于基层代码在我们发现这个问题之前便建立起来了。并且大量的物品命名和类命名都是以Bekt为前缀的。这些类之间互相依靠，我们很难保证在重构的时候不出一点差错。所以我们并不想更换这个命名。我们更愿意让他成为基岩科技的别名。这样解释起来可能会更舒服一些。<br>
   
-## 更新日志
-  所有测试版/正式版release发布我们将更新这一部分内容，以使您了解我们跟新的内容<br>
-  #### 当前最新版本-正式版:
-  [BedrockTechnology_v1.0-sv-resfix](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-sv-resfix)<br>
-  
-  #### 历史版本(包含测试版)与相应介绍：
-  [BedrockTechnology_v1.0-sv-resfix](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-sv-resfix)<br>
-  [BedrockTechnology_v1.0-beta-220513f1](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-beta-220513f1)<br>
-  [BedrockTechnology_v1.0-beta-220504f0](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-beta-220504f0)<br>
-      
 ## 转载支持
     如果你觉得本插件还不错并且有意向向其他平台转载此插件。那么您只需要遵守以下几点，即可转载此插件而无需经过作者批准：
       a.转载时需标注原作者
@@ -46,4 +36,16 @@
       f.使用第三方下载渠道需经过原作者同意
       g.无论通过哪种方式提供下载渠道，最后用户获得的插件信息绝不能与原信息发生冲突。即转载者不得以任何方式修改插件信息，包括作者名，源码等
     这7条都是必须要遵守的，考虑到国内用户登录Github卡与慢的问题。我们允许在特殊情况下转载者提供第三方下载渠道。但必须遵守第e,f,g条规定！
-    转载是对此插件的一种宣传，也是对我们的一种支持❤
+    转载是对此插件的一种宣传，也是对我们的一种支持❤  
+  
+## 更新日志
+  所有测试版/正式版release发布我们将更新这一部分内容，以使您了解我们跟新的内容<br>
+  #### 当前最新版本-正式版:
+  [BedrockTechnology_v1.0-sv-resfix](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-sv-resfix)<br>
+  
+  #### 历史版本(包含测试版)与相应介绍：
+  [BedrockTechnology_v1.0-sv-resfix](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-sv-resfix)<br>
+  [BedrockTechnology_v1.0-beta-220513f1](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-beta-220513f1)<br>
+  [BedrockTechnology_v1.0-beta-220504f0](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-beta-220504f0)<br>
+      
+
