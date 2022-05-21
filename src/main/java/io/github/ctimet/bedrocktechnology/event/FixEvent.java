@@ -1,20 +1,19 @@
 package io.github.ctimet.bedrocktechnology.event;
 
-import io.github.ctimet.bedrocktechnology.core.BektItems.BektItemStacks;
-import io.github.ctimet.bedrocktechnology.core.Command.SendMessageToPlayer;
-import io.github.ctimet.bedrocktechnology.data.Map;
-import io.github.ctimet.bedrocktechnology.data.PlayerBlock;
+import io.github.ctimet.bedrocktechnology.core.items.BektItemStacks;
+import io.github.ctimet.bedrocktechnology.core.command.SendMessageToPlayer;
+import io.github.ctimet.bedrocktechnology.data.resfix.PlayerBlock;
 import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.api.events.AndroidMineEvent;
 import io.github.thebusybiscuit.slimefun4.api.events.BlockPlacerPlaceEvent;
 import io.github.thebusybiscuit.slimefun4.api.events.ExplosiveToolBreakBlocksEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.*;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
@@ -23,16 +22,13 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import static io.github.ctimet.bedrocktechnology.initial.BektMain.isReadFinish;
 
-public class Event implements Listener
+public class FixEvent implements Listener
 {
-    public static final HashMap<String, PlayerBlock> MAP = new HashMap<>();
-    public static final List<Map> DATA_MAP = new ArrayList<>();
+    public static HashMap<String, PlayerBlock> MAP = new HashMap<>();
 
     @EventHandler
     public void onClick(PlayerInteractEvent event)
@@ -142,17 +138,7 @@ public class Event implements Listener
         {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("plugins/" + BektMain.main.getName() + "/" +  "block.dat"));
 
-            Config cfg = new Config(BektMain.main,"save.yml");
-
-            int save = cfg.getInt("save");
-
-            while (save > 0)
-            {
-                save --;
-                Object o = inputStream.readObject();
-                Map map = (Map) o;
-                MAP.put(map.getS01(),map.getS02());
-            }
+            MAP = (HashMap<String, PlayerBlock>) inputStream.readObject();
         }
         catch (IOException | ClassNotFoundException e)
         {
@@ -162,39 +148,21 @@ public class Event implements Listener
 
     public static void saveData()
     {
-        MAP.forEach((k,v) -> DATA_MAP.add(new Map(k,v)));
-
         try
         {
             ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("plugins/" + BektMain.main.getName() + "/" +  "block.dat"));
 
-            int save = 0;
-            for (Map map : DATA_MAP)
-            {
-                outputStream.writeObject(map);
-                save++;
-            }
-
-            Config cfg = new Config(BektMain.main,"save.yml");
-
-            cfg.setValue("save",save);
-
-            cfg.save();
+            outputStream.writeObject(MAP);
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
-        finally
-        {
-            DATA_MAP.clear();
-            MAP.clear();
-        }
     }
 
 
     //------------------------------自动保护机制------------------------------//
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGH)
     public static void onPlace(BlockPlaceEvent event)
     {
         //方块放置
