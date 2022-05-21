@@ -1,8 +1,8 @@
 package io.github.ctimet.bedrocktechnology.event;
 
-import io.github.ctimet.bedrocktechnology.core.items.BektItemStacks;
-import io.github.ctimet.bedrocktechnology.core.command.SendMessageToPlayer;
-import io.github.ctimet.bedrocktechnology.data.resfix.PlayerBlock;
+import io.github.ctimet.bedrocktechnology.core.BektItems.BektItemStacks;
+import io.github.ctimet.bedrocktechnology.core.Command.SendMessageToPlayer;
+import io.github.ctimet.bedrocktechnology.data.PlayerBlock;
 import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.api.events.AndroidMineEvent;
 import io.github.thebusybiscuit.slimefun4.api.events.BlockPlacerPlaceEvent;

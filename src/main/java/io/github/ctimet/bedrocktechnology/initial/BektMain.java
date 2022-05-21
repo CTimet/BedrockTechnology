@@ -2,15 +2,15 @@ package io.github.ctimet.bedrocktechnology.initial;
 
 import io.github.ctimet.bedrocktechnology.core.BektItems.BektItemGroup;
 import io.github.ctimet.bedrocktechnology.core.Command.BektCommand;
-import io.github.ctimet.bedrocktechnology.event.Event;
+import io.github.ctimet.bedrocktechnology.event.FixEvent;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import static io.github.ctimet.bedrocktechnology.event.Event.readData;
-import static io.github.ctimet.bedrocktechnology.event.Event.saveData;
+import static io.github.ctimet.bedrocktechnology.event.FixEvent.*;
+
 
 /**
  * Main Class
@@ -43,7 +43,7 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
         if (command != null) {
             command.setExecutor(new BektCommand());
         }
-        Bukkit.getPluginManager().registerEvents(new Event(),this);
+        Bukkit.getPluginManager().registerEvents(new FixEvent(),this);
     }
 
     @Override
