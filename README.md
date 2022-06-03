@@ -41,9 +41,10 @@
 ## 更新日志
   所有测试版/正式版release发布我们将更新这一部分内容，以使您了解我们跟新的内容<br>
   #### 当前最新版本-正式版:
-  [BektResAndFix_CTimet_0602](https://github.com/CTimet/BedrockTechnology/releases/tag/BektResAndFix_CTimet_0602)<br>
+  [BektResAndFix_CTimet_0603](https://github.com/CTimet/BedrockTechnology/releases/tag/BektResAndFix_CTimet_0603)<br>
   
   #### 历史版本(包含测试版)与相应介绍：
+  [BektResAndFix_CTimet_0603](https://github.com/CTimet/BedrockTechnology/releases/tag/BektResAndFix_CTimet_0603)<br>
   [BektResAndFix_CTimet_0602](https://github.com/CTimet/BedrockTechnology/releases/tag/BektResAndFix_CTimet_0602)<br>
   [BektResAndFix_CTimet_0528](https://github.com/CTimet/BedrockTechnology/releases/tag/BektResAndFix_CTimet_0528)<br>
   [BektResAndFix_CTimet](https://github.com/CTimet/BedrockTechnology/releases/tag/BektResAndFix_CTimet)<br>
