@@ -3,6 +3,7 @@
   BEKT准确来说并不是BedrockTechnology的缩写，而是它的别称。
   
   ✔[下载链接](https://github.com/CTimet/BedrockTechnology#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97)<br>
+  💬[更新提醒]()<br>
   🔎[Q&A | BUG汇报](https://github.com/CTimet/BedrockTechnology/issues)<br>
   🛠[参与开发](https://github.com/CTimet/BedrockTechnology#%E5%B8%AE%E6%88%91%E4%BB%AC%E4%B8%80%E8%B5%B7%E7%BB%B4%E6%8A%A4%E6%AD%A4%E9%99%84%E5%B1%9E)<br>
   ⚡[转载支持](https://github.com/CTimet/BedrockTechnology#%E8%BD%AC%E8%BD%BD%E6%94%AF%E6%8C%81)
@@ -37,6 +38,10 @@
       g.无论通过哪种方式提供下载渠道，最后用户获得的插件信息绝不能与原信息发生冲突。即转载者不得以任何方式修改插件信息，包括作者名，源码等
     这7条都是必须要遵守的，考虑到国内用户登录Github卡与慢的问题。我们允许在特殊情况下转载者提供第三方下载渠道。但必须遵守第e,f,g条规定！
     转载是对此插件的一种宣传，也是对我们的一种支持❤  
+    
+## 更新提醒
+  当我们发布新版本时，储存库将会第一时间更新。而很多时候，并不会有人一直盯着储存库。所以我们创建了一个QQ群，群号656447649
+  现在，当我们发布新版本时，不只储存库，此群内也会第一时间发布信息以提醒各位腐竹更新插件。
   
 ## 更新日志
   所有测试版/正式版release发布我们将更新这一部分内容，以使您了解我们跟新的内容<br>
