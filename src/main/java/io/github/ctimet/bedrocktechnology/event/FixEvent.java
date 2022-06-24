@@ -25,6 +25,7 @@ import java.io.*;
 import java.util.HashMap;
 
 import static io.github.ctimet.bedrocktechnology.initial.BektMain.isReadFinish;
+import static io.github.ctimet.bedrocktechnology.initial.BektMain.prevSave;
 
 public class FixEvent implements Listener
 {
@@ -33,13 +34,16 @@ public class FixEvent implements Listener
     @EventHandler
     public void onClick(PlayerInteractEvent event)
     {
-        if (!isReadFinish) return;
+        if (!isReadFinish) {
+            new SendMessageToPlayer(event.getPlayer()).sendPrompt("抱歉，数据读取未完成，亲，请稍安勿躁，待服务器读取完数据即可正常使用修复注册");
+            return;
+        }
 
         Action action = event.getAction();
 
         if (action == Action.LEFT_CLICK_AIR ||
-            action == Action.RIGHT_CLICK_AIR||
-            action == Action.RIGHT_CLICK_BLOCK)
+                action == Action.RIGHT_CLICK_AIR||
+                action == Action.RIGHT_CLICK_BLOCK)
             return;
 
         //BektMain.main.getLogger().info("yyyyy");
@@ -59,7 +63,7 @@ public class FixEvent implements Listener
 
         Location location = block.getLocation();
 
-        String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ() + "^";
+        String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ() + "^" + block.getWorld().getName();
 
         SlimefunItem item = BlockStorage.check(block);
 
@@ -67,42 +71,45 @@ public class FixEvent implements Listener
         if (holdName.equals(resName))
         {
             registerBlock(xyz,item,player,block);
+            event.setCancelled(true);
         }
 
         //修复
         if (holdName.equals(fixName))
         {
             fixBlock(xyz,item,player);
+            event.setCancelled(true);
         }
-   }
 
-   //注册方块
-   public void registerBlock(String xyz,SlimefunItem item, Player player, Block block)
-   {
-       SendMessageToPlayer st = new SendMessageToPlayer(player);
-       String playerName = player.getName();
-       Location location = block.getLocation();
-       if (!MAP.containsKey(xyz))
-       {
-           if (item == null)
-           {
-               st.sendInfo("非sf物品。暂不支持注册");
-               return;
-           }
-           String id = item.getId();
-           MAP.put(xyz,new PlayerBlock(playerName,id));
-           st.sendInfo("已成功注册您的方块。方块位于"
-                   + block.getWorld().getName()
-                   + " x=" + location.getX()
-                   + " y=" + location.getY()
-                   + " z=" + location.getZ());
-       }
-       else st.sendPrompt("该方块已被注册过了");
-   }
+    }
 
-   //修复方块
-   public void fixBlock(String xyz, SlimefunItem item, Player player)
-   {
+    //注册方块
+    public void registerBlock(String xyz,SlimefunItem item, Player player, Block block)
+    {
+        SendMessageToPlayer st = new SendMessageToPlayer(player);
+        String playerName = player.getName();
+        Location location = block.getLocation();
+        if (!MAP.containsKey(xyz))
+        {
+            if (item == null)
+            {
+                st.sendInfo("非sf物品。暂不支持注册");
+                return;
+            }
+            String id = item.getId();
+            MAP.put(xyz,new PlayerBlock(playerName,id));
+            st.sendInfo("已成功注册您的方块。方块位于"
+                    + block.getWorld().getName()
+                    + " x=" + location.getX()
+                    + " y=" + location.getY()
+                    + " z=" + location.getZ());
+        }
+        else st.sendPrompt("该方块已被注册过了");
+    }
+
+    //修复方块
+    public void fixBlock(String xyz, SlimefunItem item, Player player)
+    {
         SendMessageToPlayer st = new SendMessageToPlayer(player);
         String playerName = player.getName();
         if (MAP.containsKey(xyz) && item == null && MAP.get(xyz).getPlayerName().equals(playerName))
@@ -116,12 +123,16 @@ public class FixEvent implements Listener
             inventory.addItem(SlimefunItem.getById(MAP.get(xyz).getBlockId()).getItem());
             MAP.remove(xyz);
             st.sendInfo("已赔偿您的损失至背包。请查看背包寻找物品");
+            if (System.currentTimeMillis() - prevSave > 1000) {
+                saveData();
+                prevSave = System.currentTimeMillis();
+            }
         }
         else if (!MAP.containsKey(xyz))
             st.sendInfo("您不是此方块的注册者或该方块未被注册。您不能获得赔偿");
         else
             st.sendPrompt("该方块未被损坏");
-   }
+    }
 
     public boolean isInventoryFull(Inventory inventory)
     {
@@ -236,13 +247,13 @@ public class FixEvent implements Listener
         }
     }
 
-   //------------------------------自动保护机制------------------------------//
+    //------------------------------自动保护机制------------------------------//
 
     public static void protect(Block block)
     {
         Location location = block.getLocation();
 
-        String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ();
+        String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ() + "&" + location.getWorld().getName();
 
         MAP.remove(xyz);
     }
@@ -264,7 +275,7 @@ public class FixEvent implements Listener
             {
                 for (double zzs : zs)
                 {
-                    String lt = xxs + "&" + yys + "&" + zzs + "^";
+                    String lt = xxs + "&" + yys + "&" + zzs + "^" + location.getWorld().getName();
                     MAP.remove(lt);
                 }
             }
