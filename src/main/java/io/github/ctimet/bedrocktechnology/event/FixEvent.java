@@ -1,8 +1,9 @@
 package io.github.ctimet.bedrocktechnology.event;
 
-import io.github.ctimet.bedrocktechnology.core.BektItems.BektItemStacks;
-import io.github.ctimet.bedrocktechnology.core.Command.SendMessageToPlayer;
+import io.github.ctimet.bedrocktechnology.core.command.SendMessageToPlayer;
+import io.github.ctimet.bedrocktechnology.core.items.BektItemStacks;
 import io.github.ctimet.bedrocktechnology.data.PlayerBlock;
+import io.github.ctimet.bedrocktechnology.exceptionhandling.Handle;
 import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.api.events.AndroidMineEvent;
 import io.github.thebusybiscuit.slimefun4.api.events.BlockPlacerPlaceEvent;
@@ -24,8 +25,7 @@ import org.bukkit.inventory.ItemStack;
 import java.io.*;
 import java.util.HashMap;
 
-import static io.github.ctimet.bedrocktechnology.initial.BektMain.isReadFinish;
-import static io.github.ctimet.bedrocktechnology.initial.BektMain.prevSave;
+import static io.github.ctimet.bedrocktechnology.initial.BektMain.*;
 
 public class FixEvent implements Listener
 {
@@ -153,12 +153,16 @@ public class FixEvent implements Listener
         }
         catch (IOException | ClassNotFoundException e)
         {
-            e.printStackTrace();
+            Handle.writeException(e,"IOException | ClassNotFoundException", "readData", FixEvent.class);
         }
     }
 
     public static void saveData()
     {
+        if (!isReadFinish) {
+            main.getLogger().info("机器保护 >> 检测到数据未读取完成，已终止本次保存。");
+            return;
+        }
         try
         {
             ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("plugins/" + BektMain.main.getName() + "/" +  "block.dat"));
@@ -167,7 +171,7 @@ public class FixEvent implements Listener
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            Handle.writeException(e,"IOException", "saveData", FixEvent.class);
         }
     }
 

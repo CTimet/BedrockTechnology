@@ -1,4 +1,4 @@
-package io.github.ctimet.bedrocktechnology.core.BektItems;
+package io.github.ctimet.bedrocktechnology.core.items;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.itemstack.ColoredFireworkStar;

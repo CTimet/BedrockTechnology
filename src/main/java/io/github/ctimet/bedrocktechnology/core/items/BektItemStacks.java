@@ -1,57 +1,12 @@
-package io.github.ctimet.bedrocktechnology.core.BektItems;
+package io.github.ctimet.bedrocktechnology.core.items;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.itemstack.ColoredFireworkStar;
-import org.bukkit.Color;
 import org.bukkit.Material;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 public class BektItemStacks {
-    public static final SlimefunItemStack BEKT_FS = new SlimefunItemStack(
-            "BEKT_FS",
-            Material.NETHER_STAR,
-            "&b风扇",
-            "",
-            "&7一个很普通的风扇"
-    );
-    public static final SlimefunItemStack BEKT_LH = new SlimefunItemStack(
-            "BEKT_LH",
-            Material.IRON_BLOCK,
-            "铝合金",
-            "",
-            "&7一种特殊的铝"
-    );
-    public static final SlimefunItemStack BEKT_CL = new SlimefunItemStack(
-            "BEKT_CL",
-            Material.CHAIN,
-            "齿轮",
-            "",
-            "&7咬合在机器内部达到牵引与提速效果"
-    );
-    public static final SlimefunItemStack BEKT_XQ = new SlimefunItemStack(
-            "BEKT_XQ",
-            Material.STRING,
-            "&6铜线圈",
-            "",
-            "&7由铜线围成的圈",
-            "&7可以起到变压的作用"
-    );
-    public static final SlimefunItemStack BEKT_DT = new SlimefunItemStack(
-            "BEKT_DT",
-            Material.STRING,
-            "&6大型铜线圈",
-            "",
-            "&7由铜线圈围成的线圈",
-            "&7具有更强的变压作用"
-    );
-    public static final SlimefunItemStack BEKT_BY = new SlimefunItemStack(
-            "BEKT_BY",
-            Material.OBSERVER,
-            "&b变压器",
-            "",
-            "&7能够提供比普通线圈更强悍的电力"
-    );/*
+    /*
     public static final SlimefunItemStack BEKT_SYJJ = new SlimefunItemStack(
             "BEKT_SYJJ",
             Material.AIR,
@@ -228,13 +183,7 @@ public class BektItemStacks {
             "由塑料纸二次加工而来的橡胶,可用于制作各种物品"
     );*/
 
-    public static final SlimefunItemStack BEKT_EYHG = new SlimefunItemStack(
-            "BEKT_EYHG",
-            Material.SAND,
-            "&f二氧化硅",
-            "",
-            "&o&7一种非常纯的沙子"
-    );public static final SlimefunItemStack BEKT_CJXF_ZC = new SlimefunItemStack(
+    public static final SlimefunItemStack BEKT_CJXF_ZC = new SlimefunItemStack(
             "BEKT-CJXF-ZC",
             Material.STICK,
             "&a超级修复-注册",
@@ -247,7 +196,8 @@ public class BektItemStacks {
             "&a超级修复-修复",
             "",
             "&7&o修复你的机器，当你的机器被卡掉时，你可以用此物品右键机器来修复你的机器"
-    );/*
+    );
+    /*
     public static final SlimefunItemStack BEKT_JZMZ = new SlimefunItemStack(
             "BEKT_JZMZ",
             Material.BLAZE_ROD,
@@ -331,15 +281,7 @@ public class BektItemStacks {
             "右键 捕捉生物",
             "右键方块可放出生物,也可以放入生物产物机生产掉落物"
     );*/
-    public static final SlimefunItemStack BEKT_EYHGT = new SlimefunItemStack(
-            "BEKT-EYHGI",
-            Material.GREEN_STAINED_GLASS,
-            "&b二氧化硅提取机",
-            "",
-            "&7提取二氧化硅",
-            getEff("1x"),
-            getPow("500")
-    );/*
+    /*
     public static final SlimefunItemStack BEKT_FLFDI = new SlimefunItemStack(
             "BEKT-FLFDI",
             Material.BONE_BLOCK,
@@ -630,38 +572,63 @@ public class BektItemStacks {
             "左键拆除机器",
             "右键查看机器详细内容"
     );*/
-    public static final SlimefunItemStack BEKT_YYSCJ = new SlimefunItemStack(
-            "BEKT_YYSCJ",
-            Material.NETHER_WART_BLOCK,
-            "&4原油生产机",
+    public static final SlimefunItemStack BEKT_GKJ = new SlimefunItemStack(
+            "BEKT_GKJ",
+            Material.DRIED_KELP_BLOCK,
+            "&4光刻机",
             "",
-            "&f不受区块内原油总量影响，持续不断的产出原油",
-            getPow("800,000")
+            "&4制造芯片的机器"
     );
-    public static final SlimefunItemStack BEKT_JYLR = new SlimefunItemStack(
-            "BEKT_JYLR",
-            Material.NETHERITE_SWORD,
-            "&b基岩利刃",
-            ""
+    public static final SlimefunItemStack BEKT_CPUTZ = new SlimefunItemStack(
+            "BEKT_CPUTZ",
+            Material.PAPER,
+            "&aCPU电路图图纸",
+            "",
+            "&7绘制了CPU电路图的图纸"
     );
-    public static final SlimefunItemStack BEKT_JYMF = new SlimefunItemStack(
-            "BEKT_JYMF",
-            Material.NETHERITE_AXE,
-            "&b基岩猛斧",
-            ""
+    public static final SlimefunItemStack BEKT_GPUTZ = new SlimefunItemStack(
+            "BEKT_GPUTZ",
+            Material.PAPER,
+            "&aGPU电路图图纸",
+            "",
+            "&7绘制了GPU电路图的图纸"
     );
-    public static final SlimefunItemStack BEKT_JYLG = new SlimefunItemStack(
-            "BEKT_JYLG",
-            Material.NETHERITE_PICKAXE,
-            "&b基岩烈镐"
+    public static final SlimefunItemStack BEKT_CPU = new SlimefunItemStack(
+            "BEKT_CPU",
+            Material.NETHER_STAR,
+            "&6CPU",
+            "",
+            "&7一个高精尖设备，用来处理数据"
     );
-    public static final SlimefunItemStack BEKT_JYZQ = new SlimefunItemStack(
-            "BEKT_JYZQ",
-            Material.NETHERITE_SHOVEL,
-            "&b基岩之锹"
+    public static final SlimefunItemStack BEKT_GPU = new SlimefunItemStack(
+            "BEKT_GPU",
+            Material.NETHER_STAR,
+            "&6GPU",
+            "",
+            "&7一个高精尖设备，用来绘制图像"
+    );
+    public static final SlimefunItemStack BEKT_CLOUD_TABLE = new SlimefunItemStack(
+            "BEKT_CLOUD_TABLE",
+            Material.COMMAND_BLOCK,
+            "&bCloud云组装台",
+            "构建，组装您的CLOUD云中转站"
     );
 
+    public static final SlimefunItemStack BEKT_CLOUD_V1 = new SlimefunItemStack(
+            "BEKT_CLOUD_V1",
+            Material.COMMAND_BLOCK,
+            "&aCloud云 -v1",
+            "Cloud云，你的信息中专站",
+            ""
+    );
 
+    public static final SlimefunItemStack BEKT_TEST = new SlimefunItemStack(
+            "BEKT_TEST",
+            Material.COMMAND_BLOCK,
+            "&aTEST",
+            "",
+            "test"
+    );
 
     /**
      * 机器的速度，eff内一定要带上x，比如1x，代表1倍

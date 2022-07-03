@@ -1,4 +1,4 @@
-package io.github.ctimet.bedrocktechnology.core.Command;
+package io.github.ctimet.bedrocktechnology.core.command;
 
 import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;

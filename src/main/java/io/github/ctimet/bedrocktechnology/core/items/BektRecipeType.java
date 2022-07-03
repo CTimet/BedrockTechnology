@@ -1,4 +1,4 @@
-package io.github.ctimet.bedrocktechnology.core.BektItems;
+package io.github.ctimet.bedrocktechnology.core.items;
 
 import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -10,14 +10,10 @@ public class BektRecipeType extends RecipeType {
         super(key, slimefunItem, null, lore);
     }
 
-    public static final BektRecipeType BEKT_EYHGT;
-
-    static {
-        //二氧化硅提取器
-        BEKT_EYHGT = new BektRecipeType(
-                BektMain.createKey("BEKT_EYHGT"),
-                BektItemStacks.BEKT_EYHGT,
-                ""
-        );
-    }
+    public static final BektRecipeType BEKT_CLOUD_TABLE = new BektRecipeType(
+            BektMain.createKey("BEKT_CLOUD_TABLE"),
+            BektItemStacks.BEKT_CLOUD_TABLE,
+            "",
+            "构建，组装您的CLOUD云中转站"
+    );
 }

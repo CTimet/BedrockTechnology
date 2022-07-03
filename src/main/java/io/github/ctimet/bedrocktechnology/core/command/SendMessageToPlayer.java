@@ -1,4 +1,4 @@
-package io.github.ctimet.bedrocktechnology.core.Command;
+package io.github.ctimet.bedrocktechnology.core.command;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
