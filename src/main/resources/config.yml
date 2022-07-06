@@ -1,6 +1,7 @@
-options:
-  auto-update: true
-  info-print: false
-  warning-print: true
-Items:
-  saveDataQuantity:
+save:
+  # time为尝试保存数据间隔，单位为分钟，默认为10分钟
+  # 需要主要的是，time值不能小于3，并且，如果设置的时间过去后，等待集内没有数据，则不会发生IO，因为此时保存数据没有意义
+  # 当注册方块量发生改变时，等待集相应改变
+  # 一般情况下，10为最佳值，不推荐修改，不过，如果您的服务器对于注册修复棒使用较为频繁的话，则可以设置地更小一点，反之，则可以更大一点
+  # time值视情况而修改
+  time: 10

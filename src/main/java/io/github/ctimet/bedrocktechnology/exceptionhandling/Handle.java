@@ -24,7 +24,7 @@ public final class Handle {
         return df.format(calendar.getTime());
     }
 
-    public static void writeException(Throwable e, String eName, String eMethod, Class<?> c) {
+    public static void writeException(Throwable e, String eName, String eMethod, String eMes, Class<?> c) {
         e.printStackTrace();
         //基本信息
         String time = getTimeString();
@@ -51,9 +51,12 @@ public final class Handle {
             print.println("当前使用的BedrockTechnology版本: " + bekt_version);
             print.println("出现问题的类: " + c.getName());
             print.println("出现问题的方法: " + eMethod);
+            print.println("问题描述: " + eMes);
             print.println("以下为异常堆栈: ");
             //输出堆栈信息
             e.printStackTrace(print);
+            //关闭流
+            print.close();
         } catch (FileNotFoundException fileNotFoundException) {
             fileNotFoundException.printStackTrace();
             BektMain.sayWarning("漂亮，又炸了一个。这次是文件找不到了");

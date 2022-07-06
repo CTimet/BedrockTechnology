@@ -37,10 +37,6 @@ public class SendMessageToPlayer
         this.sender.sendMessage("§a[BedrockTechnology] >> " + mes + "。");
     }
 
-    /**
-     * 暂时没想到有啥用。先表个过时的再说吧。如果以后用上了再把注解去了。用不上就干脆标着吧。等哪一天再把方法删了
-     * @deprecated
-     */
     public void sendMessageWithoutHead(String mes,String color)
     {
         this.sender.sendMessage(color + mes);

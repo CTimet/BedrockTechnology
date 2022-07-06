@@ -1,5 +1,6 @@
 package io.github.ctimet.bedrocktechnology.core.items;
 
+import io.github.ctimet.bedrocktechnology.core.items.register.BektMachineProtect;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import org.bukkit.Material;
 import org.jetbrains.annotations.Contract;
@@ -182,21 +183,6 @@ public class BektItemStacks {
             "",
             "由塑料纸二次加工而来的橡胶,可用于制作各种物品"
     );*/
-
-    public static final SlimefunItemStack BEKT_CJXF_ZC = new SlimefunItemStack(
-            "BEKT-CJXF-ZC",
-            Material.STICK,
-            "&a超级修复-注册",
-            "",
-            "&7&o注册你的机器，当你的机器被卡掉时，可以通过 &b超级修复-修复&7 来修复你的机器"
-    );
-    public static final SlimefunItemStack BEKT_CJXF_XF = new SlimefunItemStack(
-            "BEKT-CJXF-XF",
-            Material.STICK,
-            "&a超级修复-修复",
-            "",
-            "&7&o修复你的机器，当你的机器被卡掉时，你可以用此物品右键机器来修复你的机器"
-    );
     /*
     public static final SlimefunItemStack BEKT_JZMZ = new SlimefunItemStack(
             "BEKT_JZMZ",
@@ -572,6 +558,26 @@ public class BektItemStacks {
             "左键拆除机器",
             "右键查看机器详细内容"
     );*/
+    public static final SlimefunItemStack BEKT_CJXF_ZC = new SlimefunItemStack(
+            "BEKT-CJXF-ZC",
+            Material.STICK,
+            "&a超级修复-注册",
+            "",
+            "&7注册你的机器",
+            "&7当你的机器被卡掉时",
+            "&7可以通过 &b超级修复-修复&7 来修复你的机器"
+    );
+    public static final SlimefunItemStack BEKT_CJXF_XF = new SlimefunItemStack(
+            "BEKT-CJXF-XF",
+            Material.STICK,
+            "&a超级修复-修复",
+            "",
+            "&7修复你的机器",
+            "&7当你的机器被卡成原版方块时",
+            "&7你可以用此物品右键机器来修复你的机器",
+            "&7前提是你的机器必须已经经过 &b超级修复-注册 &7注册",
+            "&7未被注册的机器将&4修复失败！"
+    );
     public static final SlimefunItemStack BEKT_GKJ = new SlimefunItemStack(
             "BEKT_GKJ",
             Material.DRIED_KELP_BLOCK,
@@ -624,8 +630,22 @@ public class BektItemStacks {
 
     public static final SlimefunItemStack BEKT_TEST = new SlimefunItemStack(
             "BEKT_TEST",
-            Material.COMMAND_BLOCK,
+            Material.COBBLESTONE,
             "&aTEST",
+            "",
+            "test"
+    );
+    public static final SlimefunItemStack BEKT_TEST2 = new SlimefunItemStack(
+            "BEKT_TEST2",
+            Material.COBBLESTONE,
+            "&aTEST2",
+            "",
+            "test"
+    );
+    public static final SlimefunItemStack BEKT_TEST3 = new SlimefunItemStack(
+            "BEKT_TEST3",
+            Material.COBBLESTONE,
+            "&aTEST3",
             "",
             "test"
     );

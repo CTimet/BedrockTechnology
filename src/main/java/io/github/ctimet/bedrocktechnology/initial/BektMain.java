@@ -2,74 +2,60 @@ package io.github.ctimet.bedrocktechnology.initial;
 
 import io.github.ctimet.bedrocktechnology.core.command.BektCommand;
 import io.github.ctimet.bedrocktechnology.core.items.BektItemGroup;
-import io.github.ctimet.bedrocktechnology.event.FixEvent;
+import io.github.ctimet.bedrocktechnology.data.DataSave;
+import io.github.ctimet.bedrocktechnology.event.BektEvent;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
-import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
-import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Timer;
-import java.util.TimerTask;
-
-import static io.github.ctimet.bedrocktechnology.event.FixEvent.readData;
-import static io.github.ctimet.bedrocktechnology.event.FixEvent.saveData;
 
 /**
  * Main Class
  * 这里是BedrockTechnology的主类，同时存放了许多插件需要用到的方法
  * @author CTimet
  * @author CLIEDS
- * @version beta1.0.0
+ * @version 22-07-06-f0
  */
 public class BektMain extends JavaPlugin implements SlimefunAddon
 {
     public static BektMain main;
     public static boolean isReadFinish = false;
-    public static long prevSave = 0L;
-    public static final Timer TIMER = new Timer();
+    public static int time;
 
     @Override
     public void onEnable(){
         main = this;
-        //test
+        //判断time值是否过小
+        int judge = new Config(this).getInt("save.time");
+        if (judge < 3) {
+            sayWarning("警告，config中设置的值过小，该值不能小于3，已自动调整至10，请您手动调整save.time的值");
+            time = 10;
+        } else {
+            time = judge;
+        }
+        //保存一些基本文件
         saveDefaultConfig();
         saveResource("block.dat",false);
-        BektItemGroup.registerSubCate();
-
-        int time = new Config(main).getInt("save.time");
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                readData();
-                main.getLogger().info("机器保护 >> 数据读取完成！可以使用修复注册棒了！");
-                isReadFinish = true;
-            }
-        }.runTaskAsynchronously(this);
-        TIMER.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                saveData();
-                main.getLogger().info("机器保护 >> 已保存玩家数据，下一次保存在" + time + "分钟之后.");
-                prevSave = System.currentTimeMillis();
-            }
-        }, (10 * 60 * 1000), ((long) time * 60 * 1000));
-
-        Bukkit.getPluginManager().registerEvents(new FixEvent(),this);
-
-        PluginCommand command = Bukkit.getPluginCommand("bedrocktechnology");
-        if (command != null) {
-            command.setExecutor(new BektCommand());
-        }
+        //注册子组
+        BektItemGroup.registerGroup();
+        //注册物品
+        BektItems.registerItems();
+        //注册数据系统,启动相关线程
+        DataSave.registerSave();
+        //注册事件
+        BektEvent.registerEvents();
+        //注册命令系统
+        BektCommand.registerCommand();
     }
 
     @Override
     public void onDisable(){
-        TIMER.cancel();
-        saveData();
+        sayInfo("正在进行数据保存，受限于您的数据量大小，这可能会耗费一点时间，请您稍安勿躁，很快就好");
+        DataSave.refreshDataInEnd();
+        sayInfo("关闭计时线程");
+        DataSave.closeTimer();
+        sayInfo("关闭BedrockTechnology完成");
     }
 
     @NotNull
@@ -88,12 +74,10 @@ public class BektMain extends JavaPlugin implements SlimefunAddon
     }
 
     public static void sayInfo(String information){
-        if (main.getConfig().getBoolean("options.info-print"))
-            main.getLogger().info(information);
+        main.getLogger().info(information);
     }
 
     public static void sayWarning(String warning){
-        if (main.getConfig().getBoolean("options.warning-print"))
-            main.getLogger().warning(warning);
+        main.getLogger().warning(warning);
     }
 }

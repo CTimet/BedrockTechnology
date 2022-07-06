@@ -2,9 +2,8 @@ package io.github.ctimet.bedrocktechnology.event;
 
 import io.github.ctimet.bedrocktechnology.core.command.SendMessageToPlayer;
 import io.github.ctimet.bedrocktechnology.core.items.BektItemStacks;
+import io.github.ctimet.bedrocktechnology.data.DataSave;
 import io.github.ctimet.bedrocktechnology.data.PlayerBlock;
-import io.github.ctimet.bedrocktechnology.exceptionhandling.Handle;
-import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.api.events.AndroidMineEvent;
 import io.github.thebusybiscuit.slimefun4.api.events.BlockPlacerPlaceEvent;
 import io.github.thebusybiscuit.slimefun4.api.events.ExplosiveToolBreakBlocksEvent;
@@ -22,23 +21,16 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import java.io.*;
 import java.util.HashMap;
 
-import static io.github.ctimet.bedrocktechnology.initial.BektMain.*;
+import static io.github.ctimet.bedrocktechnology.initial.BektMain.isReadFinish;
 
 public class FixEvent implements Listener
 {
     public static HashMap<String, PlayerBlock> MAP = new HashMap<>();
 
     @EventHandler
-    public void onClick(PlayerInteractEvent event)
-    {
-        if (!isReadFinish) {
-            new SendMessageToPlayer(event.getPlayer()).sendPrompt("抱歉，数据读取未完成，亲，请稍安勿躁，待服务器读取完数据即可正常使用修复注册");
-            return;
-        }
-
+    public void onClick(PlayerInteractEvent event) {
         Action action = event.getAction();
 
         if (action == Action.LEFT_CLICK_AIR ||
@@ -70,6 +62,10 @@ public class FixEvent implements Listener
         //注册
         if (holdName.equals(resName))
         {
+            if (!isReadFinish) {
+                new SendMessageToPlayer(event.getPlayer()).sendPrompt("抱歉，数据读取未完成，亲，请稍安勿躁，待服务器读取完数据即可正常使用修复棒");
+                return;
+            }
             registerBlock(xyz,item,player,block);
             event.setCancelled(true);
         }
@@ -77,6 +73,10 @@ public class FixEvent implements Listener
         //修复
         if (holdName.equals(fixName))
         {
+            if (!isReadFinish) {
+                new SendMessageToPlayer(event.getPlayer()).sendPrompt("抱歉，数据读取未完成，亲，请稍安勿躁，待服务器读取完数据即可正常使用注册棒");
+                return;
+            }
             fixBlock(xyz,item,player);
             event.setCancelled(true);
         }
@@ -103,6 +103,7 @@ public class FixEvent implements Listener
                     + " x=" + location.getX()
                     + " y=" + location.getY()
                     + " z=" + location.getZ());
+            DataSave.addWait();
         }
         else st.sendPrompt("该方块已被注册过了");
     }
@@ -123,10 +124,7 @@ public class FixEvent implements Listener
             inventory.addItem(SlimefunItem.getById(MAP.get(xyz).getBlockId()).getItem());
             MAP.remove(xyz);
             st.sendInfo("已赔偿您的损失至背包。请查看背包寻找物品");
-            if (System.currentTimeMillis() - prevSave > 1000) {
-                saveData();
-                prevSave = System.currentTimeMillis();
-            }
+            DataSave.addWait();
         }
         else if (!MAP.containsKey(xyz))
             st.sendInfo("您不是此方块的注册者或该方块未被注册。您不能获得赔偿");
@@ -142,39 +140,6 @@ public class FixEvent implements Listener
         }
         return true;
     }
-
-    public static void readData()
-    {
-        try
-        {
-            ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("plugins/" + BektMain.main.getName() + "/" +  "block.dat"));
-
-            MAP = (HashMap<String, PlayerBlock>) inputStream.readObject();
-        }
-        catch (IOException | ClassNotFoundException e)
-        {
-            Handle.writeException(e,"IOException | ClassNotFoundException", "readData", FixEvent.class);
-        }
-    }
-
-    public static void saveData()
-    {
-        if (!isReadFinish) {
-            main.getLogger().info("机器保护 >> 检测到数据未读取完成，已终止本次保存。");
-            return;
-        }
-        try
-        {
-            ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("plugins/" + BektMain.main.getName() + "/" +  "block.dat"));
-
-            outputStream.writeObject(MAP);
-        }
-        catch (IOException e)
-        {
-            Handle.writeException(e,"IOException", "saveData", FixEvent.class);
-        }
-    }
-
 
     //------------------------------自动保护机制------------------------------//
     @EventHandler(priority = EventPriority.HIGH)
@@ -260,6 +225,8 @@ public class FixEvent implements Listener
         String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ() + "&" + location.getWorld().getName();
 
         MAP.remove(xyz);
+
+        DataSave.addWait();
     }
 
     //计算爆炸所伤害的方块
@@ -281,6 +248,7 @@ public class FixEvent implements Listener
                 {
                     String lt = xxs + "&" + yys + "&" + zzs + "^" + location.getWorld().getName();
                     MAP.remove(lt);
+                    DataSave.addWait();
                 }
             }
         }

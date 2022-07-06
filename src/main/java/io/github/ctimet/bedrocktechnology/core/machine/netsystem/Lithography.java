@@ -202,23 +202,26 @@ public class Lithography
         this.addon = addon;
 
         if (getCapacity() <= 0) {
-            warn("The capacity has not been configured correctly. The Item was disabled.");
-            warn("Make sure to call '" + getClass().getSimpleName() + "#setEnergyCapacity(...)' before registering!");
+            warn("错误！机器电量容量不能小于等于0！！！");
+            warn("请确保 '" + getClass().getSimpleName() + "'中的getCapacity()方法返回值大于等于0！该物品已废弃，不再注册！ ");
+            warn("同时，请您在检查getCapacity方法返回值时，请一并检查getEnergyConsumption方法与getSpeed方法返回值，以免这两个方法出现错误");
+            return;
         }
 
         if (getEnergyConsumption() <= 0) {
-            warn("The energy consumption has not been configured correctly. The Item was disabled.");
-            warn("Make sure to call '" + getClass().getSimpleName() + "#setEnergyConsumption(...)' before registering!");
+            warn("错误！机器进程电量使用量不能小于等于0！！！");
+            warn("请确保 '" + getClass().getSimpleName() + "'中的getEnergyConsumption()方法返回值大于等于0！该物品已废弃，不再注册！ ");
+            warn("同时，请您在检查getEnergyConsumption方法返回值时，请一并检查getSpeed方法返回值，以免这个方法出现错误");
+            return;
         }
 
         if (getSpeed() <= 0) {
-            warn("The processing speed has not been configured correctly. The Item was disabled.");
-            warn("Make sure to call '" + getClass().getSimpleName() + "#setProcessingSpeed(...)' before registering!");
+            warn("错误！机器进程速度不能小于等于0！！！");
+            warn("请确保 '" + getClass().getSimpleName() + "'中的getSpeed()方法返回值大于等于0！该物品已废弃，不再注册！ ");
+            return;
         }
 
-        if (getCapacity() > 0 && getEnergyConsumption() > 0 && getSpeed() > 0) {
-            super.register(addon);
-        }
+        super.register(addon);
     }
 
     @Override
