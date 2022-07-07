@@ -45,6 +45,9 @@
   
 ## 更新日志
   所有测试版/正式版release发布我们将更新这一部分内容，以使您了解我们跟新的内容<br>
+  #### 鬼斩的maven构建站:
+  [BedrockTechnology_自动构建版本](https://builds.guizhanss.net/CTimet/BedrockTechnology/master/)<br>
+  自动构建由鬼斩@ybw0014提供技术支持。不过构建站有时候会出问题，所以如果遇到相关版本构建失败，请从github下载
   #### 当前最新版本-正式版:
   [BedrockTechnology_v1.0-beta-220706f0](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-beta-220706f0)<br>
   
