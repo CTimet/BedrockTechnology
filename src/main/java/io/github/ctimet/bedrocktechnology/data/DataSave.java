@@ -1,13 +1,12 @@
 package io.github.ctimet.bedrocktechnology.data;
 
 import io.github.ctimet.bedrocktechnology.event.FixEvent;
-import io.github.ctimet.bedrocktechnology.exceptionhandling.Handle;
+import io.github.ctimet.bedrocktechnology.handle.ExceptionHandle;
 import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.*;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -19,7 +18,7 @@ import static io.github.ctimet.bedrocktechnology.initial.BektMain.*;
  * @author CTimet
  */
 public final class DataSave {
-    private static final LinkedList<String> WAIT_FOR_WRITE = new LinkedList<>();
+    private static int WAIT_FOR_WRITE = 0;
     public static final String DefaultPath = "plugins" + "/" + main.getName() + "/" + "block.dat";
     public static final String SnapPath = "plugins" + "/" + main.getName() + "/" + "snap.dat";
     public static final Timer TIMER = new Timer();
@@ -71,7 +70,7 @@ public final class DataSave {
         }
         catch (IOException | ClassNotFoundException e)
         {
-            Handle.writeException(e,"IOException_ClassNotFoundException", "readData", "在尝试读取block.dat时出错", DataSave.class);
+            ExceptionHandle.writeException(e,"IOException_ClassNotFoundException", "readData", "在尝试读取block.dat时出错", DataSave.class);
         }
     }
 
@@ -92,33 +91,33 @@ public final class DataSave {
         }
         catch (IOException e)
         {
-            Handle.writeException(e,"IOException", "saveData", "在尝试保存数据时出错", DataSave.class);
+            ExceptionHandle.writeException(e,"IOException", "saveData", "在尝试保存数据时出错", DataSave.class);
         }
     }
 
     public static void addWait() {
-        WAIT_FOR_WRITE.add("1");
+        WAIT_FOR_WRITE += 1;
     }
 
     public static void refreshData() {
-        if (WAIT_FOR_WRITE.isEmpty())
+        if (WAIT_FOR_WRITE == 0)
             return;
-        BektMain.sayInfo("正在保存数据，本次存在 " + WAIT_FOR_WRITE.size() + " 个数据变动，下次保存在 " + BektMain.time + " 分钟之后");
+        BektMain.sayInfo("正在保存数据，本次存在 " + WAIT_FOR_WRITE + " 个数据变动，下次保存在 " + BektMain.time + " 分钟之后");
         refresh(DefaultPath);
         BektMain.sayInfo("保存成功");
     }
 
     public static void refreshDataInEnd() {
-        if (WAIT_FOR_WRITE.isEmpty())
+        if (WAIT_FOR_WRITE == 0)
             return;
-        BektMain.sayInfo("正在保存数据，本次存在 " + WAIT_FOR_WRITE.size() + " 个数据变动");
+        BektMain.sayInfo("正在保存数据，本次存在 " + WAIT_FOR_WRITE + " 个数据变动");
         if (isTimerRun) {
             File file = new File(new File("").getAbsolutePath() + "\\plugins\\" + main.getName() + "\\snap.dat");
             if (!file.exists()) {
                 try {
                     file.createNewFile();
                 } catch (IOException e) {
-                    Handle.writeException(e, "IOException", "refreshDataInEnd", "尝试创建snap.dat时发生IO错误", DataSave.class);
+                    ExceptionHandle.writeException(e, "IOException", "refreshDataInEnd", "尝试创建snap.dat时发生IO错误", DataSave.class);
                 }
             }
             refresh(SnapPath);
@@ -128,6 +127,6 @@ public final class DataSave {
     //这个方法不允许其他类调用
     private static void refresh(String dataPath) {
         saveData(dataPath);
-        WAIT_FOR_WRITE.clear();
+        WAIT_FOR_WRITE = 0;
     }
 }

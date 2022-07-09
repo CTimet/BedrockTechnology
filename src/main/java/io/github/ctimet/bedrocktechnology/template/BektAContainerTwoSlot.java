@@ -1,4 +1,4 @@
-package io.github.ctimet.bedrocktechnology.abstractClass;
+package io.github.ctimet.bedrocktechnology.template;
 
 import java.util.*;
 

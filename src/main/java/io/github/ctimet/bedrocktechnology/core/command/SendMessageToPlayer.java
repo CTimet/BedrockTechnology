@@ -55,9 +55,6 @@ public class SendMessageToPlayer
             }
         }
     }
-    public void showTheHelp(List<String[]> mes,int index){
-        sendMoreInfo(mes.get(index),false);
-    }
 
     public boolean isNotNull(int num)
     {

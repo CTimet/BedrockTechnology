@@ -578,6 +578,13 @@ public class BektItemStacks {
             "&7前提是你的机器必须已经经过 &b超级修复-注册 &7注册",
             "&7未被注册的机器将&4修复失败！"
     );
+    public static final SlimefunItemStack BEKT_OIL_MAKE = new SlimefunItemStack(
+            "BEKT_OILMAKE",
+            Material.ENCHANTING_TABLE,
+            "&4原油生成机",
+            "",
+            "&7不受当前区块影响，全自动生成原油"
+    );
     public static final SlimefunItemStack BEKT_GKJ = new SlimefunItemStack(
             "BEKT_GKJ",
             Material.DRIED_KELP_BLOCK,
@@ -585,14 +592,14 @@ public class BektItemStacks {
             "",
             "&4制造芯片的机器"
     );
-    public static final SlimefunItemStack BEKT_CPUTZ = new SlimefunItemStack(
+    public static final SlimefunItemStack BEKT_CPU_TZ = new SlimefunItemStack(
             "BEKT_CPUTZ",
             Material.PAPER,
             "&aCPU电路图图纸",
             "",
             "&7绘制了CPU电路图的图纸"
     );
-    public static final SlimefunItemStack BEKT_GPUTZ = new SlimefunItemStack(
+    public static final SlimefunItemStack BEKT_GPU_TZ = new SlimefunItemStack(
             "BEKT_GPUTZ",
             Material.PAPER,
             "&aGPU电路图图纸",
@@ -627,29 +634,6 @@ public class BektItemStacks {
             "Cloud云，你的信息中专站",
             ""
     );
-
-    public static final SlimefunItemStack BEKT_TEST = new SlimefunItemStack(
-            "BEKT_TEST",
-            Material.COBBLESTONE,
-            "&aTEST",
-            "",
-            "test"
-    );
-    public static final SlimefunItemStack BEKT_TEST2 = new SlimefunItemStack(
-            "BEKT_TEST2",
-            Material.COBBLESTONE,
-            "&aTEST2",
-            "",
-            "test"
-    );
-    public static final SlimefunItemStack BEKT_TEST3 = new SlimefunItemStack(
-            "BEKT_TEST3",
-            Material.COBBLESTONE,
-            "&aTEST3",
-            "",
-            "test"
-    );
-
     /**
      * 机器的速度，eff内一定要带上x，比如1x，代表1倍
      * @param eff 速度，单位x

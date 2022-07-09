@@ -11,6 +11,7 @@ import io.github.thebusybiscuit.slimefun4.core.attributes.MachineProcessHolder;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.core.machines.MachineProcessor;
 import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
+import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.operations.CraftingOperation;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
@@ -25,7 +26,6 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import org.apache.commons.lang.Validate;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -36,66 +36,68 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Random;
 
-public abstract class OilMake extends SlimefunItem implements InventoryBlock, EnergyNetComponent, MachineProcessHolder<CraftingOperation> {
+public class OilMake extends SlimefunItem implements InventoryBlock, EnergyNetComponent, MachineProcessHolder<CraftingOperation> {
     private static final int[] BORDER = {
             0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17
     };
     private static final int SCHEDULE_SLOT = 4;
-    private static final CustomItemStack SCHEDULE_ITEM = new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, "§e点击以采取石油");
+    private static final CustomItemStack SCHEDULE_ITEM = new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, "§7未工作");
     private final MachineProcessor<CraftingOperation> processor = new MachineProcessor<>(this);
     protected final ArrayList<Recipe> recipes = new ArrayList<>();
 
-    private int tickEnergyUse = -1;
     private int speed = -1;
     private int capacity = -1;
+    private int energyUse = -1;
     private String invTitle = "";
 
-    protected OilMake(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+    public OilMake(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
 
         createPreset(this, getInvTitle(), this::constructMenu);
 
         addItemHandler(onBreak());
     }
-    public int getSpeed() {
-        return speed;
-    }
-    public int getCapacity() {
-        return capacity;
-    }
-    public int getEnergyConsumption() {
-        return tickEnergyUse;
-    }
-    public String getInvTitle() {
-        return invTitle;
-    }
 
-    /**
-     * 重写此方法以注册配方
-     */
-    public abstract void registerDefaultRecipes();
-
-    public OilMake setSpeed(int s) {
-        this.speed = s;
+    public OilMake setSpeed(int speed) {
+        this.speed = speed;
         return this;
     }
 
-    public OilMake setCapacity(int cp) {
-        this.capacity = cp;
+    public OilMake setCapacity(int capacity) {
+        this.capacity = capacity;
         return this;
     }
 
-    public OilMake setEnergyUseTick(int use) {
-        this.tickEnergyUse = use;
+    public OilMake setEnergyUse(int use) {
+        this.energyUse = use;
         return this;
     }
 
     public OilMake setInvTitle(String title) {
         this.invTitle = title;
         return this;
+    }
+
+    public int getSpeed() {
+        return this.speed;
+    }
+
+    public int getCapacity() {
+        return this.capacity;
+    }
+
+    public int getEnergyConsumption() {
+        return this.energyUse;
+    }
+
+    public String getInvTitle() {
+        return this.invTitle;
+    }
+
+    public void registerDefaultRecipes() {
+        registerRecipe(100, SlimefunItems.OIL_BUCKET);
     }
 
     @NotNull
@@ -107,6 +109,7 @@ public abstract class OilMake extends SlimefunItem implements InventoryBlock, En
                 BlockMenu inv = BlockStorage.getInventory(b);
 
                 if (inv != null) {
+                    //inv.dropItems(b.getLocation(), getInputSlots());
                     inv.dropItems(b.getLocation(), getOutputSlots());
                 }
 
@@ -144,7 +147,6 @@ public abstract class OilMake extends SlimefunItem implements InventoryBlock, En
 
         super.register(addon);
     }
-
     /**
      * 此方法将注册最后返回的物品
      * @param seconds 该参数指制作该物品花费的时间
@@ -158,28 +160,10 @@ public abstract class OilMake extends SlimefunItem implements InventoryBlock, En
         for (int i : BORDER) {
             preset.addItem(i, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler());
         }
-        preset.addItem(SCHEDULE_SLOT, SCHEDULE_ITEM, new ChestMenu.AdvancedMenuClickHandler() {
-            @Override
-            public boolean onClick(InventoryClickEvent e, Player p, int slot, ItemStack cursor, ClickAction action) {
-                ItemMeta meta = cursor.getItemMeta();
-                if (meta == null) return false;
-                meta.setDisplayName("&a正在发起原油生成请求");
-                cursor.setItemMeta(meta);
-                Block block = Objects.requireNonNull(e.getInventory().getLocation()).getBlock();
-                MachineRecipe recipe =  findNextRecipe();
-                if (recipe != null) {
-                    processor.startOperation(block, new CraftingOperation(recipe));
-                }
-                meta.setDisplayName("&a发起请求完成，已开始生成石油！");
-                cursor.setItemMeta(meta);
-                return false;
-            }
+        preset.addItem(SCHEDULE_SLOT, SCHEDULE_ITEM);
 
-            @Override
-            public boolean onClick(Player p, int slot, ItemStack item, ClickAction action) {
-                return false;
-            }
-        });
+        //preset.addItem(22, new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, " "), ChestMenuUtils.getEmptyClickHandler());
+
         for (int i : getOutputSlots()) {
             preset.addMenuClickHandler(i, new ChestMenu.AdvancedMenuClickHandler() {
 
@@ -222,9 +206,10 @@ public abstract class OilMake extends SlimefunItem implements InventoryBlock, En
                     ItemMeta meta = SCHEDULE_ITEM.getItemMeta();
                     if (meta != null) {
                         SCHEDULE_ITEM.setType(Material.GREEN_STAINED_GLASS_PANE);
-                        meta.setDisplayName("§b生成原油中...当前进度" + (operation.getProgress()/2) + "/" + (operation.getTotalTicks()/2));
+                        meta.setDisplayName("§a获取原油中...当前进度" + (operation.getProgress()/2) + "/" + (operation.getTotalTicks()/2));
                     }
                     SCHEDULE_ITEM.setItemMeta(meta);
+                    inv.replaceExistingItem(SCHEDULE_SLOT,SCHEDULE_ITEM);
                 } else {
                     for (ItemStack output : operation.getResults()) {
                         inv.pushItem(output.clone(), getOutputSlots());
@@ -232,11 +217,17 @@ public abstract class OilMake extends SlimefunItem implements InventoryBlock, En
                     processor.endOperation(b);
                     ItemMeta meta = SCHEDULE_ITEM.getItemMeta();
                     if (meta != null)
-                        meta.setDisplayName("§7未工作，等待发起请求");
+                        meta.setDisplayName("§7未工作");
                     SCHEDULE_ITEM.setItemMeta(meta);
                     SCHEDULE_ITEM.setType(Material.ORANGE_STAINED_GLASS_PANE);
+                    inv.replaceExistingItem(SCHEDULE_SLOT,SCHEDULE_ITEM);
                 }
-                inv.replaceExistingItem(SCHEDULE_SLOT,SCHEDULE_ITEM);
+            }
+        } else {
+            MachineRecipe recipe =  findNextRecipe();
+
+            if (recipe != null) {
+                processor.startOperation(b, new CraftingOperation(recipe));
             }
         }
     }

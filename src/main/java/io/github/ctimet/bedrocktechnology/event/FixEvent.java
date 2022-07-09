@@ -224,9 +224,10 @@ public class FixEvent implements Listener
 
         String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ() + "&" + location.getWorld().getName();
 
-        MAP.remove(xyz);
-
-        DataSave.addWait();
+        if (MAP.containsKey(xyz)) {
+            DataSave.addWait();
+            MAP.remove(xyz);
+        }
     }
 
     //计算爆炸所伤害的方块
@@ -247,8 +248,10 @@ public class FixEvent implements Listener
                 for (double zzs : zs)
                 {
                     String lt = xxs + "&" + yys + "&" + zzs + "^" + location.getWorld().getName();
-                    MAP.remove(lt);
-                    DataSave.addWait();
+                    if (MAP.containsKey(lt)) {
+                        DataSave.addWait();
+                        MAP.remove(lt);
+                    }
                 }
             }
         }

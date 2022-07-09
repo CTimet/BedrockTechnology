@@ -1,4 +1,4 @@
-package io.github.ctimet.bedrocktechnology.abstractClass;
+package io.github.ctimet.bedrocktechnology.template;
 
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;

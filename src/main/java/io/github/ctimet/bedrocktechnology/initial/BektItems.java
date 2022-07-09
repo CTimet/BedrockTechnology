@@ -1,5 +1,6 @@
 package io.github.ctimet.bedrocktechnology.initial;
 
+import io.github.ctimet.bedrocktechnology.core.items.register.BektExpandPlay;
 import io.github.ctimet.bedrocktechnology.core.items.register.BektMachineProtect;
 
 
@@ -17,5 +18,7 @@ public final class BektItems
     {
         //机器保护类物品注册
         BektMachineProtect.register();
+        //拓展玩法类物品注册
+        BektExpandPlay.register();
     }
 }

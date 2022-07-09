@@ -1,4 +1,4 @@
-package io.github.ctimet.bedrocktechnology.exceptionhandling;
+package io.github.ctimet.bedrocktechnology.handle;
 
 import io.github.ctimet.bedrocktechnology.initial.BektMain;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
@@ -13,9 +13,9 @@ import java.util.Calendar;
 /**
  * 这是Bekt的异常处理类，该类不允许任何类继承
  */
-public final class Handle {
+public final class ExceptionHandle {
     //不可以实例化这个类
-    private Handle(){
+    private ExceptionHandle(){
     }
 
     public static String getTimeString() {
@@ -32,8 +32,7 @@ public final class Handle {
 
         File file = new File("");
         File make = new File(file.getAbsolutePath() + File.separator + "BedrockTechnologyErr" + File.separator + "err" + File.separator + fileName);
-        BektMain.sayWarning("数据保存时发生IO异常！已将异常保存至服务器根目录下的 BedrockTechnologyErr/err/" + fileName + " 文件中！");
-        //System.out.println(file.getAbsolutePath());
+        BektMain.sayWarning("数据保存时发生异常！已将异常保存至服务器根目录下的 BedrockTechnologyErr/err/" + fileName + " 文件中！");
         File fileParent = make.getParentFile();
         try {
             if (!fileParent.exists())

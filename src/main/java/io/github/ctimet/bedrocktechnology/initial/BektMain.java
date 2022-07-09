@@ -1,6 +1,6 @@
 package io.github.ctimet.bedrocktechnology.initial;
 
-import io.github.ctimet.bedrocktechnology.core.command.BektCommand;
+import io.github.ctimet.bedrocktechnology.core.command.com.BektCommand;
 import io.github.ctimet.bedrocktechnology.core.items.BektItemGroup;
 import io.github.ctimet.bedrocktechnology.data.DataSave;
 import io.github.ctimet.bedrocktechnology.event.BektEvent;
