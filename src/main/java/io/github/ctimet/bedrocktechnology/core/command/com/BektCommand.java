@@ -12,9 +12,7 @@ import org.bukkit.command.PluginCommand;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.*;
 
 public class BektCommand implements CommandExecutor
 {
@@ -94,27 +92,42 @@ public class BektCommand implements CommandExecutor
         }
         if (LIST.size() == 0)
             st.sendWarning("啊哦，出问题了，LIST的大小为0呢");
-        if (page > 0)
-            st.sendMessageWithoutHead(LIST.get((page-1)),"§e");
-        else
-            st.sendMessageWithoutHead(LIST.get(0),"§e");
+        if (page > 0) {
+            st.sendMessageWithoutHead("===============基岩科技帮助(" + page + "/" + LIST.size() + ")===============","§e§l");
+            st.sendMessageWithoutHead("输入 \"/bekt hs 命令集名称\" 以查看相关命令集帮助","§7");
+            st.sendMessageWithoutHead(LIST.get((page-1)),"");
+            //st.sendMessageWithoutHead("===============基岩科技帮助===============","§a");
+        } else {
+            st.sendMessageWithoutHead("===============基岩科技帮助(1/" + LIST.size() + ")===============","§e§l");
+            st.sendMessageWithoutHead("输入 \"/bekt hs 命令集名称\" 以查看相关命令集帮助","§7");
+            st.sendMessageWithoutHead(LIST.get((0)),"");
+            //st.sendMessageWithoutHead("===============基岩科技帮助===============","§a");
+        }
     }
 
     public static void refreshHelp() {
         StringBuilder help = new StringBuilder();
-        int pages = 0;
+        int pages = 1;
         int lines = 0;
-        help.append("[BedrockTechnology-help] >>> \n");
+        int times = 0;
+        int hasPages = ((COMMAND_GROUP.size()%5) == 0) ? (COMMAND_GROUP.size()/5) : ((COMMAND_GROUP.size()/5)+1);
         for (String command : COMMAND_GROUP) {
-            if (lines == 0)
-                help.append("当前页面  ").append(pages + 1).append("/").append(COMMAND_GROUP.size()/5).append("\n \n");
-            help.append("/bekt ").append(command).append("\n");
-            help.append("     --").append(COMMAND_GROUP_DESC.get(command)).append("\n \n");
+            help.append("§6/bekt ")
+                    .append("§l")
+                    .append(command)
+                    .append("§f")
+                    //.append(" ".repeat(Math.max(0, (6 - command.length()))))
+                    .append(": ")
+                    .append(COMMAND_GROUP_DESC.get(command))
+                    .append("\n");
             lines += 1;
-            if (lines == 5) {
-                help.append("\n").append("输入 \"/bekt hs 命令集名称\" 以查看该命令集帮助\n");
-                if (pages == COMMAND_GROUP.size()) {
-                    help.append("你已经阅读到最底层啦，已经没有什么好看的啦");
+            times += 1;
+
+            if (lines == 5 || times == COMMAND_GROUP.size()) {
+                if (pages != hasPages) {
+                    help.append("§7输入 \"/bekt help [n]\" 以阅读第n页帮助");
+                } else {
+                    help.append("§7没有更多帮助了");
                 }
                 LIST.add(help.toString());
                 pages += 1;
@@ -122,33 +135,26 @@ public class BektCommand implements CommandExecutor
                 help = new StringBuilder();
             }
         }
-        if (LIST.size() == 0) {
-            //初始化两个变量
-            help = new StringBuilder();
-            help.append("[BedrockTechnology-help] >>> \n");
-            help.append("当前页面  ").append("1/1\n \n");
-            for (String command : COMMAND_GROUP) {
-                help.append("/bekt ").append(command).append("\n");
-                help.append("     --").append(COMMAND_GROUP_DESC.get(command)).append("\n");
-            }
-            help.append("\n \n").append("输入 \"/bekt hs 命令集名称\" 以查看该命令集帮助\n");
-            help.append("你已经阅读到最底层啦，已经没有什么好看的啦");
-            LIST.add(help.toString());
-        }
     }
 
     public static void register() {
-        registerCommandGroup("help","显示帮助");
         registerCommandGroup("hs","显示命令集帮助");
+        registerCommandGroup("help","显示命令帮助");
         registerCommandGroup("guide","关于配方查询界面的指令");
-        registerCommandGroup("help1","显示帮助");
-        registerCommandGroup("hs1","显示命令集帮助");
-        registerCommandGroup("guide1","关于配方查询界面的指令");
 
         registerSubCommand("guide","open", "打开一个配方查询界面");
         registerSubCommand("guide","search","查询相关配方");
         registerSubCommand("guide","count","统计某机器配方所需材料");
 
+        int end = ((COMMAND_GROUP.size()%5)==0) ? (COMMAND_GROUP.size()/5) : ((COMMAND_GROUP.size()/5)+1);
+        for (int index = 1;
+                 index <= end;
+                 index ++) {
+            registerSubCommand("help",String.valueOf(index),"第" + index + "页帮助");
+        }
+
+        //先排序，再刷新
+        Collections.sort(COMMAND_GROUP);
         refreshHelp();
     }
 }

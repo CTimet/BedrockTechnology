@@ -31,6 +31,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
@@ -160,7 +161,7 @@ public class OilMake extends SlimefunItem implements InventoryBlock, EnergyNetCo
         for (int i : BORDER) {
             preset.addItem(i, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler());
         }
-        preset.addItem(SCHEDULE_SLOT, SCHEDULE_ITEM);
+        preset.addItem(SCHEDULE_SLOT, SCHEDULE_ITEM, ChestMenuUtils.getEmptyClickHandler());
 
         //preset.addItem(22, new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, " "), ChestMenuUtils.getEmptyClickHandler());
 
@@ -198,15 +199,25 @@ public class OilMake extends SlimefunItem implements InventoryBlock, EnergyNetCo
     protected void tick(Block b) {
         BlockMenu inv = BlockStorage.getInventory(b);
         CraftingOperation operation = processor.getOperation(b);
+        Inventory inventory = inv.toInventory();
+        //MachineRecipe recipe = null;
 
         if (operation != null) {
             if (takeCharge(b.getLocation())) {
                 if (!operation.isFinished()) {
-                    operation.addProgress(1);
                     ItemMeta meta = SCHEDULE_ITEM.getItemMeta();
+                    //BektMain.sayInfo(String.valueOf(max));
                     if (meta != null) {
-                        SCHEDULE_ITEM.setType(Material.GREEN_STAINED_GLASS_PANE);
-                        meta.setDisplayName("§a获取原油中...当前进度" + (operation.getProgress()/2) + "/" + (operation.getTotalTicks()/2));
+                        ItemStack stack = inventory.getItem(getOutputSlots()[0]);
+                        //BektMain.sayInfo(String.valueOf(recipes.get(0).getOut().getAmount()));
+                        if (stack != null && stack.getAmount() == recipes.get(0).getOut().getMaxStackSize()) {
+                            SCHEDULE_ITEM.setType(Material.RED_STAINED_GLASS_PANE);
+                            meta.setDisplayName("§4警告，输出槽已满");
+                        } else {
+                            SCHEDULE_ITEM.setType(Material.GREEN_STAINED_GLASS_PANE);
+                            operation.addProgress(1);
+                            meta.setDisplayName("§a获取原油中...当前进度" + (operation.getProgress() / 2) + "/" + (operation.getTotalTicks() / 2));
+                        }
                     }
                     SCHEDULE_ITEM.setItemMeta(meta);
                     inv.replaceExistingItem(SCHEDULE_SLOT,SCHEDULE_ITEM);
