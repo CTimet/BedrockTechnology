@@ -1,5 +1,5 @@
 # 👀Slimefun4 附属 -- BedrockTechnology👀
-  这是一个由CTimet与CLIEDS合作开发的Slimefun附属插件，我们称其为基岩科技BedrockTechnology；不过我们觉得这个直译的名字有些累赘，于是我们将其称作 BEKT<br>
+  这是一个Slimefun附属插件，我们称其为基岩科技BedrockTechnology；不过我们觉得这个直译的名字有些累赘，于是我们将其称作 BEKT<br>
   BEKT准确来说并不是BedrockTechnology的缩写，而是它的别称。<br>
   我们创建了一个QQ群，您可以在这里面聊天，接收更新提醒，群号为 656447649
   
@@ -11,7 +11,7 @@
     如果你觉得本插件还不错并且有意向向其他平台转载此插件。那么您只需要遵守以下几点，即可转载此插件而无需经过作者批准：
       a.转载时需标注原作者
       b.转载时需标注原帖地址
-      c.转载者对于插件的介绍可以自己发挥，但不能虚构，歪曲事实，对插件的介绍以真实为目标
+      c.转载者对于插件的介绍可以自己发挥，但不能虚构或歪曲事实。对插件的介绍以尽量真实为主
       d.转载的插件需使用本贴提供的下载渠道。在一般情况下，不得使用第三方下载渠道
       e.若必须使用第三方下载渠道，则通过第三方下载渠道下载的插件必须与原渠道下载的插件一致。不得将本插件通过反编译，注入等技术手段二次修改后发布
       f.使用第三方下载渠道需经过原作者同意
@@ -23,12 +23,11 @@
   所有测试版/正式版release发布我们将更新这一部分内容，以使您了解我们跟新的内容<br>
   #### 鬼斩的maven构建站:
   [BedrockTechnology_自动构建版本](https://builds.guizhanss.net/CTimet/BedrockTechnology/master/)<br>
-  自动构建由鬼斩@ybw0014提供技术支持。不过构建站有时候会出问题，所以如果遇到相关版本构建失败，请从github下载
+  自动构建由鬼斩@ybw0014提供技术支持。构建站提供的版本将永远保持最新。不过构建站有时候会出问题，所以如果遇到相关版本构建失败，请从github下载
   #### 当前最新版本-正式版:
   [BedrockTechnology_v1.0-beta-220706f0](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-beta-220706f0)<br>
-  
   #### 历史版本(包含测试版)与相应介绍：
   [BedrockTechnology](https://github.com/CTimet/BedrockTechnology/releases)
-  这里包含迄今为止BEKT发布的各种版本
+  这里包含迄今为止BEKT发布的各种版本。当遇到构建站构建失败时，请从此处获取最新版下载链接。
       
 
