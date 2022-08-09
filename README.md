@@ -1,11 +1,12 @@
-# 👀Slimefun4 附属 -- BedrockTechnology👀
+# Slimefun4 附属 -- BedrockTechnology
   这是一个Slimefun附属插件，我们称其为基岩科技BedrockTechnology；不过我们觉得这个直译的名字有些累赘，于是我们将其称作 BEKT<br>
   BEKT准确来说并不是BedrockTechnology的缩写，而是它的别称。<br>
   我们创建了一个QQ群，您可以在这里面聊天，接收更新提醒，群号为 656447649
   
   ✔[下载链接](https://github.com/CTimet/BedrockTechnology#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97)<br>
   💬[BUG汇报](https://github.com/CTimet/BedrockTechnology/issues)<br>
-  ⚡[转载支持](https://github.com/CTimet/BedrockTechnology#%E8%BD%AC%E8%BD%BD%E6%94%AF%E6%8C%81)
+  ⚡[转载支持](https://github.com/CTimet/BedrockTechnology#%E8%BD%AC%E8%BD%BD%E6%94%AF%E6%8C%81)<br>
+  👀[Wiki链接](https://www.yuque.com/ctimet/bedrocktechnologywiki)
   
 ## 转载支持
     如果你觉得本插件还不错并且有意向向其他平台转载此插件。那么您只需要遵守以下几点，即可转载此插件而无需经过作者批准：
