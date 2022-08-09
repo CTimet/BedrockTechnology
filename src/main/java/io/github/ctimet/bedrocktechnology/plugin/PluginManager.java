@@ -7,6 +7,7 @@ import io.github.ctimet.bedrocktechnology.data.BannedData;
 import io.github.ctimet.bedrocktechnology.data.StickData;
 import io.github.ctimet.bedrocktechnology.log.Color;
 import io.github.ctimet.bedrocktechnology.log.Log;
+import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 
 public class PluginManager {
     public static void startBekt() {
