@@ -3,6 +3,7 @@ package io.github.ctimet.bedrocktechnology.plugin;
 import io.github.ctimet.bedrocktechnology.BektMain;
 import io.github.ctimet.bedrocktechnology.core.cmd.BCommand;
 import io.github.ctimet.bedrocktechnology.core.items.BItems;
+import io.github.ctimet.bedrocktechnology.data.BannedData;
 import io.github.ctimet.bedrocktechnology.data.StickData;
 import io.github.ctimet.bedrocktechnology.log.Color;
 import io.github.ctimet.bedrocktechnology.log.Log;
@@ -14,7 +15,7 @@ public class PluginManager {
         Log.info(Color.PINK + "当前使用的版本：" + BektMain.getInstance().getPluginVersion());
 
         BektMain.getInstance().saveDefaultConfig();
-        BItems.registerItems();
+        BannedData.readDataAndRegisterItems();
         BCommand.registerCommand();
         StickData.readData();
         StickData.startTimer();
