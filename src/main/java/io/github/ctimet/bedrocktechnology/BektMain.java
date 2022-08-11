@@ -13,7 +13,7 @@ public class BektMain extends JavaPlugin implements SlimefunAddon {
     public void onEnable() {
         instance = this;
         PluginManager.startBekt();
-        new GuizhanBuildsUpdater(this, getFile(), "CTimet", "BedrockTechnology", "master", false).start();
+        new GuizhanBuildsUpdater(instance, getFile(), "CTimet", "BedrockTechnology", "master", false).start();
     }
 
     @Override

@@ -16,8 +16,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-import static io.github.ctimet.bedrocktechnology.core.cmd.BCommandHandler.guide;
-import static io.github.ctimet.bedrocktechnology.core.cmd.BCommandHandler.hs;
+import static io.github.ctimet.bedrocktechnology.core.cmd.BCommandHandler.*;
 
 public class BCommand implements CommandExecutor
 {
@@ -81,7 +80,7 @@ public class BCommand implements CommandExecutor
         return true;
     }
 
-    public static void registerCommandGroup(String command, String desc) {
+    private static void registerCommandGroup(String command, String desc) {
         COMMAND_GROUP.add(command);
         COMMAND_GROUP_DESC.put(command, desc);
         COMMAND_MAP.put(command,new ArrayList<>());
@@ -89,7 +88,7 @@ public class BCommand implements CommandExecutor
             registerSubCommand("hs",command,"得到关于" + command + "的子命令帮助");
     }
 
-    public static void registerSubCommand(String group, String command, String describe) {
+    private static void registerSubCommand(String group, String command, String describe) {
         if (COMMAND_GROUP.contains(group)) {
             ArrayList<String> sc = COMMAND_MAP.get(group);
             sc.add(command);

@@ -1,5 +1,6 @@
 package io.github.ctimet.bedrocktechnology.core.chat;
 
+import io.github.ctimet.bedrocktechnology.log.Color;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -19,27 +20,24 @@ public class Chat {
         this.sender = sender;
         this.args = null;
     }
-    public void sendPrompt(String mes)
-    {
-        this.sender.sendMessage("§e[BedrockTechnology] >> " + mes + "。");
+
+    public void sendWarn(String mes) {
+        this.sender.sendMessage(Color.YELLOW + "[BedrockTechnology] >> " + mes);
     }
 
-    public void sendWarn(String mes)
-    {
-        this.sender.sendMessage("§4[BedrockTechnology] >> " + mes + "！");
+    public void sendErr(String mes) {
+        this.sender.sendMessage(Color.DEEP_RED + "[BedrockTechnology] >> " + mes);
     }
 
     public void sendMesWithHead(String mes, String head, String color) {
-        this.sender.sendMessage("§" + color + "[BedrockTechnology-" + head + "]" + " >> " + mes);
+        this.sender.sendMessage(color + "[BedrockTechnology-" + head + "]" + " >> " + mes);
     }
 
-    public void sendInfo(String mes)
-    {
-        this.sender.sendMessage("§a[BedrockTechnology] >> " + mes + "。");
+    public void sendInfo(String mes) {
+        this.sender.sendMessage(Color.GREEN + "[BedrockTechnology] >> " + mes + "。");
     }
 
-    public void sendMessageWithoutHead(String mes,String color)
-    {
+    public void sendMessageWithoutHead(String mes,String color) {
         this.sender.sendMessage(color + mes);
     }
 
