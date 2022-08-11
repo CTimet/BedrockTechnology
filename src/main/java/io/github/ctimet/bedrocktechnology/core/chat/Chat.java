@@ -1,6 +1,7 @@
 package io.github.ctimet.bedrocktechnology.core.chat;
 
 import io.github.ctimet.bedrocktechnology.log.Color;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -30,7 +31,7 @@ public class Chat {
     }
 
     public void sendMesWithHead(String mes, String head, String color) {
-        this.sender.sendMessage(color + "[BedrockTechnology-" + head + "]" + " >> " + mes);
+        this.sender.sendMessage(color + "[BedrockTechnology-" + head + "]" + " >> \n" + mes);
     }
 
     public void sendInfo(String mes) {
@@ -43,5 +44,11 @@ public class Chat {
 
     public boolean isNotNull(int index) {
         return this.args != null && this.args.length > index;
+    }
+
+    public void sendUrl(String url, String other) {
+        Bukkit.getServer().dispatchCommand(
+                Bukkit.getConsoleSender(),
+                "/tellraw " + sender.getName() + " {text:\"" + other + "\",clickEvent:{action:open_url,value:\"" + url + "\"}}");
     }
 }

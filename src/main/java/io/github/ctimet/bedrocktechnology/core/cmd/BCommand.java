@@ -2,6 +2,7 @@ package io.github.ctimet.bedrocktechnology.core.cmd;
 
 import io.github.ctimet.bedrocktechnology.core.chat.Chat;
 import io.github.ctimet.bedrocktechnology.data.StickData;
+import io.github.ctimet.bedrocktechnology.log.Color;
 import io.github.ctimet.bedrocktechnology.log.Log;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -76,6 +77,7 @@ public class BCommand implements CommandExecutor
                     st.sendWarn("?");
                 }
             }
+            case "wiki" -> st.sendUrl("https://www.yuque.com/ctimet/bedrocktechnologywiki",Color.GREEN + "Wiki链接: ");
         }
         return true;
     }
@@ -160,6 +162,7 @@ public class BCommand implements CommandExecutor
         registerCommandGroup("help","显示一级命令帮助");
         registerCommandGroup("guide","关于配方查询界面的指令");
         registerCommandGroup("reload","重载BedrockTechnology数据");
+        registerCommandGroup("wiki","获取BedrockTechnology的Wiki链接");
 
         registerSubCommand("guide","open", "打开一个配方查询界面");
         registerSubCommand("guide","search","查询相关配方");
