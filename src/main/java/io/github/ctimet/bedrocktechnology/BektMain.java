@@ -13,6 +13,7 @@ public class BektMain extends JavaPlugin implements SlimefunAddon {
     public void onEnable() {
         instance = this;
         PluginManager.startBekt();
+        getLogger().info("这只是个用于测试自动更新的测试版本");
         new GuizhanBuildsUpdater(instance, getFile(), "CTimet", "BedrockTechnology", "master", false).start();
     }
 
