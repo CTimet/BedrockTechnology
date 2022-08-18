@@ -72,7 +72,15 @@ public class BItemStacks {
             "BEKT_CLOUD_TABLE",
             Material.SEA_LANTERN,
             "&bCloud云组装台",
+            "",
             "构建，组装您的CLOUD云中转站"
+    );
+    public static final SlimefunItemStack BEKT_RECIPES_SHOW = new SlimefunItemStack(
+            "BEKT_RECIPES_LOOK",
+            Material.CRYING_OBSIDIAN,
+            "&d物品配方查看器",
+            "",
+            "&7一个小小的指南书无法展示如此强大的配方"
     );
 
     public static final SlimefunItemStack BEKT_CLOUD = new SlimefunItemStack(

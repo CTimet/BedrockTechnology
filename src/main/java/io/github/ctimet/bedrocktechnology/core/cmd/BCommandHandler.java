@@ -1,13 +1,13 @@
 package io.github.ctimet.bedrocktechnology.core.cmd;
 
 import io.github.ctimet.bedrocktechnology.core.chat.Chat;
+import io.github.ctimet.bedrocktechnology.core.items.network.ItemRecipeShow;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryHolder;
 
 import java.util.ArrayList;
 
@@ -32,10 +32,15 @@ public final class BCommandHandler {
                 inv.setItem(5,new CustomItemStack(Material.BLUE_STAINED_GLASS, "§bCount-统计配方"));
                 player.openInventory(inv);
             } else if (arg.equalsIgnoreCase("search")) {
-                Inventory inv = Bukkit.createInventory((InventoryHolder) user, 6 * 9, "Search-配方查询");
-
+                if (st.isNotNull(2))
+                    ItemRecipeShow.showRecipe(player, args[2]);
+                else
+                    st.sendWarn("命令不全，无法找到对应物品");
             } else if (arg.equalsIgnoreCase("count")) {
-
+                if (st.isNotNull(2))
+                    ItemRecipeShow.countRecipe(player, args[2]);
+                else
+                    st.sendWarn("命令不全，无法找到对应物品");
             } else {
                 st.sendWarn("oh不，你输入了错误的参数");
             }

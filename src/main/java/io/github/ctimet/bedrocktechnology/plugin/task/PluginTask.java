@@ -4,11 +4,10 @@ import io.github.ctimet.bedrocktechnology.BektMain;
 import org.bukkit.scheduler.BukkitRunnable;
 
 /**
- * BedrockTechnology的异步任务类，该类的存在仅仅是为了让Bukkit的异步调用看起来更舒服
- * (没错我想用lambda写)
+ * BedrockTechnology的异步任务类
  */
 public class PluginTask {
-    public static void runTack(Task task) {
+    public static void runTack(Runnable task) {
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -16,7 +15,7 @@ public class PluginTask {
             }
         }.runTask(BektMain.getInstance());
     }
-    public static void runTaskAsynchronously(Task task) {
+    public static void runTaskAsynchronously(Runnable task) {
         new BukkitRunnable() {
             @Override
             public void run() {

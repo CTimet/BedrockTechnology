@@ -77,7 +77,7 @@ public class BCommand implements CommandExecutor
                     st.sendWarn("?");
                 }
             }
-            case "wiki" -> st.sendUrl("https://www.yuque.com/ctimet/bedrocktechnologywiki",Color.GREEN + "Wiki链接: ");
+            case "wiki" -> st.sendMesWithHead("https://www.yuque.com/ctimet/bedrocktechnologywiki","Wiki", Color.GREEN);
         }
         return true;
     }

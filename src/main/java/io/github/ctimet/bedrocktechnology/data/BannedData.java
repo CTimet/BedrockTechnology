@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 public class BannedData {
     private static final HashSet<String> banned = new HashSet<>();
+    private static final HashSet<String> banned_items = new HashSet<>();
     public static void readDataAndRegisterItems() {
         PluginTask.runTaskAsynchronously(() -> {
             try {
@@ -25,6 +26,15 @@ public class BannedData {
             }
             BItems.registerItems();
         });
+    }
+    public static void put(String name) {
+        banned_items.add(name);
+    }
+    public static boolean contains(String meta) {
+        return banned_items.contains(meta);
+    }
+    public static int getBanedItems() {
+        return banned.size();
     }
     public static boolean isNoBanned() {
         return banned.size() == 0;

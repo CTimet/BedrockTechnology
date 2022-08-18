@@ -2,13 +2,12 @@ package io.github.ctimet.bedrocktechnology.plugin;
 
 import io.github.ctimet.bedrocktechnology.BektMain;
 import io.github.ctimet.bedrocktechnology.core.cmd.BCommand;
-import io.github.ctimet.bedrocktechnology.core.event.MachineProtectEvent;
+import io.github.ctimet.bedrocktechnology.core.event.EventRegister;
 import io.github.ctimet.bedrocktechnology.data.BannedData;
 import io.github.ctimet.bedrocktechnology.data.PluginData;
 import io.github.ctimet.bedrocktechnology.data.StickData;
 import io.github.ctimet.bedrocktechnology.log.Color;
 import io.github.ctimet.bedrocktechnology.log.Log;
-import org.bukkit.Bukkit;
 
 public class PluginManager {
     public static void startBekt() {
@@ -22,8 +21,7 @@ public class PluginManager {
         BCommand.registerCommand();
         StickData.readData();
         StickData.startTimer();
-
-        Bukkit.getPluginManager().registerEvents(new MachineProtectEvent(), BektMain.getInstance());
+        EventRegister.registerEvent();
     }
 
     public static void stopBekt() {
