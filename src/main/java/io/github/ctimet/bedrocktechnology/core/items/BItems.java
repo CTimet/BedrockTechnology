@@ -30,7 +30,7 @@ public class BItems {
         }
         for (SlimefunItem item : items) {
             if (BannedData.isBanned(item)) {
-                Log.info("成功ban掉物品 \"" + item.getItemName() + "\", 物品ID为 \"" + item.getId() + "\"");
+                Log.info("成功ban掉物品 \"" + item.getItemName().replaceAll("§\\w","") + "\", 物品ID为 \"" + item.getId() + "\"");
                 ItemMeta meta = item.getItem().getItemMeta();
                 if (meta != null)
                     BannedData.put(meta.getDisplayName());
