@@ -20,7 +20,7 @@ import java.util.TimerTask;
  */
 public class StickData {
     private static final Timer TIMER = new Timer();
-    private static final Config CONFIG = new Config(BektMain.getInstance());
+    private static final Config CONFIG = BektMain.getCfg();
 
     private static final File TEMP_DAT = new File("plugins/BedrockTechnology/temp.dat");
     private static final File BLOCK_DAT = PluginData.getBlockDat();
@@ -118,7 +118,7 @@ public class StickData {
     /**
      * 向等待集中"增加数据"
      */
-    public static void addWait() {
+    private static void addWait() {
         WaitListSize ++;
     }
 

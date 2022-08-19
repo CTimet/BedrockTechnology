@@ -45,10 +45,4 @@ public class Chat {
     public boolean isNotNull(int index) {
         return this.args != null && this.args.length > index;
     }
-
-    public void sendUrl(String url, String other) {
-        Bukkit.getServer().dispatchCommand(
-                Bukkit.getConsoleSender(),
-                "/tellraw " + sender.getName() + " {text:\"" + other + "\",clickEvent:{action:open_url,value:\"" + url + "\"}}");
-    }
 }

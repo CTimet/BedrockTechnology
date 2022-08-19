@@ -2,8 +2,13 @@ package io.github.ctimet.bedrocktechnology.core.cmd;
 
 import io.github.ctimet.bedrocktechnology.core.chat.Chat;
 import io.github.ctimet.bedrocktechnology.data.StickData;
-import io.github.ctimet.bedrocktechnology.log.Color;
 import io.github.ctimet.bedrocktechnology.log.Log;
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -17,7 +22,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-import static io.github.ctimet.bedrocktechnology.core.cmd.BCommandHandler.*;
+import static io.github.ctimet.bedrocktechnology.core.cmd.BCommandHandler.guide;
+import static io.github.ctimet.bedrocktechnology.core.cmd.BCommandHandler.hs;
 
 public class BCommand implements CommandExecutor
 {
@@ -77,7 +83,20 @@ public class BCommand implements CommandExecutor
                     st.sendWarn("?");
                 }
             }
-            case "wiki" -> st.sendMesWithHead("https://www.yuque.com/ctimet/bedrocktechnologywiki","Wiki", Color.GREEN);
+            case "wiki" -> {
+                BaseComponent url = new TextComponent("点我前往BedrockTechnology的Wiki");
+                url.setHoverEvent(new HoverEvent(
+                        HoverEvent.Action.SHOW_TEXT,
+                        new Text("https://www.yuque.com/ctimet/bedrocktechnologywiki")
+                ));
+                url.setClickEvent(new ClickEvent(
+                        ClickEvent.Action.OPEN_URL,
+                        "https://www.yuque.com/ctimet/bedrocktechnologywiki"
+                ));
+                url.setColor(ChatColor.GRAY);
+                url.setUnderlined(true);
+                sender.spigot().sendMessage(url);
+            }
         }
         return true;
     }

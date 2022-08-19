@@ -3,3 +3,4 @@ timer:
   delay: 10
   period: 10
 check-update: true
+auto-register: false

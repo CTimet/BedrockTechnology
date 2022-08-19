@@ -11,11 +11,16 @@ import org.jetbrains.annotations.Nullable;
 
 public class BektMain extends JavaPlugin implements SlimefunAddon {
     private static BektMain instance;
+    private static Config cfg;
+    private static boolean autoRegister;
     @Override
     public void onEnable() {
         instance = this;
+        saveDefaultConfig();
+        cfg = new Config(this);
+        autoRegister = cfg.getBoolean("auto-register");
         PluginManager.startBekt();
-        if (new Config(this).getBoolean("check-update"))
+        if (cfg.getBoolean("check-update"))
             new GuizhanBuildsUpdater(instance, getFile(), "CTimet", "BedrockTechnology", "master", false).start();
     }
 
@@ -43,5 +48,13 @@ public class BektMain extends JavaPlugin implements SlimefunAddon {
 
     public static NamespacedKey createNamespacedKey(@NotNull String key) {
         return new NamespacedKey(instance, key);
+    }
+
+    public static Config getCfg() {
+        return cfg;
+    }
+
+    public static boolean autoRegister() {
+        return autoRegister;
     }
 }

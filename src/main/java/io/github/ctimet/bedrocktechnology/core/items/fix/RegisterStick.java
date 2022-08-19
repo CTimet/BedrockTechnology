@@ -64,7 +64,7 @@ public class RegisterStick extends SlimefunItem {
             return;
         }
 
-        StickData.putBlockData(xyz, new PlayerBlock(player.getUniqueId(), Objects.requireNonNull(BlockStorage.check(block)).getId()));
+        StickData.putBlockData(xyz, new PlayerBlock(player.getUniqueId(), item.getId()));
 
         chat.sendInfo("注册成功，成功注册sf方块");
         chat.sendMessageWithoutHead("x = " + location.getX(), Color.LIGHT_BLUE);

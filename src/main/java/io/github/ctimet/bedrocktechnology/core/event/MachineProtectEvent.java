@@ -12,8 +12,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.*;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 
+import java.util.Objects;
+
 public class MachineProtectEvent implements Listener {
-    @EventHandler(priority = EventPriority.HIGH)
+    @EventHandler(priority = EventPriority.MONITOR)
     public static void onPlace(BlockPlaceEvent event)
     {
         //方块放置
@@ -93,7 +95,7 @@ public class MachineProtectEvent implements Listener {
     {
         Location location = block.getLocation();
 
-        String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ() + "&" + location.getWorld().getName();
+        String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ() + "&" + Objects.requireNonNull(location.getWorld()).getName();
 
         StickData.remove(xyz);
     }
@@ -112,7 +114,7 @@ public class MachineProtectEvent implements Listener {
         for (double xxs : xs) {
             for (double yys : ys) {
                 for (double zzs : zs) {
-                    String lt = xxs + "&" + yys + "&" + zzs + "&" + location.getWorld().getName();
+                    String lt = xxs + "&" + yys + "&" + zzs + "&" + Objects.requireNonNull(location.getWorld()).getName();
                     StickData.remove(lt);
                 }
             }

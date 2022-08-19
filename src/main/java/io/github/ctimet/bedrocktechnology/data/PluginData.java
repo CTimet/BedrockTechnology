@@ -11,7 +11,6 @@ public class PluginData {
     private static final File BANNED_TXT = new File("plugins/BedrockTechnology/banned.txt");
 
     public static void check() {
-        BektMain.getInstance().saveDefaultConfig();
         try {
             if (!BLOCK_DAT.exists()) {
                 Log.info("创建block.dat..." + BLOCK_DAT.createNewFile());
