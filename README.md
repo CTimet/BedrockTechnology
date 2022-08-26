@@ -6,7 +6,7 @@
   ✔[下载链接](https://github.com/CTimet/BedrockTechnology#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97)<br>
   💬[BUG汇报](https://github.com/CTimet/BedrockTechnology/issues)<br>
   ⚡[转载支持](https://github.com/CTimet/BedrockTechnology#%E8%BD%AC%E8%BD%BD%E6%94%AF%E6%8C%81)<br>
-  👀[Wiki链接](https://www.yuque.com/ctimet/bedrocktechnologywiki)
+  👀[Wiki链接(建设中)](https://www.yuque.com/ctimet/bedrocktechnologywiki)
   
 ## 转载支持
     如果你觉得本插件还不错并且有意向向其他平台转载此插件。那么您只需要遵守以下几点，即可转载此插件而无需经过作者批准：
