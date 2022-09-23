@@ -37,5 +37,6 @@
   #### 历史版本(包含测试版)与相应介绍：
   [BedrockTechnology](https://github.com/CTimet/BedrockTechnology/releases)
   这里包含迄今为止BEKT发布的各种版本。当遇到构建站构建失败时，请从此处获取最新版下载链接。
-      
-
+  #### SpecialBekt
+  SpeicalBekt由CTimet开发，只包含注册修复棒。你可以把它当成一个纯净版的BEKT。如果你只想用注册修复功能。则可以尝试SpecialBekt。<br>
+  [SpecialBekt的储存库](https://github.com/CTimet/SpecialBekt)
