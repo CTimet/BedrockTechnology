@@ -6,8 +6,8 @@
   ✔[下载链接](https://github.com/CTimet/BedrockTechnology#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97)<br>
   💬[BUG汇报](https://github.com/CTimet/BedrockTechnology/issues)<br>
   ⚡[转载支持](https://github.com/CTimet/BedrockTechnology#%E8%BD%AC%E8%BD%BD%E6%94%AF%E6%8C%81)<br>
-  👀[Wiki链接(建设中)](https://www.yuque.com/ctimet/bedrocktechnologywiki)
-  🔎["纯净版"BEKT]()
+  👀[Wiki链接(建设中)](https://www.yuque.com/ctimet/bedrocktechnologywiki)<br>
+  🔎["纯净版"BEKT](https://github.com/CTimet/BedrockTechnology#specialbekt)
 
 ## 这个插件能做什么？
   此插件为Slimefun的附属插件，拓展了Slimefun的玩法，尤其是，本插件提供修复机器的功能。<br>
