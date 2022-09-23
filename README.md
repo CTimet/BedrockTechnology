@@ -7,13 +7,20 @@
   💬[BUG汇报](https://github.com/CTimet/BedrockTechnology/issues)<br>
   ⚡[转载支持](https://github.com/CTimet/BedrockTechnology#%E8%BD%AC%E8%BD%BD%E6%94%AF%E6%8C%81)<br>
   👀[Wiki链接(建设中)](https://www.yuque.com/ctimet/bedrocktechnologywiki)
-  
+  🔎["纯净版"BEKT]()
+
 ## 这个插件能做什么？
   此插件为Slimefun的附属插件，拓展了Slimefun的玩法，尤其是，本插件提供修复机器的功能。<br>
   Slimefun最大的BUG就是机器不定时损坏（懂得都懂）。由于项目过大而难以修复此BUG（胡说，分明是特性）<br>
   因此，我为我的插件增添了修复机器的功能。玩家通过注册棒注册机器，等到机器损坏时即可用修复棒修复机器（听起来像一个保险）。<br>
   使用此插件的腐竹可以不用在玩家的机器损坏时赔偿机器了。这听起来很不戳。<br>
   除此之外，我们还提供了其他机器用于拓展Slimefun玩法，祝您玩的愉快。
+  
+## SpecialBekt
+  SpeicalBekt是一个特殊的插件，也由CTimet开发。它只包含注册修复棒。你可以把它当成一个纯净版的BEKT。如果你只想用注册修复功能。则可以尝试SpecialBekt。<br>
+  SpecialBekt与BedrockTechnology使用同一套注册修复代码。整体使用方法一致。当BedrockTechnology的注册修复系统做出修改时，对应的SpecialBekt的注册修复系统也会做出修改。<br>
+  **不要把SpecialBekt和BedrockTechnology共同放入plugins文件夹内加载**！虽然物品ID已经在SpecialBekt中做出修改，两者可以一起加载。但是为了让SpecialBekt和BedrockTechnology的注册修复数据互通。两者使用的是同一个block.dat！如果你选择使用SpecialBekt就不要使用BedrockTechnology，反之亦然。将两者放入plugins文件夹中一起加载可能会产生一些意想不到的结果！**请不要这么做！**<br>
+  [SpecialBekt的储存库](https://github.com/CTimet/SpecialBekt)
   
 ## 转载支持
     如果你觉得本插件还不错并且有意向向其他平台转载此插件。那么您只需要遵守以下几点，即可转载此插件而无需经过作者批准：
@@ -37,6 +44,3 @@
   #### 历史版本(包含测试版)与相应介绍：
   [BedrockTechnology](https://github.com/CTimet/BedrockTechnology/releases)
   这里包含迄今为止BEKT发布的各种版本。当遇到构建站构建失败时，请从此处获取最新版下载链接。
-  #### SpecialBekt
-  SpeicalBekt由CTimet开发，只包含注册修复棒。你可以把它当成一个纯净版的BEKT。如果你只想用注册修复功能。则可以尝试SpecialBekt。<br>
-  [SpecialBekt的储存库](https://github.com/CTimet/SpecialBekt)
