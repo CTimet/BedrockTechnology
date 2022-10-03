@@ -1,13 +1,6 @@
 package io.github.ctimet.bedrocktechnology.core.cmd;
 
 import io.github.ctimet.bedrocktechnology.core.chat.Chat;
-import io.github.ctimet.bedrocktechnology.core.items.network.ItemRecipeShow;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 
 import java.util.ArrayList;
 
@@ -15,38 +8,6 @@ import static io.github.ctimet.bedrocktechnology.core.cmd.BCommand.*;
 
 public final class BCommandHandler {
     private BCommandHandler(){
-    }
-
-    public static boolean guide(CommandSender user, String[] args) {
-        Chat st = new Chat(user,args);
-        Player player = (Player) user;
-
-        if (st.isNotNull(1)) {
-            //command example:/bekt guide open, the "open" is args[1]
-            //so here is isNotNull(1)
-            String arg = args[1];
-            if (arg.equalsIgnoreCase("open")) {
-                Inventory inv = Bukkit.createInventory(player,9,"§6查找配方");
-                //0 1 2 3 4 5 6 7 8
-                inv.setItem(3, new CustomItemStack(Material.GREEN_STAINED_GLASS, "§aSearch-查找配方"));
-                inv.setItem(5,new CustomItemStack(Material.BLUE_STAINED_GLASS, "§bCount-统计配方"));
-                player.openInventory(inv);
-            } else if (arg.equalsIgnoreCase("search")) {
-                if (st.isNotNull(2))
-                    ItemRecipeShow.showRecipe(player, args[2]);
-                else
-                    st.sendWarn("命令不全，无法找到对应物品");
-            } else if (arg.equalsIgnoreCase("count")) {
-                if (st.isNotNull(2))
-                    ItemRecipeShow.countRecipe(player, args[2]);
-                else
-                    st.sendWarn("命令不全，无法找到对应物品");
-            } else {
-                st.sendWarn("oh不，你输入了错误的参数");
-            }
-            return true;
-        }
-        return false;
     }
 
     public static void hs(Chat st, String command, int read) {

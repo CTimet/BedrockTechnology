@@ -1,7 +1,5 @@
 package io.github.ctimet.bedrocktechnology.core.chat;
 
-import io.github.ctimet.bedrocktechnology.log.Color;
-import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -36,6 +34,10 @@ public class Chat {
 
     public void sendInfo(String mes) {
         this.sender.sendMessage(Color.GREEN + "[BedrockTechnology] >> " + mes + "。");
+    }
+
+    public void sendInfoWithoutHead(String mes) {
+        this.sender.sendMessage(Color.GREEN + mes);
     }
 
     public void sendMessageWithoutHead(String mes,String color) {

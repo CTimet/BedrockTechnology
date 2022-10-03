@@ -1,6 +1,16 @@
 # 关于Config.yml配置文件解析详情请见 https://www.yuque.com/ctimet/bedrocktechnologywiki/az3bgr
+options:
+  check-update: true
+  auto-register: false
+
 timer:
   delay: 10
   period: 10
-check-update: true
-auto-register: false
+
+mysql:
+  enabled: false
+  host: localhost
+  port: 3306
+  user: root
+  password:
+  database:

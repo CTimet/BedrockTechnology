@@ -1,7 +1,6 @@
 package io.github.ctimet.bedrocktechnology.core.cmd;
 
 import io.github.ctimet.bedrocktechnology.core.chat.Chat;
-import io.github.ctimet.bedrocktechnology.data.StickData;
 import io.github.ctimet.bedrocktechnology.log.Log;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -14,7 +13,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
-import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -22,7 +20,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-import static io.github.ctimet.bedrocktechnology.core.cmd.BCommandHandler.guide;
 import static io.github.ctimet.bedrocktechnology.core.cmd.BCommandHandler.hs;
 
 public class BCommand implements CommandExecutor
@@ -61,11 +58,6 @@ public class BCommand implements CommandExecutor
                     help(st, 1);
                 }
             }
-            case "reload" -> {
-                st.sendInfo("准备重载数据，期间不可进行 注册/修复 操作");
-                StickData.reloadData();
-                st.sendInfo("重载完成");
-            }
             case "hs" -> {
                 if (st.isNotNull(1)) {
                     if (st.isNotNull(2))
@@ -74,13 +66,6 @@ public class BCommand implements CommandExecutor
                         hs(st,args[1],0);
                 } else {
                     st.sendWarn("额，你好像还没输入命令集名称呢");
-                }
-            }
-            case "guide" -> {
-                if (sender instanceof Player) {
-                    return guide(sender,args);
-                } else {
-                    st.sendWarn("?");
                 }
             }
             case "wiki" -> {
@@ -180,7 +165,6 @@ public class BCommand implements CommandExecutor
         registerCommandGroup("hs","显示二级命令帮助");
         registerCommandGroup("help","显示一级命令帮助");
         registerCommandGroup("guide","关于配方查询界面的指令");
-        registerCommandGroup("reload","重载BedrockTechnology数据");
         registerCommandGroup("wiki","获取BedrockTechnology的Wiki链接");
 
         registerSubCommand("guide","open", "打开一个配方查询界面");
