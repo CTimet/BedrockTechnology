@@ -1,7 +1,6 @@
 package io.github.ctimet.bedrocktechnology.core.items.code.fix;
 
-import io.github.ctimet.bedrocktechnology.core.chat.Chat;
-import io.github.ctimet.bedrocktechnology.core.chat.Color;
+import io.github.ctimet.bedrocktechnology.core.chat.PlayerChat;
 import io.github.ctimet.bedrocktechnology.data.stickdata.StickData;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -31,10 +30,10 @@ public class FixStick extends SlimefunItem {
             block = b.get();
         } else return;
 
-        Chat chat = new Chat(event.getPlayer());
+        PlayerChat chat = new PlayerChat(event.getPlayer(), true);
 
         if (BlockStorage.check(block) != null) {
-            chat.sendMessageWithoutHead("插件认为该方块未损坏，不可修复！", Color.YELLOW);
+            chat.sendWarn("插件认为该方块未损坏，不可修复！");
             return;
         }
 

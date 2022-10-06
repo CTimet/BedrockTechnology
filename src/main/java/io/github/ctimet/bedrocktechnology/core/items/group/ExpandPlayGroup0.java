@@ -1,8 +1,6 @@
 package io.github.ctimet.bedrocktechnology.core.items.group;
 
-import io.github.ctimet.bedrocktechnology.core.items.code.RecipeSize;
-import io.github.ctimet.bedrocktechnology.core.items.code.RecipeSizeType;
-import io.github.ctimet.bedrocktechnology.core.items.code.RecipeSizeTypeNotFoundException;
+import io.github.ctimet.bedrocktechnology.core.items.repcie.RecipeSize;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
@@ -21,7 +19,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-public class MachineGroup extends FlexItemGroup {
+public class ExpandPlayGroup0 extends FlexItemGroup {
     private final String name;
 
     private static final int[] BLUE_BORDER = new int[] { 9, 18, 27, 36, 45 };
@@ -39,10 +37,10 @@ public class MachineGroup extends FlexItemGroup {
             50, 51
     };
     private static final int[] RECIPE_3x3 = new int[] {
-            4, 5, 6, 13, 14, 15, 22, 23, 24
+            3, 4, 5, 12, 13, 14, 21, 22, 23
     };
 
-    public MachineGroup(NamespacedKey key, ItemStack item) {
+    public ExpandPlayGroup0(NamespacedKey key, ItemStack item) {
         super(key, item);
         this.name = ItemUtils.getItemName(item);
     }
@@ -54,7 +52,6 @@ public class MachineGroup extends FlexItemGroup {
 
     @Override
     public void open(Player p, PlayerProfile profile, SlimefunGuideMode mode) {
-
         SlimefunGuideImplementation guide = Slimefun.getRegistry().getSlimefunGuide(mode);
         profile.getGuideHistory().add(this, 1);
         ChestMenu menu = new ChestMenu(this.name);
@@ -74,16 +71,14 @@ public class MachineGroup extends FlexItemGroup {
         });
 
         int index = 9;
-        for (SlimefunItem item : BItemGroup.MACHINE_CHEAT.getItems()) {
+        for (SlimefunItem item : BItemGroup.EXPAND_PLAY_CHEAT.getItems()) {
             menu.addItem(index, item.getItem(), (p12, slot, itemStack, action) -> {
-                if (item instanceof RecipeSize size) {
-                    if (size.getSize() == RecipeSizeType.THREE) {
-                        openRecipeIn3x3(p12, item, profile, mode);
-                    } else {
-                        openRecipeIn6x6(p12, item, profile, mode);
-                    }
+                if (item instanceof RecipeSize) {
+                    profile.getGuideHistory().goBack(guide);
+                    openRecipeIn6x6(p12, item, profile, mode);
                 } else {
-                    throw new RecipeSizeTypeNotFoundException("the item " + item.getItemName() + " was not instanceof RecipeSize");
+                    profile.getGuideHistory().add(item);
+                    openRecipeIn3x3(p12, null, item, profile, mode);
                 }
                 return false;
             });
@@ -92,7 +87,7 @@ public class MachineGroup extends FlexItemGroup {
         menu.open(p);
     }
 
-    private void openRecipeIn3x3(Player p, SlimefunItem item, PlayerProfile profile, SlimefunGuideMode mode) {
+    private void openRecipeIn3x3(Player p, SlimefunItem prev , SlimefunItem item, PlayerProfile profile, SlimefunGuideMode mode) {
         SlimefunGuideImplementation guide = Slimefun.getRegistry().getSlimefunGuide(mode);
         ChestMenu menu = new ChestMenu(this.name);
 
@@ -110,7 +105,7 @@ public class MachineGroup extends FlexItemGroup {
         int index = 0;
         for (ItemStack stack : item.getRecipe()) {
             menu.addItem(RECIPE_3x3[index], stack, (p1, slot, item1, action) -> {
-                openItemRecipe(p1, item1, profile, mode);
+                openItemRecipe(p1, item , item1, profile, mode);
                 return false;
             });
             index ++;
@@ -154,7 +149,7 @@ public class MachineGroup extends FlexItemGroup {
         int index = 0;
         for (ItemStack stack : item.getRecipe()) {
             menu.addItem(RECIPE_6x6[index], stack, (player, slot, item1, action) -> {
-                openItemRecipe(player, item1, profile, mode);
+                openItemRecipe(player, item, item1, profile, mode);
                 return false;
             });
             index ++;
@@ -166,17 +161,14 @@ public class MachineGroup extends FlexItemGroup {
         menu.open(p);
     }
 
-    private void openItemRecipe(Player p, ItemStack item, PlayerProfile profile, SlimefunGuideMode mode) {
-        SlimefunItem sfItem;
-        if ((sfItem = SlimefunItem.getByItem(item)) != null) {
-            if (sfItem instanceof RecipeSize size) {
-                if (size.getSize() == RecipeSizeType.THREE) {
-                    openRecipeIn3x3(p, sfItem, profile, mode);
-                } else {
-                    openRecipeIn6x6(p, sfItem, profile, mode);
-                }
+    private void openItemRecipe(Player p, SlimefunItem prev, ItemStack item, PlayerProfile profile, SlimefunGuideMode mode) {
+        SlimefunItem sfItem = SlimefunItem.getByItem(item);
+        if (sfItem != null) {
+            profile.getGuideHistory().add(sfItem);
+            if (sfItem instanceof RecipeSize) {
+                openRecipeIn6x6(p, sfItem, profile, mode);
             } else {
-                openRecipeIn3x3(p, sfItem, profile, mode);
+                openRecipeIn3x3(p, prev, sfItem, profile, mode);
             }
         }
     }

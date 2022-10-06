@@ -8,8 +8,8 @@ import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.interfaces.InventoryBlock;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import org.bukkit.inventory.ItemStack;
 
-public abstract class BaseGui extends SlimefunItem implements InventoryBlock {
-    public BaseGui(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+public abstract class AbstractGui extends SlimefunItem implements InventoryBlock {
+    public AbstractGui(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
         createPreset(this, getInvTitle(), this::createGui);
     }

@@ -1,6 +1,5 @@
 package io.github.ctimet.bedrocktechnology;
 
-import io.github.ctimet.bedrocktechnology.core.chat.Color;
 import io.github.ctimet.bedrocktechnology.core.cmd.BCommand;
 import io.github.ctimet.bedrocktechnology.core.items.BItems;
 import io.github.ctimet.bedrocktechnology.core.items.group.BItemGroup;
@@ -10,10 +9,13 @@ import io.github.ctimet.bedrocktechnology.log.Log;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
+import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Set;
 
 public class BektMain extends JavaPlugin implements SlimefunAddon {
     private static BektMain instance;
@@ -24,14 +26,13 @@ public class BektMain extends JavaPlugin implements SlimefunAddon {
         saveDefaultConfig();
         cfg = new Config(this);
 
-        Log.info(Color.LIGHT_BLUE + "BedrockTechnology_Wiki地址：https://www.yuque.com/ctimet/bedrocktechnologywiki");
-        Log.info(Color.LIGHT_BLUE + "BedrockTechnology_Github库地址：https://github.com/CTimet/BedrockTechnology");
-        Log.info(Color.PINK + "当前使用的版本：" + BektMain.getInstance().getPluginVersion());
+        Log.info(ChatColor.AQUA + "BedrockTechnology_Wiki地址：https://www.yuque.com/ctimet/bedrocktechnologywiki");
+        Log.info(ChatColor.AQUA + "BedrockTechnology_Github库地址：https://github.com/CTimet/BedrockTechnology");
+        Log.info(ChatColor.AQUA + "当前使用的版本：" + BektMain.getInstance().getPluginVersion());
 
-        BItemGroup.registerGroup();
-        BektMain.getInstance().saveDefaultConfig();
-        BItems.registerItems();
         BCommand.registerCommand();
+        BItemGroup.registerGroup();
+        BItems.registerItems();
         StickData.init();
         ListenerRegister.registerEvent();
 

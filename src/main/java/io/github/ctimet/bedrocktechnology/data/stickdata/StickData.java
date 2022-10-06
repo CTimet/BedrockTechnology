@@ -19,7 +19,7 @@ public class StickData {
 
     private static Data data;
 
-    private static boolean readFinish;
+    private static boolean readFinish = false;
 
     public static void init() {
         EnabledMySQL = BektMain.getCfg().getBoolean("mysql.enabled");
@@ -30,6 +30,7 @@ public class StickData {
                     MySQLHandler.readData(data);
                 });
             } else {
+                EnabledMySQL = false;
                 data = FileDataSave.readData();
             }
             return;
@@ -155,10 +156,11 @@ public class StickData {
             try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))){
                 StickData.setFinish(true);
                 return (HashMap<String, String>) in.readObject();
+            } catch (StreamCorruptedException ignored) {
+                return new HashMap<>();
             } catch (IOException | ClassNotFoundException e) {
                 ExceptionHandler.writeException(e, "readData0", "在读取注册数据时抛出异常", FileData.class);
-                StickData.setFinish(false);
-                return null;
+                return new HashMap<>();
             }
         }
 

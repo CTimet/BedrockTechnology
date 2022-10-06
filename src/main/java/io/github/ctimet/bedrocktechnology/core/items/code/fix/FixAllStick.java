@@ -1,8 +1,7 @@
 package io.github.ctimet.bedrocktechnology.core.items.code.fix;
 
 import io.github.ctimet.bedrocktechnology.BektMain;
-import io.github.ctimet.bedrocktechnology.core.chat.Chat;
-import io.github.ctimet.bedrocktechnology.core.chat.Color;
+import io.github.ctimet.bedrocktechnology.core.chat.PlayerChat;
 import io.github.ctimet.bedrocktechnology.data.stickdata.StickData;
 import io.github.ctimet.bedrocktechnology.data.stickdata.MySQLHandler;
 import io.github.ctimet.bedrocktechnology.log.Log;
@@ -16,6 +15,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -42,7 +42,7 @@ public class FixAllStick extends SlimefunItem {
         event.cancel();
 
         Player player = event.getPlayer();
-        Chat chat = new Chat(player);
+        PlayerChat chat = new PlayerChat(player, false);
 
         if (LAST_USE.containsKey(player.getUniqueId())) {
             long interval = System.currentTimeMillis() - LAST_USE.get(player.getUniqueId());
@@ -51,14 +51,13 @@ public class FixAllStick extends SlimefunItem {
                     chat.sendWarn("使用太频繁了，请 " + new SimpleDateFormat("s秒").format((60*60*1000 - interval)) + " 后再来使用吧qwq.");
                 else
                     chat.sendWarn("使用太频繁了，请 " + new SimpleDateFormat("m分s秒").format((60*60*1000 - interval)) + " 后再来使用吧qwq.");
-
                 return;
             }
         }
 
-        chat.sendInfoWithoutHead("开始查找玩家 " + Color.LIGHT_BLUE + player.getName() + Color.GREEN + " 注册过的所有机器并予以修复...");
+        chat.sendInfo("开始查找玩家 " + ChatColor.AQUA + player.getName() + ChatColor.GREEN + " 注册过的所有机器并予以修复...");
         if (PluginTask.getThreadPoolQueueSize() != 0) {
-            chat.sendInfoWithoutHead("线程池正忙。当前有" + PluginTask.getThreadPoolQueueSize() + "个任务等待处理。您可以先去处理别的事情");
+            chat.sendInfo("线程池正忙。当前有" + PluginTask.getThreadPoolQueueSize() + "个任务等待处理。您可以先去处理别的事情");
         }
 
         LAST_USE.put(player.getUniqueId(), System.currentTimeMillis());
@@ -94,7 +93,7 @@ public class FixAllStick extends SlimefunItem {
                             location = new Location(Bukkit.getWorld(loc[3]),Double.parseDouble(loc[0]),Double.parseDouble(loc[1]),Double.parseDouble(loc[2]));
                             if (BlockStorage.check(location) == null) {
                                 BlockStorage.setBlockInfo(location, json, true);
-                                chat.sendInfoWithoutHead("修复机器 x=" + location.getX() + "; y=" + location.getY() + "; z=" + location.getZ());
+                                chat.sendInfo("修复机器 x=" + location.getX() + "; y=" + location.getY() + "; z=" + location.getZ());
                                 StickData.removeData(xyz);
                                 FixedBlockSize ++;
                             }
@@ -102,13 +101,13 @@ public class FixAllStick extends SlimefunItem {
                             RegisterBlockSize --;
                         }
                     }
-                    chat.sendInfoWithoutHead("修复完成。以下为修复报告: ");
-                    chat.sendInfoWithoutHead("------------------------------");
-                    chat.sendInfoWithoutHead("搜索到注册方块数：§b" + RegisterBlockSize);
-                    chat.sendInfoWithoutHead("已被修复的方块数：§4" + FixedBlockSize);
-                    chat.sendInfoWithoutHead("剩余的注册方块数：§e" + (RegisterBlockSize - FixedBlockSize));
-                    chat.sendInfoWithoutHead("------------------------------");
-                    chat.sendMessageWithoutHead("注：修复后方块注册数据将被删除。请自行注册。", Color.YELLOW);
+                    chat.sendInfo("修复完成。以下为修复报告: ");
+                    chat.sendInfo("------------------------------");
+                    chat.sendInfo("搜索到注册方块数：§b" + RegisterBlockSize);
+                    chat.sendInfo("已被修复的方块数：§4" + FixedBlockSize);
+                    chat.sendInfo("剩余的注册方块数：§e" + (RegisterBlockSize - FixedBlockSize));
+                    chat.sendInfo("------------------------------");
+                    chat.sendWarn("注：修复后方块注册数据将被删除。请自行注册。");
                 });
             } catch (SQLException e) {
                 e.printStackTrace();

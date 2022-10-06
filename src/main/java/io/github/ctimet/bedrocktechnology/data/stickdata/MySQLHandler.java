@@ -25,6 +25,7 @@ public class MySQLHandler {
 
     public static boolean init() {
         try {
+            tryConnectMySQL();//试连。如果连不上直接不用连接池
             dds.setDriverClassName(JDBC_DRIVER);
             dds.setUrl(URL);
             dds.setUsername(USER);
@@ -35,6 +36,12 @@ public class MySQLHandler {
             return false;
         }
         return true;
+    }
+
+    public static void tryConnectMySQL() throws Exception {
+        Class.forName(JDBC_DRIVER);
+        Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        conn.close();
     }
 
     private static void initTable() throws SQLException {

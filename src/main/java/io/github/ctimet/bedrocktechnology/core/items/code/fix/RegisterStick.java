@@ -1,7 +1,6 @@
 package io.github.ctimet.bedrocktechnology.core.items.code.fix;
 
-import io.github.ctimet.bedrocktechnology.core.chat.Chat;
-import io.github.ctimet.bedrocktechnology.core.chat.Color;
+import io.github.ctimet.bedrocktechnology.core.chat.PlayerChat;
 import io.github.ctimet.bedrocktechnology.data.stickdata.StickData;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -37,9 +36,9 @@ public class RegisterStick extends SlimefunItem {
     }
 
     public static void registerBlock(Player player, Block block) {
-        Chat chat = new Chat(player);
+        PlayerChat chat = new PlayerChat(player, true);
         if (BlockStorage.check(block) == null) {
-            chat.sendMessageWithoutHead("不可注册非sf方块", Color.YELLOW);
+            chat.sendWarn("不可注册非sf方块");
             return;
         }
 
@@ -52,12 +51,12 @@ public class RegisterStick extends SlimefunItem {
         String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ() + "&" + Objects.requireNonNull(location.getWorld()).getName();
 
         if (StickData.contains(xyz)) {
-            chat.sendMessageWithoutHead("该方块已被注册", Color.YELLOW);
+            chat.sendWarn("该方块已被注册");
             return;
         }
 
         StickData.putData(player.getUniqueId().toString(), xyz, BlockStorage.getBlockInfoAsJson(block));
 
-        chat.sendMessageWithoutHead("方块已成功注册", Color.GREEN);
+        chat.sendInfo("方块已成功注册");
     }
 }

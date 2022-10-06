@@ -1,8 +1,6 @@
 package io.github.ctimet.bedrocktechnology.core.items.code.expand;
 
-import io.github.ctimet.bedrocktechnology.core.items.BRecipe;
-import io.github.ctimet.bedrocktechnology.core.items.code.RecipeSize;
-import io.github.ctimet.bedrocktechnology.core.items.code.RecipeSizeType;
+import io.github.ctimet.bedrocktechnology.core.items.repcie.RecipeSize;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -55,12 +53,12 @@ public class OilMake extends SlimefunItem implements InventoryBlock, EnergyNetCo
     private int energyUse = -1;
     private String invTitle = "";
 
-    private RecipeSizeType type;
-
     public OilMake(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
 
         createPreset(this, getInvTitle(), this::constructMenu);
+
+        BCraftingTable.registerRecipe(recipe, item);
 
         addItemHandler(onBreak());
     }
@@ -296,13 +294,20 @@ public class OilMake extends SlimefunItem implements InventoryBlock, EnergyNetCo
         return processor;
     }
 
-    public OilMake setSize(RecipeSizeType type) {
-        this.type = type;
-        return this;
-    }
+    static class BRecipe {
+        int s;
+        ItemStack o;
+        public BRecipe(int seconds, ItemStack out) {
+            this.s = seconds;
+            this.o = out;
+        }
 
-    @Override
-    public RecipeSizeType getSize() {
-        return type;
+        public int getSeconds() {
+            return this.s;
+        }
+
+        public ItemStack getOut() {
+            return this.o;
+        }
     }
 }

@@ -2,8 +2,8 @@ package io.github.ctimet.bedrocktechnology.core.items.code.fix;
 
 import io.github.ctimet.bedrocktechnology.BektMain;
 import io.github.ctimet.bedrocktechnology.core.items.BItemStacks;
+import io.github.ctimet.bedrocktechnology.core.items.repcie.BRecipeType;
 import io.github.ctimet.bedrocktechnology.core.items.group.BItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -14,7 +14,7 @@ public class MachineProtectRegister {
         new RegisterStick(
                 BItemGroup.MACHINE_PROTECT,
                 BItemStacks.BEKT_SUPERFIX_REG,
-                RecipeType.ENHANCED_CRAFTING_TABLE,
+                BRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[] {
                         null, item(Material.STONE), null,
                         null, item(Material.STONE), null,
@@ -24,7 +24,7 @@ public class MachineProtectRegister {
         new FixStick(
                 BItemGroup.MACHINE_PROTECT,
                 BItemStacks.BEKT_SUPERFIX_FIX,
-                RecipeType.ENHANCED_CRAFTING_TABLE,
+                BRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[] {
                         null, item(Material.REDSTONE), null,
                         null, item(Material.REDSTONE), null,
@@ -34,7 +34,7 @@ public class MachineProtectRegister {
         new FixAllStick(
                 BItemGroup.MACHINE_PROTECT,
                 BItemStacks.BEKT_FIX_ALL,
-                RecipeType.ENHANCED_CRAFTING_TABLE,
+                BRecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[] {
                         null, BItemStacks.BEKT_SUPERFIX_FIX, null,
                         null, BItemStacks.BEKT_SUPERFIX_FIX, null,

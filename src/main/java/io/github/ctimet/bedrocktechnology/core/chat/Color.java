@@ -1,5 +1,8 @@
 package io.github.ctimet.bedrocktechnology.core.chat;
 
+/**
+ * @deprecated 请使用 {@link org.bukkit.ChatColor}
+ */
 public class Color {
     /** 深红 */
     public static final String DEEP_RED = "§4";

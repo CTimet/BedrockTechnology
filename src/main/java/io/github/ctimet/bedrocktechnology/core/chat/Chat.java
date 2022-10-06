@@ -1,9 +1,14 @@
 package io.github.ctimet.bedrocktechnology.core.chat;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * 可以构造此类的实例以便于发送带颜色的消息。该类已经废弃
+ * @deprecated 请使用 {@link io.github.ctimet.bedrocktechnology.core.chat.PlayerChat}
+ */
 public class Chat {
     private final CommandSender sender;
     private final String[] args;
@@ -21,11 +26,11 @@ public class Chat {
     }
 
     public void sendWarn(String mes) {
-        this.sender.sendMessage(Color.YELLOW + "[BedrockTechnology] >> " + mes);
+        this.sender.sendMessage(ChatColor.GOLD + "[BedrockTechnology] >> " + mes);
     }
 
     public void sendErr(String mes) {
-        this.sender.sendMessage(Color.DEEP_RED + "[BedrockTechnology] >> " + mes);
+        this.sender.sendMessage(ChatColor.RED + "[BedrockTechnology] >> " + mes);
     }
 
     public void sendMesWithHead(String mes, String head, String color) {

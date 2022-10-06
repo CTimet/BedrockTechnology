@@ -48,12 +48,47 @@ public class BItemStacks {
             getPow(10000),
             getCap(20000)
     );
-    public static final SlimefunItemStack BEKT_OIL_MAKER = new SlimefunItemStack(
-            "BEKT_OIL_MAKER",
-            HeadTexture.CARBONADO,
-            "&4原油生成核心",
+    public static final SlimefunItemStack BEKT_RESOURCES_FIND = new SlimefunItemStack(
+            "BEKT_RESOURCES_FIND",
+            Material.DROPPER,
+            "&4资源探测芯片",
             "",
-            "&7自动生成原油"
+            "&7可以用于寻找某些资源，比如原油，GEO矿等等"
+    );
+    public static final SlimefunItemStack BEKT_DIG_CORE = new SlimefunItemStack(
+            "BEKT_DIG_CORE",
+            Material.NETHER_STAR,
+            "&4挖掘核心",
+            "",
+            "&7挖掘核心。用以驱动挖掘机器。只能作为零件使用"
+    );
+    public static final SlimefunItemStack BEKT_CONDUIT = new SlimefunItemStack(
+            "BEKT_CONDUIT",
+            Material.END_ROD,
+            "&6输送管道",
+            "",
+            "&7可以运输可流动性物质。比如岩浆，原油，水等"
+    );
+    public static final SlimefunItemStack BEKT_WATER_BUMP = new SlimefunItemStack(
+            "BEKT_WATER_BUMP",
+            Material.END_PORTAL_FRAME,
+            "&d水泵",
+            "",
+            "&7能把一些液体抽上来。只能作为零件使用"
+    );
+    public static final SlimefunItemStack BEKT_OBJECT_ENCAPSULATION = new SlimefunItemStack(
+            "BEKT_OBJECT_ENCAPSULATION",
+            Material.CHEST,
+            "&d原油罐装器",
+            "",
+            "&7往桶里装一些原油。只可作为零件使用。"
+    );
+    public static final SlimefunItemStack BEKT_CRAFTING_TABLE = new SlimefunItemStack(
+            "BEKT_CRAFTING_TABLE",
+            Material.CRAFTING_TABLE,
+            "&4基岩工作台",
+            "",
+            ""
     );
 //    public static final SlimefunItemStack BEKT_LITHOGRAPHY_MACHINE = new SlimefunItemStack(
 //            "BEKT_LITHOGRAPHY_MACHINE",
