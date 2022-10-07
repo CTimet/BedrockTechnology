@@ -19,7 +19,7 @@
 ## SpecialBekt
   SpeicalBekt是一个特殊的插件，也由CTimet开发。它只包含注册修复棒。你可以把它当成一个纯净版的BEKT。如果你只想用注册修复功能。则可以尝试SpecialBekt。<br>
   SpecialBekt与BedrockTechnology使用同一套注册修复代码。整体使用方法一致。当BedrockTechnology的注册修复系统做出修改时，对应的SpecialBekt的注册修复系统也会做出修改。<br>
-  SpecialBekt目前处于实验阶段，暂不支持与BedrockTechnology数据互通。因此，**SpecialBekt的数据文件BedrockTechnology暂时无法读取**！待后期版本做出改进。<br>
+  SpecialBekt可以与BedrockTechnology数据互通。只需要cv文件block.dat到另一个插件的文件夹地下即可读取另一个插件的数据<br>
   [SpecialBekt的储存库](https://github.com/CTimet/SpecialBekt)
   
 ## 转载支持
