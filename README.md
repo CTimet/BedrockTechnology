@@ -3,7 +3,7 @@
   BEKT准确来说并不是BedrockTechnology的缩写，而是它的别称。<br>
   我们创建了一个QQ群，您可以在这里面聊天，接收更新提醒，群号为 656447649
   
-  ✔[下载链接](https://github.com/CTimet/BedrockTechnology#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97)<br>
+  ✔[下载链接](https://builds.guizhanss.net/CTimet/BedrockTechnology/master/)<br>
   💬[BUG汇报](https://github.com/CTimet/BedrockTechnology/issues)<br>
   ⚡[转载支持](https://github.com/CTimet/BedrockTechnology#%E8%BD%AC%E8%BD%BD%E6%94%AF%E6%8C%81)<br>
   👀[Wiki链接(建设中)](https://www.yuque.com/ctimet/bedrocktechnologywiki)<br>
@@ -19,7 +19,7 @@
 ## SpecialBekt
   SpeicalBekt是一个特殊的插件，也由CTimet开发。它只包含注册修复棒。你可以把它当成一个纯净版的BEKT。如果你只想用注册修复功能。则可以尝试SpecialBekt。<br>
   SpecialBekt与BedrockTechnology使用同一套注册修复代码。整体使用方法一致。当BedrockTechnology的注册修复系统做出修改时，对应的SpecialBekt的注册修复系统也会做出修改。<br>
-  SpecialBekt目前处于实验阶段，暂不支持与BedrockTechnology数据互通。因此，**SpecialBekt的数据文件BedrockTechnology暂时无法读取**！待后期版本做出改进。<br>
+  SpecialBekt可以与BedrockTechnology数据互通。只需要cv文件block.dat到另一个插件的文件夹地下即可读取另一个插件的数据<br>
   [SpecialBekt的储存库](https://github.com/CTimet/SpecialBekt)
   
 ## 转载支持
@@ -33,14 +33,3 @@
       g.无论通过哪种方式提供下载渠道，最后用户获得的插件信息绝不能与原信息发生冲突。即转载者不得以任何方式修改插件信息，包括作者名，源码等
     这7条都是必须要遵守的，考虑到国内用户登录Github卡与慢的问题。我们允许在特殊情况下转载者提供第三方下载渠道。但必须遵守第e,f,g条规定！
     转载是对此插件的一种宣传，也是对我们的一种支持❤  
-    
-## 更新日志
-  所有测试版/正式版release发布我们将更新这一部分内容，以使您了解我们跟新的内容<br>
-  #### 鬼斩的maven构建站:
-  [BedrockTechnology_自动构建版本](https://builds.guizhanss.net/CTimet/BedrockTechnology/master/)<br>
-  自动构建由鬼斩@ybw0014提供技术支持。构建站提供的版本将永远保持最新。不过构建站有时候会出问题，所以如果遇到相关版本构建失败，请从github下载
-  #### 当前最新版本-正式版:
-  [BedrockTechnology_v1.0-beta-220706f0](https://github.com/CTimet/BedrockTechnology/releases/tag/BedrockTechnology_v1.0-beta-220706f0)<br>
-  #### 历史版本(包含测试版)与相应介绍：
-  [BedrockTechnology](https://github.com/CTimet/BedrockTechnology/releases)
-  这里包含迄今为止BEKT发布的各种版本。当遇到构建站构建失败时，请从此处获取最新版下载链接。
