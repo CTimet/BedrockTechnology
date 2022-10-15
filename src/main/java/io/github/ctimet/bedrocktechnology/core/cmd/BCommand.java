@@ -83,6 +83,10 @@ public class BCommand implements CommandExecutor
                 sender.spigot().sendMessage(url);
             }
             case "refuse" -> {
+                if (!sender.isOp()) {
+                    st.sendErr("你没有权限使用该命令！");
+                    return true;
+                }
                 if (st.isNotNull(1)) {
                     if (st.isNotNull(2)) {
                         if (SlimefunItem.getById(args[2]) == null) {
