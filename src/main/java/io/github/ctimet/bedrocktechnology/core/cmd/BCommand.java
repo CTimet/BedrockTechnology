@@ -1,7 +1,9 @@
 package io.github.ctimet.bedrocktechnology.core.cmd;
 
 import io.github.ctimet.bedrocktechnology.core.chat.Chat;
+import io.github.ctimet.bedrocktechnology.data.stickdata.StickData;
 import io.github.ctimet.bedrocktechnology.log.Log;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
@@ -15,13 +17,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginCommand;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.*;
 
 import static io.github.ctimet.bedrocktechnology.core.cmd.BCommandHandler.hs;
 
+//缝缝补补还能用
 public class BCommand implements CommandExecutor
 {
     //一级子命令
@@ -81,6 +81,31 @@ public class BCommand implements CommandExecutor
                 url.setColor(ChatColor.GRAY);
                 url.setUnderlined(true);
                 sender.spigot().sendMessage(url);
+            }
+            case "refuse" -> {
+                if (st.isNotNull(1)) {
+                    if (st.isNotNull(2)) {
+                        if (SlimefunItem.getById(args[2]) == null) {
+                            st.sendWarn("啊，插件没找到这个ID对应的物品。请检查您输入的ID是否正确");
+                            return true;
+                        }
+                        if (args[1].equalsIgnoreCase("add")) {
+                            StickData.addRefuseBlockID(args[2]);
+                        } else if (args[1].equalsIgnoreCase("remove")) {
+                            StickData.removeRefuseBlockID(args[2]);
+                        } else if (args[1].equalsIgnoreCase("clear")) {
+                            StickData.clearRefuseBlockID();
+                        } else {
+                            st.sendWarn("唔...子命令不正确。真搞不懂你要干啥。/bekt hs refuse看看这个指令怎么用吧");
+                            return true;
+                        }
+                        st.sendInfo("操作执行完毕");
+                    } else {
+                        st.sendWarn("唔...你好像还没指定拒绝注册/修复的方块ID呢");
+                    }
+                } else {
+                    st.sendWarn("唔...你好像还没指定要干啥呢");
+                }
             }
         }
         return true;
@@ -164,12 +189,12 @@ public class BCommand implements CommandExecutor
 
         registerCommandGroup("hs","显示二级命令帮助");
         registerCommandGroup("help","显示一级命令帮助");
-        registerCommandGroup("guide","关于配方查询界面的指令");
         registerCommandGroup("wiki","获取BedrockTechnology的Wiki链接");
+        registerCommandGroup("refuse", "拒绝某种方块被注册/修复");
 
-        registerSubCommand("guide","open", "打开一个配方查询界面");
-        registerSubCommand("guide","search","查询相关配方");
-        registerSubCommand("guide","count","统计某机器配方所需材料");
+        registerSubCommand("refuse", "add", "添加被拒绝注册/修复方块的ID(对应sf物品的id)");
+        registerSubCommand("refuse", "remove", "删除被拒绝注册/修复方块的ID(对应sf物品的id)");
+        registerSubCommand("refuse", "clear", "删除所有被拒绝注册/修复方块的ID");
 
         int end = ((COMMAND_GROUP.size()%5)==0) ? (COMMAND_GROUP.size()/5) : ((COMMAND_GROUP.size()/5)+1);
         for (int index = 1;

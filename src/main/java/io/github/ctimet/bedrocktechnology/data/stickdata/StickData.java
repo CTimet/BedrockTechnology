@@ -10,18 +10,19 @@ import io.github.ctimet.bedrocktechnology.plugin.task.PluginTask;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class StickData {
     private static boolean EnabledMySQL;
+
+    private static final HashSet<String> REFUSE_BLOCK = new HashSet<>();
 
     private static Data data;
 
     private static boolean readFinish = false;
 
     public static void init() {
+        createRefuseFile();
         EnabledMySQL = BektMain.getCfg().getBoolean("mysql.enabled");
         if (EnabledMySQL) {
             if (MySQLHandler.init()) {
@@ -46,6 +47,51 @@ public class StickData {
             FileDataSave.saveData(data.getHashMap());
             FileDataSave.stopTimer();
         }
+        saveRefuseData();
+    }
+
+    private static void createRefuseFile() {
+        File file = new File("plugins/BedrockTechnology/refuse.txt");
+        try {
+            if (!file.exists()) {
+                if (!file.createNewFile()) Log.warn("创建refuse.txt失败");
+            } else {
+                Scanner in = new Scanner(new FileInputStream(file));
+                while (in.hasNextLine()) {
+                    REFUSE_BLOCK.add(in.nextLine());
+                }
+                in.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void saveRefuseData() {
+        File file = new File("plugins/BedrockTechnology/refuse.txt");
+        try {
+            PrintWriter writer = new PrintWriter(new FileOutputStream(file));
+            REFUSE_BLOCK.forEach(writer::println);
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addRefuseBlockID(String id) {
+        REFUSE_BLOCK.add(id);
+    }
+
+    public static void removeRefuseBlockID(String id) {
+        REFUSE_BLOCK.remove(id);
+    }
+
+    public static boolean containsRefuseBlockID(String id) {
+        return REFUSE_BLOCK.contains(id);
+    }
+
+    public static void clearRefuseBlockID() {
+        REFUSE_BLOCK.clear();
     }
 
     public static boolean contains(String location) {

@@ -41,6 +41,10 @@ public class BTabHandler implements TabCompleter {
             }
             return gets;
         }
+        if (args.length == 3) {
+            List<String> gets = new LinkedList<>();
+
+        }
         return null;
     }
 }

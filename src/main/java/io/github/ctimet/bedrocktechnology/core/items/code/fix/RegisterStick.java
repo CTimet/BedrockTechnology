@@ -37,8 +37,12 @@ public class RegisterStick extends SlimefunItem {
 
     public static void registerBlock(Player player, Block block) {
         PlayerChat chat = new PlayerChat(player, true);
-        if (BlockStorage.check(block) == null) {
+        SlimefunItem sfItem = BlockStorage.check(block);
+        if (sfItem == null) {
             chat.sendWarn("不可注册非sf方块");
+            return;
+        } else if (StickData.containsRefuseBlockID(sfItem.getId())) {
+            chat.sendWarn("抱歉，该方块对应的物品ID被服务器管理员标记为不可注册。这可能是因为注册/修复该物品可能会出现额外风险。具体请询问管理员。该方块不可注册");
             return;
         }
 
