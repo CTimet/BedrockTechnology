@@ -3,7 +3,7 @@
   BEKT准确来说并不是BedrockTechnology的缩写，而是它的别称。<br>
   我们创建了一个QQ群，您可以在这里面聊天，接收更新提醒，群号为 656447649
   
-  ✔[下载链接](https://github.com/CTimet/BedrockTechnology#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97)<br>
+  ✔[下载链接](https://builds.guizhanss.net/CTimet/BedrockTechnology/master/)<br>
   💬[BUG汇报](https://github.com/CTimet/BedrockTechnology/issues)<br>
   ⚡[转载支持](https://github.com/CTimet/BedrockTechnology#%E8%BD%AC%E8%BD%BD%E6%94%AF%E6%8C%81)<br>
   👀[Wiki链接(建设中)](https://www.yuque.com/ctimet/bedrocktechnologywiki)<br>
@@ -33,8 +33,3 @@
       g.无论通过哪种方式提供下载渠道，最后用户获得的插件信息绝不能与原信息发生冲突。即转载者不得以任何方式修改插件信息，包括作者名，源码等
     这7条都是必须要遵守的，考虑到国内用户登录Github卡与慢的问题。我们允许在特殊情况下转载者提供第三方下载渠道。但必须遵守第e,f,g条规定！
     转载是对此插件的一种宣传，也是对我们的一种支持❤  
-    
-## 更新日志
-  所有测试版/正式版release发布我们将更新这一部分内容，以使您了解我们跟新的内容<br>
-  #### 鬼斩的maven构建站:
-  [BedrockTechnology_自动构建版本](https://builds.guizhanss.net/CTimet/BedrockTechnology/master/)<br>
