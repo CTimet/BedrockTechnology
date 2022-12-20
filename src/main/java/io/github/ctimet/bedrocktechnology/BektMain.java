@@ -26,6 +26,7 @@ public class BektMain extends JavaPlugin implements SlimefunAddon {
     public void onEnable() {
         instance = this;
 
+
         //需要先 create config.yml,再new Config
         createFile("config.yml");
         createFile("block.dat");
