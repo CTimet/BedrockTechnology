@@ -1,5 +1,6 @@
-package io.github.ctimet.bedrocktechnology.core.chat;
+package io.github.ctimet.bedrocktechnology.util;
 
+import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -35,5 +36,15 @@ public class PlayerChat {
     }
     public void sendMessage(String mes, ChatColor color) {
         sender.sendMessage(color + head + mes);
+    }
+    public void sendMessage(String mes) {
+        sender.sendMessage(mes);
+    }
+    public void sendMessage(BaseComponent... components) {
+        sender.spigot().sendMessage(components);
+    }
+
+    public CommandSender getSender() {
+        return this.sender;
     }
 }

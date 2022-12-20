@@ -1,7 +1,10 @@
 package io.github.ctimet.bedrocktechnology.core.items.code.fix;
 
+import io.github.ctimet.bedrocktechnology.BektMain;
 import io.github.ctimet.bedrocktechnology.data.StickData;
+import io.github.ctimet.bedrocktechnology.util.Log;
 import io.github.ctimet.bedrocktechnology.util.PlayerChat;
+import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -13,28 +16,34 @@ import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
+import javax.annotation.Nonnull;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
-public class RegisterStick extends SlimefunItem {
-    public RegisterStick(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+public class OwnerRegisterStick extends SlimefunItem {
+    public OwnerRegisterStick(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
         this.addItemHandler((ItemUseHandler) this::onClick);
     }
 
     private void onClick(PlayerRightClickEvent event) {
         event.cancel();
+
+        Player player = event.getPlayer();
+        String owner = checkOwner(player, event.getItem());
+
         Optional<Block> b = event.getClickedBlock();
         Block block;
         if (b.isPresent()) {
             block = b.get();
-        } else return;
+        } else {
+            return;
+        }
 
-        Player player = event.getPlayer();
-        registerBlock(player, block);
-    }
-
-    public static void registerBlock(Player player, Block block) {
         PlayerChat chat = new PlayerChat(player, true);
         SlimefunItem sfItem = BlockStorage.check(block);
         if (sfItem == null) {
@@ -54,8 +63,45 @@ public class RegisterStick extends SlimefunItem {
         if (StickData.containsData(location)) {
             chat.sendWarn("该方块已被注册");
         } else {
-            StickData.putData(player.getUniqueId(), location);
+            StickData.putData(UUID.fromString(owner), location);
             chat.sendInfo("方块已成功注册");
         }
+    }
+
+    public static String checkOwner(Player player, ItemStack item) {
+        String owner = null;
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) {
+            throw new IllegalArgumentException("Meta不应该为null!该异常不应该被抛出！");
+        }
+        List<String> lore = meta.getLore();
+        if (lore == null) {
+            lore = new LinkedList<>();
+        } else {
+            for (String l : lore) {
+                if (l.startsWith("ID:")) {
+                    owner = l.substring(3);
+                }
+            }
+        }
+
+        if (owner == null) {
+            owner = player.getUniqueId().toString();
+
+            lore.add("\n");
+            lore.add("ID:" + owner);
+            meta.setLore(lore);
+            item.setItemMeta(meta);
+        }
+
+        return owner;
+    }
+
+    @Override
+    public void register(@Nonnull SlimefunAddon addon) {
+        if (BektMain.getCfg().getBoolean("mysql.enabled"))
+            super.register(addon);
+        else
+            Log.warn("检测到未启用数据库保存，物品\"拥有者-注册棒\"将不会被注册");
     }
 }

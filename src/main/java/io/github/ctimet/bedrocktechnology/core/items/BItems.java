@@ -8,7 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 public class BItems {
-    public static void registerItems() {
+    public static void init() {
         BaseItemRegister.register();
         ExpandItemRegister.register();
         MachineProtectRegister.register();

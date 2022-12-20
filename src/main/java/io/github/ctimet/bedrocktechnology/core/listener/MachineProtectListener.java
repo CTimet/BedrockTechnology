@@ -1,6 +1,6 @@
 package io.github.ctimet.bedrocktechnology.core.listener;
 
-import io.github.ctimet.bedrocktechnology.data.stickdata.StickData;
+import io.github.ctimet.bedrocktechnology.data.StickData;
 import io.github.thebusybiscuit.slimefun4.api.events.AndroidMineEvent;
 import io.github.thebusybiscuit.slimefun4.api.events.BlockPlacerPlaceEvent;
 import io.github.thebusybiscuit.slimefun4.api.events.ExplosiveToolBreakBlocksEvent;
@@ -13,13 +13,11 @@ import org.bukkit.event.block.*;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 
 import java.util.List;
-import java.util.Objects;
 
 public class MachineProtectListener implements Listener {
-    @EventHandler(priority = EventPriority.MONITOR)
+    @EventHandler(priority = EventPriority.LOWEST)
     public static void onPlace(BlockPlaceEvent event)
     {
-        //方块放置
         protect(event.getBlock());
     }
 
@@ -98,11 +96,9 @@ public class MachineProtectListener implements Listener {
     {
         Location location = block.getLocation();
 
-        String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ() + "&" + Objects.requireNonNull(location.getWorld()).getName();
-
-        //需要先判断是否存在此方块再删除。否则直接删除会导致在开启SQL保存的情况下SQL语句积压
-        if (StickData.contains(xyz)) {
-            StickData.removeData(xyz);
+        //需要先判断是否存在此方块再删除。否则直接删除会浪费性能
+        if (StickData.containsData(location)) {
+            StickData.removeData(location);
         }
     }
 }

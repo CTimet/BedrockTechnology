@@ -1,5 +1,5 @@
 name: BedrockTechnology
-author: BEKT Development Team
+author: CTimet
 description: A generic Slimefun4-Addon
 main: io.github.ctimet.bedrocktechnology.BektMain
 website: https://github.com/CTimet/BedrockTechnology
@@ -13,7 +13,7 @@ commands:
     aliases:
       - "bekt"
     usage:
-      "§4[BedrockTechnology] >> 你刚刚输入了错误的指令，如果你想获取指令帮助，可使用/bekt help 来获取帮助"
+      "§4[BEKT-Command]>> e"
     description: "核心指令"
     permission: none
     permission-message: ""

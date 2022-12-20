@@ -1,8 +1,7 @@
 package io.github.ctimet.bedrocktechnology.core.items.code.fix;
 
-import io.github.ctimet.bedrocktechnology.core.chat.PlayerChat;
-import io.github.ctimet.bedrocktechnology.data.stickdata.StickData;
-import io.github.ctimet.bedrocktechnology.log.Log;
+import io.github.ctimet.bedrocktechnology.data.StickData;
+import io.github.ctimet.bedrocktechnology.util.PlayerChat;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -14,22 +13,23 @@ import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Objects;
 import java.util.Optional;
 
 public class FixStick extends SlimefunItem {
     public FixStick(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-        this.addItemHandler((ItemUseHandler) FixStick::onClick);
+        this.addItemHandler((ItemUseHandler) this::onClick);
     }
 
-    private static void onClick(PlayerRightClickEvent event) {
+    private void onClick(PlayerRightClickEvent event) {
         event.cancel();
         Optional<Block> b = event.getClickedBlock();
         Block block;
         if (b.isPresent()) {
             block = b.get();
-        } else return;
+        } else {
+            return;
+        }
 
         PlayerChat chat = new PlayerChat(event.getPlayer(), true);
 
@@ -43,17 +43,26 @@ public class FixStick extends SlimefunItem {
             return;
         }
 
-        Location location = block.getLocation();
+        if (!StickData.containsData(block.getLocation())) {
+            chat.sendWarn("抱歉，该方块未经注册，无法修复");
+            return;
+        }
 
-        String xyz = location.getX() + "&" + location.getY() + "&" + location.getZ() + "&" + Objects.requireNonNull(location.getWorld()).getName();
-
-        String json = StickData.getData(xyz);
-        if (json != null) {
-            BlockStorage.setBlockInfo(block, json, true);
-            StickData.removeData(xyz);
+        if (fixBlock(block.getLocation())) {
             chat.sendInfo("方块已被修复");
         } else {
-            chat.sendErr("该方块未被注册，不可修复！");
+            chat.sendWarn("由于某种原因，方块无法修复");
+        }
+    }
+
+    public static boolean fixBlock(Location location) {
+        if (BlockStorage.check(location) == null) {
+            String data = StickData.getData(location);
+            if (data == null) return false;
+            BlockStorage.setBlockInfo(location, data, true);
+            return true;
+        } else {
+            return false;
         }
     }
 }

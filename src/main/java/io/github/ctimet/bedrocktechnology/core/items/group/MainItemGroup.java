@@ -15,7 +15,9 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class MainItemGroup extends FlexItemGroup {
     private final ItemGroup[] SUBGROUPS;
@@ -31,10 +33,12 @@ public class MainItemGroup extends FlexItemGroup {
     }
 
     @Override
-    public boolean isVisible(@NotNull Player p, @NotNull PlayerProfile profile, @NotNull SlimefunGuideMode layout) {
+    @ParametersAreNonnullByDefault
+    public boolean isVisible(Player p, PlayerProfile profile, SlimefunGuideMode layout) {
         return layout != SlimefunGuideMode.CHEAT_MODE;
     }
 
+    @ParametersAreNonnullByDefault
     @Override
     public void open(Player p, PlayerProfile profile, SlimefunGuideMode mode) {
         SlimefunGuideImplementation guide = Slimefun.getRegistry().getSlimefunGuide(mode);
@@ -68,7 +72,7 @@ public class MainItemGroup extends FlexItemGroup {
     }
 
     @Override
-    public void register(@NotNull SlimefunAddon addon) {
+    public void register(@Nonnull SlimefunAddon addon) {
         super.register(addon);
         for (ItemGroup group : SUBGROUPS) {
             if (!group.isRegistered()) {

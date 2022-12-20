@@ -13,9 +13,8 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
-import static io.github.ctimet.bedrocktechnology.core.items.group.BItemGroup.EXPAND_PLAY_ITEM;
+import javax.annotation.Nonnull;
 
 public class ExpandPlayGroup extends FlexItemGroup {
     private static final int[] BORDER = new int[] {
@@ -28,7 +27,7 @@ public class ExpandPlayGroup extends FlexItemGroup {
     }
 
     @Override
-    public boolean isVisible(@NotNull Player p, @NotNull PlayerProfile profile, @NotNull SlimefunGuideMode mode) {
+    public boolean isVisible(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode) {
         return false;
     }
 
@@ -56,7 +55,7 @@ public class ExpandPlayGroup extends FlexItemGroup {
         for (SlimefunItem item : BItemGroup.EXPAND_PLAY_CHEAT.getItems()) {
             if (item.getRecipe().length > 9) {
                 menu.addItem(index, item.getItem(), (p12, slot, itemStack, action) -> {
-                    EXPAND_PLAY_ITEM.open(p12, profile, mode, item);
+                    BItemGroup.EXPAND_PLAY_ITEM.open(p12, profile, mode, item);
                     return false;
                 });
             } else {

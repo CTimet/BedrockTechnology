@@ -3,6 +3,10 @@ options:
   check-update: true
   auto-register: false
 
+version:
+  mysql: 37
+  file: 37
+
 timer:
   delay: 10
   period: 10

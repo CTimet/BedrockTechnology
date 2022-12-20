@@ -1,6 +1,5 @@
 package io.github.ctimet.bedrocktechnology.core.items.code.expand;
 
-import io.github.ctimet.bedrocktechnology.core.items.repcie.RecipeSize;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -34,12 +33,12 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class OilMake extends SlimefunItem implements InventoryBlock, EnergyNetComponent, MachineProcessHolder<CraftingOperation>, RecipeSize {
+public class OilMake extends SlimefunItem implements InventoryBlock, EnergyNetComponent, MachineProcessHolder<CraftingOperation> {
     private static final int[] BORDER = {
             0, 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17
     };
@@ -103,12 +102,12 @@ public class OilMake extends SlimefunItem implements InventoryBlock, EnergyNetCo
         registerRecipe(100, SlimefunItems.OIL_BUCKET);
     }
 
-    @NotNull
+    @Nonnull
     protected BlockBreakHandler onBreak() {
         return new SimpleBlockBreakHandler() {
 
             @Override
-            public void onBlockBreak(@NotNull Block b) {
+            public void onBlockBreak(@Nonnull Block b) {
                 BlockMenu inv = BlockStorage.getInventory(b);
 
                 if (inv != null) {
@@ -123,7 +122,7 @@ public class OilMake extends SlimefunItem implements InventoryBlock, EnergyNetCo
     }
 
     @Override
-    public void register(@NotNull SlimefunAddon addon) {
+    public void register(@Nonnull SlimefunAddon addon) {
         this.addon = addon;
 
         if (getCapacity() <= 0) {
@@ -255,7 +254,7 @@ public class OilMake extends SlimefunItem implements InventoryBlock, EnergyNetCo
         return new MachineRecipe(recipe.getSeconds(),new ItemStack[]{out},new ItemStack[]{out});
     }
 
-    protected boolean takeCharge(@NotNull Location l) {
+    protected boolean takeCharge(@Nonnull Location l) {
         Validate.notNull(l, "Can't attempt to take charge from a null location!");
 
         if (isChargeable()) {
@@ -282,13 +281,13 @@ public class OilMake extends SlimefunItem implements InventoryBlock, EnergyNetCo
         return new int[] { 13 };
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public EnergyNetComponentType getEnergyComponentType() {
         return EnergyNetComponentType.CONSUMER;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public MachineProcessor<CraftingOperation> getMachineProcessor() {
         return processor;

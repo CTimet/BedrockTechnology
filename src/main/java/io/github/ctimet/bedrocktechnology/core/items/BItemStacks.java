@@ -1,42 +1,59 @@
 package io.github.ctimet.bedrocktechnology.core.items;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.HeadTexture;
 import org.bukkit.Material;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
 
 public class BItemStacks {
-    public static final SlimefunItemStack BEKT_SUPERFIX_REG = new SlimefunItemStack(
-            "BEKT_SUPERFIX_REG",
+    public static final SlimefunItemStack BEKT_REGISTER_STICK = new SlimefunItemStack(
+            "BEKT_REGISTER_STICK",
             Material.STICK,
-            "&a超级修复-注册",
+            "&a注册棒",
             "",
             "&7注册你的机器",
             "&7当你的机器被卡掉时",
-            "&7可以通过 &b超级修复-修复&7 来修复你的机器"
+            "&7可以通过 &b修复棒&7 来修复你的机器"
     );
-    public static final SlimefunItemStack BEKT_SUPERFIX_FIX = new SlimefunItemStack(
-            "BEKT_SUPERFIX_FIX",
+    public static final SlimefunItemStack BEKT_FIX_STICK = new SlimefunItemStack(
+            "BEKT_FIX_STICK",
             Material.STICK,
-            "&a超级修复-修复",
+            "&a修复棒",
             "",
             "&7修复你的机器",
             "&7当你的机器被卡成原版方块时",
             "&7你可以用此物品右键机器来修复你的机器",
-            "&7修复后注册信息将会被&4删除&7,需再次注册",
-            "&7前提是你的机器必须已经经过 &b超级修复-注册 &7注册",
+            "&7前提是你的机器必须已经经过 &b注册棒 &7注册",
             "&7未被注册的机器将&4修复失败！"
     );
     public static final SlimefunItemStack BEKT_FIX_ALL = new SlimefunItemStack(
             "BEKT_FIX_ALL",
             Material.STICK,
-            "&a超级修复-修复全部",
+            "&a修复全部棒",
             "",
             "&7修复你的机器",
-            "&7当你使用时，插件会找出你所有经过 &b超级修复-注册 &7注册过的机器",
-            "&7并从中找出已经损坏的机器，然后修复，修复后注册信息将会删除，需再次注册。",
-            "&7未被注册的机器将&4不会被修复！"
+            "&7当你使用时，插件会找出你所有经过 &b注册棒 &7注册过的机器",
+            "&7并从中找出已经损坏的机器，然后修复",
+            "&7未被注册的机器将&4不会被修复！",
+            "&7该物品使用有1h的冷却时间"
+    );
+
+    public static final SlimefunItemStack BEKT_OWNER_REGISTER = new SlimefunItemStack(
+            "BEKT_OWNER_REGISTER",
+            Material.STICK,
+            "&a拥有者-注册棒",
+            "",
+            "&7右键绑定拥有者ID,这可以让不同人注册的方块都隶属于同一个ID(同一人)下",
+            "&7如果你和你的朋友合作制作机器发展粘液的话，这将非常有用"
+    );
+    public static final SlimefunItemStack BEKT_OWNER_FIX_ALL = new SlimefunItemStack(
+            "BEKT_OWNER_FIX_ALL",
+            Material.STICK,
+            "&a拥有者-修复全部",
+            "",
+            "&7右键绑定拥有者ID\n这可以让由同一个ID的拥有者棒注册的机器都被此棒所修复，而不管使用者是谁",
+            "&7如果你和你的朋友合作制作机器发展粘液的话，这将非常有用",
+            "&7该物品使用有1h的冷却时间"
     );
     public static final SlimefunItemStack BEKT_OIL_MAKE = new SlimefunItemStack(
             "BEKT_OIL_MAKE",
@@ -137,8 +154,7 @@ public class BItemStacks {
      * @param eff 速度，单位x
      * @return 速度
      */
-    @Contract(pure = true)
-    @NotNull
+    @Nonnull
     public static String getEff(String eff){
         return "&7⇨ &e⚡ &7速度: &b" + eff;
     }
@@ -148,12 +164,12 @@ public class BItemStacks {
      * @param j 电量，单位J/S，输入的字符串中不需要带单位，只需要输入数字即可
      * @return 电量
      */
-    @NotNull
+    @Nonnull
     public static String getPow(int j){
         return "&7⇨ &e⚡ &7" + j + "J/s";
     }
 
-    @NotNull
+    @Nonnull
     public static String getCap(int j) {
         return "&e" + j + "J&7可储存";
     }
@@ -163,7 +179,7 @@ public class BItemStacks {
      * @param j 电量，单位J/S,输入的字符串不需要带单位
      * @return 电量
      */
-    @NotNull
+    @Nonnull
     public static String getUse(String j){
         return "&7⇨ &e⚡ &7" + j + "J每次使用";
     }
