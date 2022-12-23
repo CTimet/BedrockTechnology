@@ -67,8 +67,6 @@ public class FileStorage implements Data{
 
         int delay = cfg.getInt("timer.delay");
         int period = cfg.getInt("timer.period");
-        System.out.println(delay);
-        System.out.println(period);
 
         if (delay < 0) {
             Log.warn("timer.delay小于0！已自动纠正为初始值10");

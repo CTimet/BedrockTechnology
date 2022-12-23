@@ -26,11 +26,11 @@ public class BektMain extends JavaPlugin implements SlimefunAddon {
     public void onEnable() {
         instance = this;
 
-
         //需要先 create config.yml,再new Config
         createFile("config.yml");
         createFile("block.dat");
         createFile("refuse.txt");
+        //这里要先new Config，再checkYaml，因为如果先checkYaml，那么在getCfg时就会炸空指针
         cfg = new Config();
         OldDataSupport.checkYaml();
 
