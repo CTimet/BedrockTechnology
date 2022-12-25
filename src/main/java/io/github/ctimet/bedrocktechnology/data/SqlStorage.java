@@ -41,7 +41,6 @@ public class SqlStorage implements Data {
     public void readData() {
         StickData.setMessage("正在从数据库中拷贝数据至缓存，请稍作等待。");
         MysqlHandler.writeData(this);
-        StickData.finishRead();
     }
 
     @Override
