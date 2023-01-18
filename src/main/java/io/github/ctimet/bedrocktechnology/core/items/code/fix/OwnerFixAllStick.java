@@ -2,6 +2,7 @@ package io.github.ctimet.bedrocktechnology.core.items.code.fix;
 
 import io.github.ctimet.bedrocktechnology.BektMain;
 import io.github.ctimet.bedrocktechnology.data.MysqlHandler;
+import io.github.ctimet.bedrocktechnology.data.StickData;
 import io.github.ctimet.bedrocktechnology.util.Log;
 import io.github.ctimet.bedrocktechnology.util.PlayerChat;
 import io.github.ctimet.bedrocktechnology.util.PluginTask;
@@ -33,7 +34,13 @@ public class OwnerFixAllStick extends SlimefunItem {
 
     public OwnerFixAllStick(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-        this.addItemHandler((ItemUseHandler) this::onClick);
+        this.addItemHandler((ItemUseHandler) e -> {
+            try {
+                onClick(e);
+            } catch (Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 
     private void onClick(PlayerRightClickEvent event) {
@@ -42,6 +49,12 @@ public class OwnerFixAllStick extends SlimefunItem {
         Player player = event.getPlayer();
         String owner = OwnerRegisterStick.checkOwner(player, event.getItem());
         PlayerChat chat = new PlayerChat(player, false);
+
+        if (StickData.isNotReadFinish()) {
+            //fixAll不需要缓存，但是由于命令特殊性，这里加了这个
+            chat.sendWarn(StickData.getMessage());
+            return;
+        }
 
         if (LAST_USE.containsKey(owner)) {
             long interval = System.currentTimeMillis() - LAST_USE.get(owner);
@@ -63,29 +76,19 @@ public class OwnerFixAllStick extends SlimefunItem {
 
         PluginTask.runTaskInCachedThreadPool(() -> {
             long startTime = System.currentTimeMillis();
-            ResultSet resultSet = null;
             try (Connection conn = MysqlHandler.getConnection();
                  PreparedStatement statement = conn.prepareStatement("SELECT * FROM bekt_player_data WHERE uuid = ?;")) {
-
                 statement.setInt(1, UUID.fromString(owner).hashCode());
-                resultSet = statement.executeQuery();
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    final LinkedList<Location> locations = new LinkedList<>();
+                    while (resultSet.next()) {
+                        locations.add(new Location(Bukkit.getWorld(resultSet.getString("world")), resultSet.getDouble("x"), resultSet.getDouble("y"), resultSet.getDouble("z")));
+                    }
 
-                final LinkedList<Location> locations = new LinkedList<>();
-                while (resultSet.next()) {
-                    locations.add(new Location(Bukkit.getWorld(resultSet.getString("world")), resultSet.getDouble("x"), resultSet.getDouble("y"), resultSet.getDouble("z")));
+                    FixAllStick.fixAll(locations, chat, startTime);
                 }
-
-                FixAllStick.fixAll(locations, chat, startTime);
             } catch (SQLException e) {
                 e.printStackTrace();
-            } finally {
-                if (resultSet != null) {
-                    try {
-                        resultSet.close();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                }
             }
         });
     }

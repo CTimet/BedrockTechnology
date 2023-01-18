@@ -5,8 +5,14 @@ import io.github.ctimet.bedrocktechnology.util.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Location;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.UUID;
+import java.util.function.BiFunction;
 
 public class StickData {
     private static Data storage;
@@ -47,6 +53,24 @@ public class StickData {
 
     public static void finishRead() {
         readFinish = true;
+    }
+
+    public static void startDataCorrect() throws SQLException {
+        //此方法需要异步调用
+        HashMap<Integer, String> map = new HashMap<>();
+        try (Connection conn = MysqlHandler.getCorrectConnection();
+             PreparedStatement statement = conn.prepareStatement("SELECT (location, data) FROM bekt_player_data;");
+             ResultSet set = statement.executeQuery()) {
+            while (set.next()) {
+                map.put(set.getInt("location"), set.getString("data"));
+            }
+            storage.getHashMap().forEach((k, v) -> map.remove(k));
+            map.forEach((k, v) -> MysqlHandler.remove(k));
+        }
+    }
+
+    public static synchronized void setReadFinish(boolean f) {
+        readFinish = f;
     }
 
     public static synchronized void putData(UUID uuid, Location location) {

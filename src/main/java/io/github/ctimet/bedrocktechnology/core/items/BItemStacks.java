@@ -37,7 +37,17 @@ public class BItemStacks {
             "&7未被注册的机器将&4不会被修复！",
             "&7该物品使用有1h的冷却时间"
     );
-
+    public static final SlimefunItemStack BEKT_AREA_REGISTER = new SlimefunItemStack(
+            "BEKT_AREA_REGISTER",
+            Material.STICK,
+            "&a区域注册棒",
+            "",
+            "&7注册你的机器",
+            "&7当你使用时，插件会从你点击的方块为中心点出发，在半径为5的正方体区域内搜索方块",
+            "&7在这个区域内的方块都会被依次注册，区域大小为9x9=81",
+            "&7需要注意的是，区域内的方块实行&4静默注册&7，无论发生什么，插件都不会向你发送消息",
+            "&7此功能适用于机器密度较大的区域，但过大区域建议采用自动注册方案"
+    );
     public static final SlimefunItemStack BEKT_OWNER_REGISTER = new SlimefunItemStack(
             "BEKT_OWNER_REGISTER",
             Material.STICK,

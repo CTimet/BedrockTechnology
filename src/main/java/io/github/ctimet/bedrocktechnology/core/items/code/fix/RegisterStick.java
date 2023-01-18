@@ -19,7 +19,13 @@ import java.util.Optional;
 public class RegisterStick extends SlimefunItem {
     public RegisterStick(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-        this.addItemHandler((ItemUseHandler) this::onClick);
+        this.addItemHandler((ItemUseHandler) e -> {
+            try {
+                onClick(e);
+            } catch (Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 
     private void onClick(PlayerRightClickEvent event) {

@@ -21,6 +21,16 @@ public class MachineProtectRegister {
                         null, item(Material.STONE), null
                 }
         ).register(BektMain.getInstance());
+        new AreaRegisterStick(
+                BItemGroup.MACHINE_PROTECT,
+                BItemStacks.BEKT_AREA_REGISTER,
+                BRecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[] {
+                        null, BItemStacks.BEKT_REGISTER_STICK, null,
+                        null, BItemStacks.BEKT_REGISTER_STICK, null,
+                        null, BItemStacks.BEKT_REGISTER_STICK, null
+                }
+        ).register(BektMain.getInstance());
         new FixStick(
                 BItemGroup.MACHINE_PROTECT,
                 BItemStacks.BEKT_FIX_STICK,

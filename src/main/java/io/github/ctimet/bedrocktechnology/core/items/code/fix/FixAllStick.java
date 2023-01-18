@@ -1,6 +1,7 @@
 package io.github.ctimet.bedrocktechnology.core.items.code.fix;
 
 import io.github.ctimet.bedrocktechnology.data.MysqlHandler;
+import io.github.ctimet.bedrocktechnology.data.StickData;
 import io.github.ctimet.bedrocktechnology.util.Log;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
@@ -33,14 +34,25 @@ public class FixAllStick extends SlimefunItem {
 
     public FixAllStick(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-        this.addItemHandler((ItemUseHandler) FixAllStick::onClick);
+        this.addItemHandler((ItemUseHandler) e -> {
+            try {
+                onClick(e);
+            } catch (Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 
-    private static void onClick(PlayerRightClickEvent event) {
+    private void onClick(PlayerRightClickEvent event) {
         event.cancel();
 
         Player player = event.getPlayer();
         PlayerChat chat = new PlayerChat(player, false);
+
+        if (StickData.isNotReadFinish()) {
+            chat.sendWarn(StickData.getMessage());
+            return;
+        }
 
         if (LAST_USE.containsKey(player.getUniqueId())) {
             long interval = System.currentTimeMillis() - LAST_USE.get(player.getUniqueId());
@@ -61,30 +73,21 @@ public class FixAllStick extends SlimefunItem {
         LAST_USE.put(player.getUniqueId(), System.currentTimeMillis());
         PluginTask.runTaskInFixedThreadPool(() -> {
             long startTime = System.currentTimeMillis();
-            ResultSet resultSet = null;
             try (Connection conn = MysqlHandler.getConnection();
                  PreparedStatement statement = conn.prepareStatement("SELECT world, x, y, z FROM bekt_player_data WHERE uuid = ?;")) {
 
                 statement.setInt(1, player.getUniqueId().hashCode());
-                resultSet = statement.executeQuery();
 
-                final LinkedList<Location> locations = new LinkedList<>();
-                while (resultSet.next()) {
-                    locations.add(new Location(Bukkit.getWorld(resultSet.getString("world")), resultSet.getDouble("x"), resultSet.getDouble("y"), resultSet.getDouble("z")));
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    final LinkedList<Location> locations = new LinkedList<>();
+                    while (resultSet.next()) {
+                        locations.add(new Location(Bukkit.getWorld(resultSet.getString("world")), resultSet.getDouble("x"), resultSet.getDouble("y"), resultSet.getDouble("z")));
+                    }
+
+                    fixAll(locations, chat, startTime);
                 }
-
-                fixAll(locations, chat, startTime);
-
             } catch (SQLException e) {
                 e.printStackTrace();
-            } finally {
-                if (resultSet != null) {
-                    try {
-                        resultSet.close();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                }
             }
         });
     }

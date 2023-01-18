@@ -14,21 +14,22 @@ import java.util.UUID;
 public class MysqlHandler {
     private static final DruidDataSource source = new DruidDataSource();
 
+    private static final  Config cfg = BektMain.getCfg();
+    private static final  String user = cfg.getString("mysql.user");
+    private static final  String password = cfg.getString("mysql.password");
+    private static final  String host = cfg.getString("mysql.host");
+    private static final  String port = cfg.getString("mysql.port");
+    private static final  String database = cfg.getString("mysql.database");
+    private static final  String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+
+
     public static boolean init() {
         try {
             //加载jdbc驱动
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Config cfg = BektMain.getCfg();
-            String user = cfg.getString("mysql.user");
-            String password = cfg.getString("mysql.password");
-            String host = cfg.getString("mysql.host");
-            String port = cfg.getString("mysql.port");
-            String database = cfg.getString("mysql.database");
-            String url = "jdbc:mysql://" + host + ":" + port + "/" + database + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-
             //在设置连接池参数前，先尝试连接Mysql，如果连不上直接抛异常、否则连接池会连续抛多次异常
-            tryConnect(url, user, password);
+            tryConnect();
 
             source.setUsername(user);
             source.setPassword(password);
@@ -41,17 +42,22 @@ public class MysqlHandler {
         } catch (Exception e) {
             Log.warn("数据库操作发生异常");
             e.printStackTrace();
+            BektMain.getCfg().setValue("mysql.enabled", false);
             return false;
         }
     }
 
-    private static void tryConnect(String url, String user, String password) throws SQLException {
+    private static void tryConnect() throws SQLException {
         Connection conn = DriverManager.getConnection(url, user, password);
         conn.close();
     }
 
     public static Connection getConnection() throws SQLException {
         return source.getConnection();
+    }
+
+    public static Connection getCorrectConnection() throws SQLException {
+        return DriverManager.getConnection(url, user, password);
     }
 
     //该方法的调用者异步
@@ -84,10 +90,14 @@ public class MysqlHandler {
     }
 
     public static void removeData(Location location) {
+        remove(location.hashCode());
+    }
+
+    public static void remove(int hash) {
         PluginTask.runTaskInCachedThreadPool(() -> {
             try (Connection conn = getConnection();
                  PreparedStatement statement = conn.prepareStatement("DELETE FROM bekt_player_data WHERE location = ?;")) {
-                statement.setInt(1, location.hashCode());
+                statement.setInt(1, hash);
                 statement.execute();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -114,6 +124,8 @@ public class MysqlHandler {
 
                 StickData.finishRead();
             } catch (SQLException e) {
+                BektMain.getCfg().setValue("mysql.enabled", false);
+                StickData.setMessage("在从数据库中拷贝缓存时发生异常，请联系服务器管理员。");
                 e.printStackTrace();
             }
         });

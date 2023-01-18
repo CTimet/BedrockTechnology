@@ -109,10 +109,10 @@ public class OldDataSupport {
 
     public static void checkYaml() {
         Config cfg = BektMain.getCfg();
-        if (37 <= cfg.getInt("version.yml")) {
+        if (38 <= cfg.getInt("version.yml")) {
             return;
         } else {
-            cfg.setValue("version.yml", 37);
+            cfg.setValue("version.yml", 38);
         }
         if (!cfg.contains("options.check-update")) {
             cfg.setValue("options.check-update", true);
@@ -149,6 +149,9 @@ public class OldDataSupport {
         }
         if (!cfg.contains("mysql.database")) {
             cfg.setValue("mysql.database", "");
+        }
+        if (!cfg.contains("mysql.maxconns")) {
+            cfg.setValue("mysql.maxconns", 16);
         }
 
         cfg.save();

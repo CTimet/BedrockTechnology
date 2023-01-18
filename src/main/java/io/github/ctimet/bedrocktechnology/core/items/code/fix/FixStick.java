@@ -18,7 +18,13 @@ import java.util.Optional;
 public class FixStick extends SlimefunItem {
     public FixStick(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-        this.addItemHandler((ItemUseHandler) this::onClick);
+        this.addItemHandler((ItemUseHandler) e -> {
+            try {
+                onClick(e);
+            } catch (Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 
     private void onClick(PlayerRightClickEvent event) {
@@ -39,7 +45,7 @@ public class FixStick extends SlimefunItem {
         }
 
         if (StickData.isNotReadFinish()) {
-            chat.sendWarn("抱歉，注册修复系统暂时没有读取完数据。待读取完再进行注册操作吧");
+            chat.sendWarn(StickData.getMessage());
             return;
         }
 

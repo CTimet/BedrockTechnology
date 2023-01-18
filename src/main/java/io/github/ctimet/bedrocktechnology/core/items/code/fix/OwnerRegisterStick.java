@@ -27,7 +27,13 @@ import java.util.UUID;
 public class OwnerRegisterStick extends SlimefunItem {
     public OwnerRegisterStick(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-        this.addItemHandler((ItemUseHandler) this::onClick);
+        this.addItemHandler((ItemUseHandler) e -> {
+            try {
+                onClick(e);
+            } catch (Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 
     private void onClick(PlayerRightClickEvent event) {
@@ -67,6 +73,7 @@ public class OwnerRegisterStick extends SlimefunItem {
             chat.sendInfo("方块已成功注册");
         }
     }
+
 
     public static String checkOwner(Player player, ItemStack item) {
         String owner = null;
