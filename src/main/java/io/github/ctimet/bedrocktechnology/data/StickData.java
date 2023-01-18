@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.UUID;
-import java.util.function.BiFunction;
 
 public class StickData {
     private static Data storage;

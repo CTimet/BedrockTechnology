@@ -50,15 +50,18 @@ public class AreaRegisterStick extends SlimefunItem {
         int y = centerY + 4;
         int z = centerZ + 4;
 
+        int tempY = y;
+        int tempZ = z;
+
         World world = block.getWorld();
         Block waitRegister;
         UUID uuid = event.getPlayer().getUniqueId();
         SlimefunItem sfItem;
-        for (int i = 0; i < 9; i ++) {
-            for (int i1 = 0; i1 < 9; i1 ++) {
-                for (int i2 = 0; i2 < 9; i2 ++) {
+
+        for (int ix = 0; ix < 9; ix ++) {
+            for (int iy = 0; iy < 9; iy ++) {
+                for (int iz = 0; iz < 9; iz ++) {
                     waitRegister = world.getBlockAt(x, y, z);
-//                    RegisterStick.registerBlock(event.getPlayer(), waitRegister);
                     sfItem = BlockStorage.check(waitRegister);
                     if (sfItem != null //确认为Slimefun方块
                             && !StickData.containsRefuseID(sfItem.getId()) //确认该方块可以被注册
@@ -68,8 +71,10 @@ public class AreaRegisterStick extends SlimefunItem {
                     }
                     z --;
                 }
+                z = tempZ;//复位
                 y --;
             }
+            y = tempY;//复位
             x --;
         }
     }
