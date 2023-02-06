@@ -74,7 +74,7 @@ public class FixAllStick extends SlimefunItem {
         PluginTask.runTaskInFixedThreadPool(() -> {
             long startTime = System.currentTimeMillis();
             try (Connection conn = MysqlHandler.getConnection();
-                 PreparedStatement statement = conn.prepareStatement("SELECT world, x, y, z FROM bekt_player_data WHERE uuid = ?;")) {
+                 PreparedStatement statement = conn.prepareStatement("SELECT world, x, y, z FROM bekt_new_player_data WHERE uuid = ?;")) {
 
                 statement.setInt(1, player.getUniqueId().hashCode());
 

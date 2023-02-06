@@ -63,7 +63,7 @@ public class MysqlHandler {
     //该方法的调用者异步
     public static void prepareTable() {
         try (Connection conn = getConnection();
-             PreparedStatement statement = conn.prepareStatement("CREATE TABLE IF NOT EXISTS bekt_player_data (uuid INTEGER, location INTEGER PRIMARY KEY, world TEXT, x DOUBLE, y DOUBLE, z DOUBLE, data TEXT);")) {
+             PreparedStatement statement = conn.prepareStatement("CREATE TABLE IF NOT EXISTS bekt_new_player_data (uuid INTEGER, location CHAR(255) PRIMARY KEY, world TEXT, x DOUBLE, y DOUBLE, z DOUBLE, data TEXT);")) {
             statement.execute();
             OldDataSupport.updateMysqlData();
         } catch (SQLException e) {
@@ -74,9 +74,9 @@ public class MysqlHandler {
     public static void putData(UUID uuid, Location location, String data) {
         PluginTask.runTaskInCachedThreadPool(() -> {
             try (Connection conn = getConnection();
-                 PreparedStatement statement = conn.prepareStatement("INSERT INTO bekt_player_data (uuid, location, world, x, y, z, data) VALUES (?, ?, ?, ?, ?, ?, ?);")) {
+                 PreparedStatement statement = conn.prepareStatement("INSERT INTO bekt_new_player_data (uuid, location, world, x, y, z, data) VALUES (?, ?, ?, ?, ?, ?, ?);")) {
                 statement.setInt(1, uuid.hashCode());
-                statement.setInt(2, location.hashCode());
+                statement.setString(2, location.getX() + "&" + location.getY() + "&" + location.getZ() + "&" + (location.getWorld() == null ? "null" : location.getWorld().getName()));
                 statement.setString(3, location.getWorld() == null ? "null" : location.getWorld().getName());
                 statement.setDouble(4, location.getX());
                 statement.setDouble(5, location.getY());
@@ -90,14 +90,14 @@ public class MysqlHandler {
     }
 
     public static void removeData(Location location) {
-        remove(location.hashCode());
+        remove(location.getX() + "&" + location.getY() + "&" + location.getZ() + "&" + (location.getWorld() == null ? "null" : location.getWorld().getName()));
     }
 
-    public static void remove(int hash) {
+    public static void remove(String loc) {
         PluginTask.runTaskInCachedThreadPool(() -> {
             try (Connection conn = getConnection();
-                 PreparedStatement statement = conn.prepareStatement("DELETE FROM bekt_player_data WHERE location = ?;")) {
-                statement.setInt(1, hash);
+                 PreparedStatement statement = conn.prepareStatement("DELETE FROM bekt_new_player_data WHERE location = ?;")) {
+                statement.setString(1, loc);
                 statement.execute();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -112,12 +112,12 @@ public class MysqlHandler {
                 return;
             }
             try (Connection conn = getConnection();
-                 PreparedStatement statement = conn.prepareStatement("SELECT * FROM bekt_player_data");
+                 PreparedStatement statement = conn.prepareStatement("SELECT * FROM bekt_new_player_data");
                  ResultSet resultSet = statement.executeQuery()) {
 
-                HashMap<Integer, String> map = new HashMap<>();
+                HashMap<String, String> map = new HashMap<>();
                 while (resultSet.next()) {
-                    map.put(resultSet.getInt("location"), resultSet.getString("data"));
+                    map.put(resultSet.getString("location"), resultSet.getString("data"));
                 }
 
                 data.setHashMap(map);

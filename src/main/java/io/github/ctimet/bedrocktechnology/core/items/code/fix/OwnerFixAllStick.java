@@ -77,7 +77,7 @@ public class OwnerFixAllStick extends SlimefunItem {
         PluginTask.runTaskInCachedThreadPool(() -> {
             long startTime = System.currentTimeMillis();
             try (Connection conn = MysqlHandler.getConnection();
-                 PreparedStatement statement = conn.prepareStatement("SELECT * FROM bekt_player_data WHERE uuid = ?;")) {
+                 PreparedStatement statement = conn.prepareStatement("SELECT * FROM bekt_new_player_data WHERE uuid = ?;")) {
                 statement.setInt(1, UUID.fromString(owner).hashCode());
                 try (ResultSet resultSet = statement.executeQuery()) {
                     final LinkedList<Location> locations = new LinkedList<>();

@@ -9,34 +9,34 @@ import java.io.*;
 import java.util.*;
 
 public class FileStorage implements Data{
-    private HashMap<Integer, String> map;
+    private HashMap<String, String> map;
 
     private int waitList = 0;
 
     @Override
     public void put(UUID uuid, Location location, String data) {
-        map.put(location.hashCode(), data);
+        map.put(getStringLocation(location), data);
         waitList ++;
     }
 
     @Override
     public String get(Location location) {
-        return map.get(location.hashCode());
+        return map.get(getStringLocation(location));
     }
 
     @Override
     public void remove(Location location) {
-        map.remove(location.hashCode());
+        map.remove(getStringLocation(location));
         waitList ++;
     }
 
     @Override
-    public HashMap<Integer, String> getHashMap() {
+    public HashMap<String, String> getHashMap() {
         return map;
     }
 
     @Override
-    public void setHashMap(HashMap<Integer, String> map) {
+    public void setHashMap(HashMap<String, String> map) {
         this.map = map;
     }
 
@@ -52,7 +52,7 @@ public class FileStorage implements Data{
             return;
         }
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("plugins/BedrockTechnology/block.dat"))) {
-            this.setHashMap((HashMap<Integer, String>) in.readObject());
+            this.setHashMap((HashMap<String, String>) in.readObject());
             StickData.finishRead();
         } catch (StreamCorruptedException | EOFException e) {
             this.setHashMap(new HashMap<>());

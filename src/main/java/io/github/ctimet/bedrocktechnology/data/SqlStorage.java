@@ -6,34 +6,34 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class SqlStorage implements Data {
-    private HashMap<Integer, String> map;
+    private HashMap<String, String> map;
 
     @Override
     public void put(UUID uuid, Location location, String data) {
-        map.put(location.hashCode(), data);
+        map.put(getStringLocation(location), data);
 
         MysqlHandler.putData(uuid, location, data);
     }
 
     @Override
     public String get(Location location) {
-        return map.get(location.hashCode());
+        return map.get(getStringLocation(location));
     }
 
     @Override
     public void remove(Location location) {
-        map.remove(location.hashCode());
+        map.remove(getStringLocation(location));
 
         MysqlHandler.removeData(location);
     }
 
     @Override
-    public HashMap<Integer, String> getHashMap() {
+    public HashMap<String, String> getHashMap() {
         return map;
     }
 
     @Override
-    public void setHashMap(HashMap<Integer, String> map) {
+    public void setHashMap(HashMap<String, String> map) {
         this.map = map;
     }
 

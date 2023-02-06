@@ -62,15 +62,51 @@ public class OldDataSupport {
                 cfg.save();
             }
         }
+
+        if (20230206 > cfg.getInt("version.mysql")) {
+            //当前版本号小于20230206，说明是使用的旧版本。旧版本的数据库存在问题，
+            //首先读取全表
+            try (Connection conn = MysqlHandler.getConnection();
+                 PreparedStatement statement = conn.prepareStatement("SELECT * FROM bekt_player_data");
+                 ResultSet resultSet = statement.executeQuery()) {
+                String world;
+                double x, y, z;
+                while (resultSet.next()) {
+                    //往新表里面插入数据
+                    try (PreparedStatement ps = conn.prepareStatement("INSERT INTO bekt_new_player_data (uuid, location, world, x, y, z, data) VALUES (?, ?, ?, ?, ?, ?, ?);")) {
+                        ps.setInt(1, resultSet.getInt("uuid"));
+                        world = resultSet.getString("world");
+                        x = resultSet.getDouble("x");
+                        y = resultSet.getDouble("y");
+                        z = resultSet.getDouble("z");
+                        ps.setString(2, x + "&" + y + "&" + z + "&" + world);
+                        ps.setString(3, world);
+                        ps.setDouble(4, x);
+                        ps.setDouble(5, y);
+                        ps.setDouble(6, z);
+                        ps.setString(7, resultSet.getString("data"));
+                        ps.execute();
+                    }
+                }
+                Log.info("Mysql数据迁移完毕！");
+            } catch (SQLException e) {
+                e.printStackTrace();
+                Log.warn("由于某种不可抗力因素，Mysql数据迁移失败..");
+            } finally {
+                cfg.setValue("version.mysql", 20230206);
+                cfg.save();
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")
     public static boolean updateFileData(Data data) {
         Config cfg = BektMain.getCfg();
+        File file = new File("plugins/BedrockTechnology/block.dat");
         if (37 > cfg.getInt("version.file")) {
             //旧版本，准备进行数据更新
+            //这里的旧版本使用的拼接方式与新版一致
             HashMap<String, String> oldData = new HashMap<>();
-            File file = new File("plugins/BedrockTechnology/block.dat");
             try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
                 oldData = (HashMap<String, String>) in.readObject();
             } catch (EOFException e) {
@@ -88,23 +124,24 @@ public class OldDataSupport {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            HashMap<Integer, String> newData = new HashMap<>();
-            oldData.forEach((k,v) -> {
-                String[] locs = k.split("&");
-                double x, y, z;
-                x = Double.parseDouble(locs[0]);
-                y = Double.parseDouble(locs[1]);
-                z = Double.parseDouble(locs[2]);
-                String worldName = locs[3];
-                newData.put(new Location(Bukkit.getWorld(worldName), x, y, z).hashCode(), v);
-            });
-            data.setHashMap(newData);
-            cfg.setValue("version.file", 37);
+            //由于旧版本data拼接方式与新版本一致，所以我们直接写入oldData;
+            data.setHashMap(oldData);
+            cfg.setValue("version.file", 20230206);
             cfg.save();
             return true;
-        } else {
-            return false;
-        }
+        } else if (20230206 > cfg.getInt("version.file")) {
+            file.delete();
+            try {
+                file.createNewFile();//删除文件然后重新生成，为了清空文件内容
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            //我们非常抱歉，但只能这样了
+            data.setHashMap(new HashMap<>());
+            cfg.setValue("version.file", 20230206);
+            cfg.save();
+            return true;
+        } else return false;
     }
 
     public static void checkYaml() {
@@ -121,10 +158,10 @@ public class OldDataSupport {
             cfg.setValue("options.auto-register", false);
         }
         if (!cfg.contains("version.mysql")) {
-            cfg.setValue("version.mysql", 36);
+            cfg.setValue("version.mysql", 20230206);
         }
         if (!cfg.contains("version.file")) {
-            cfg.setValue("version.file", 36);
+            cfg.setValue("version.file", 20230206);
         }
         if (!cfg.contains("timer.delay")) {
             cfg.setValue("timer.delay", 10);

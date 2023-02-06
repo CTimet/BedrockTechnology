@@ -56,12 +56,12 @@ public class StickData {
 
     public static void startDataCorrect() throws SQLException {
         //此方法需要异步调用
-        HashMap<Integer, String> map = new HashMap<>();
+        HashMap<String, String> map = new HashMap<>();
         try (Connection conn = MysqlHandler.getCorrectConnection();
-             PreparedStatement statement = conn.prepareStatement("SELECT (location, data) FROM bekt_player_data;");
+             PreparedStatement statement = conn.prepareStatement("SELECT (location, data) FROM bekt_new_player_data;");
              ResultSet set = statement.executeQuery()) {
             while (set.next()) {
-                map.put(set.getInt("location"), set.getString("data"));
+                map.put(set.getString("location"), set.getString("data"));
             }
             storage.getHashMap().forEach((k, v) -> map.remove(k));
             map.forEach((k, v) -> MysqlHandler.remove(k));
@@ -85,6 +85,6 @@ public class StickData {
     }
     
     public static synchronized boolean containsData(Location location) {
-        return storage.getHashMap().containsKey(location.hashCode());
+        return storage.getHashMap().containsKey(location.getX() + "&" + location.getY() + "&" + location.getZ() + "&" + (location.getWorld() == null ? "null" : location.getWorld().getName()));
     }
 }
