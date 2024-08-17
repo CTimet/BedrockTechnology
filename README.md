@@ -1,7 +1,9 @@
 # Slimefun4 附属 -- BedrockTechnology
+
+## 该插件已经不再维护！该插件已经不再维护！[为什么BedrockTechnology停止了维护？](https://github.com/CTimet/BedrockTechnology?tab=readme-ov-file#%E5%81%9C%E6%AD%A2%E7%BB%B4%E6%8A%A4%E5%8E%9F%E5%9B%A0)
+
   这是一个Slimefun附属插件，我们称其为基岩科技BedrockTechnology；不过我们觉得这个直译的名字有些累赘，于是我们将其称作 BEKT<br>
   BEKT准确来说并不是BedrockTechnology的缩写，而是它的别称。<br>
-  我们创建了一个QQ群，您可以在这里面聊天，接收更新提醒，群号为 656447649
   
   ✔[下载链接](https://builds.guizhanss.net/CTimet/BedrockTechnology/master/)<br>
   💬[BUG汇报](https://github.com/CTimet/BedrockTechnology/issues)<br>
@@ -14,6 +16,14 @@
   因此，我为我的插件增添了修复机器的功能。玩家通过注册棒注册机器，等到机器损坏时即可用修复棒修复机器（听起来像一个保险）。<br>
   使用此插件的腐竹可以不用在玩家的机器损坏时赔偿机器了。这听起来很不戳。<br>
   除此之外，我们还提供了其他机器用于拓展Slimefun玩法，祝您玩的愉快。
+
+## 停止维护原因
+  该插件的设计初衷是为了解决旧Slimefun普遍存在且极为严重的方块丢失问题。<br>
+  现如今，在汉化版Slimefun中，通过重构BlockStorage以及加入数据库保存，方块丢失问题已经被修复，这使得BedrockTechnology已经不再被需要。<br>
+  同时，由于BlockStorage被重构，BedrockTechnology所依赖的很多核心方法也被删除，这使得BedrockTechnology与现如今的汉化版Slimefun之间存在严重的兼容问题。<br>
+  由于BedrockTechnology的主要面向用户是汉化版Slimefun的用户，而汉化版Slimefun已彻底解决方块丢失问题，开发者认为继续维护BedrockTechnology已经变得不必要。<br>
+  因此，开发者决定就此停止维护BedrockTechnology。该仓库将会被归档，如无特殊情况，该插件不再重启开发。<br>
+  如果您有特殊的原因不得不使用BedrockTechnology，请注意，您所产生的任何插件使用异常开发者将不会处理，除非您给予一定的报酬。
 
 ## 转载支持
     如果你觉得本插件还不错并且有意向向其他平台转载此插件。那么您只需要遵守以下几点，即可转载此插件而无需经过作者批准：
